@@ -70,7 +70,7 @@
     "@bluebase/components": "^1.10.0",
     "@material-ui/core": "^3.9.2",
     "deepmerge": "^3.2.0",
-    "react-native": "^0.57.8",
+    "react-native": "^0.59.2",
     "tslib": "^1.9.3"
   },
   "devDependencies": {
