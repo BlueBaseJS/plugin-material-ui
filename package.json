@@ -67,7 +67,7 @@
   },
   "dependencies": {
     "@bluebase/component-mapper": "^1.3.0",
-    "@bluebase/components": "^1.10.0",
+    "@bluebase/components": "^2.0.2",
     "@material-ui/core": "^3.9.2",
     "deepmerge": "^3.2.0",
     "react-native": "^0.57.8",
