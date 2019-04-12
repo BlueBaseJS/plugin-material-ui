@@ -1,4 +1,5 @@
 import { DrawerActions, DrawerLayout } from './components/DrawerLayout';
+import { Avatar } from './components/Avatar';
 import { BottomNavigation } from './components/BottomNavigation';
 import { BottomNavigationAction } from './components/BottomNavigationAction';
 import { Button } from './components/Button';
@@ -28,6 +29,7 @@ export default createPlugin({
 	version: '0.0.1',
 
 	components: {
+		Avatar,
 		BottomNavigation,
 		BottomNavigationAction,
 		Button,
