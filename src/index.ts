@@ -14,6 +14,7 @@ import { PickerItem } from './components/PickerItem';
 import { Radio } from './components/Radio';
 import { RadioGroup } from './components/RadioGroup';
 import { Slider } from './components/Slider';
+import { Snackbar } from './components/Snackbar/';
 import { Switch } from './components/Switch';
 import { Tab } from './components/Tab';
 import { Tabs } from './components/Tabs';
@@ -45,6 +46,7 @@ export default createPlugin({
 		Radio,
 		RadioGroup,
 		Slider,
+		Snackbar,
 		Switch,
 		Tab,
 		Tabs,
