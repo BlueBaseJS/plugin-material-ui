@@ -16,9 +16,9 @@ Add screenshots here
 ## Supported Props
 
 > Legend
-    ✅ = Fully Compatible and works as intended
-    ⚠️ = Partially compatible
-    ❌ = Not compatible
+> ✅ = Fully Compatible and works as intended
+> ⚠️ = Partially compatible
+> ❌ = Not compatible
 
 |  Prop | Compatible |           Comments           |
 | :---: | :--------: | :--------------------------: |
