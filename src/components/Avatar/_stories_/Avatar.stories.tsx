@@ -1,56 +1,53 @@
+import { AvatarProps } from '@bluebase/components';
+
 import React from 'react';
+import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
-import { getComponent } from '@bluebase/core';
 
 
+const Avatar = getComponent<AvatarProps>('Avatar');
 
-const Avatar = getComponent('Avatar');
 const stories = storiesOf('Avatar', module);
 
 stories.addDecorator(withInfo);
 stories.addDecorator(withKnobs);
 
-stories
+stories.add('Simple Avatar ', () => (
+	<Avatar
+		type="image"
+		image={{ uri: 'https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg' }}
+	/>
 
-	.add('Simple Avatar ', () => (
-		<Avatar
-			source="https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg"
-			size={100}
-
-		/>
-
-	));
+));
 
 
 
-stories
+stories.add('Simple Avatar local images ', () => (
+	<Avatar
+		type="image"
+		image={require('./image/image.svg')}
+	/>
 
-	.add('Simple Avatar without size', () => (
-		<Avatar
-			source="https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg"
-			alt="image"
-			size={20}
-		/>
-
-	));
+));
 
 
-stories
+stories.add('Simple Avatar  with style prop ', () => (
+	<Avatar
+		style={{ height: 80, width: 80 }}
+		type="image"
+		image={require('./image/image.svg')}
+	/>
 
-	.add('Simple Avatar with style prop', () => (
-		<Avatar style={{ width: 100, height: 100, backgroundColor: 'red' }}>
-			Avatar
-</Avatar>
+));
 
-	));
 
-stories
+stories.add('Simple Avatar  with style prop ', () => (
+	<Avatar
+		style={{ height: 80, width: 80 }}
+		type="image"
+		image={require('./image/image.svg')}
+	/>
 
-	.add('Simple Avatar with child prop', () => (
-		<Avatar>
-			avatar
-	</Avatar>
-
-	));
+));

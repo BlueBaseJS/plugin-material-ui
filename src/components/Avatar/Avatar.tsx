@@ -1,10 +1,10 @@
-import Avatar from '@material-ui/core/Avatar';
-import { AvatarDefaultProps } from '@bluebase/components';
-import { componentMapper } from '@bluebase/component-mapper';
+import React from 'react';
+import MuiAvatar from '@material-ui/core/Avatar';
 
-const AvatarComponent = componentMapper(Avatar, {
-	sizes: 'size',
-	src: 'source'
-}, { rest: true, defaultProps: AvatarDefaultProps });
+export const Avatar = (props: any) => {
 
-export { AvatarComponent as Avatar };
+	const source = props.image && props.image.uri ? props.image.uri : props.image;
+	return (
+		<MuiAvatar  src={source} {...props} />
+	);
+};
