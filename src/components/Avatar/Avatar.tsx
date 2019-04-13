@@ -1,5 +1,5 @@
-import React from 'react';
 import MuiAvatar from '@material-ui/core/Avatar';
+import React from 'react';
 
 export const Avatar = (props: any) => {
 
