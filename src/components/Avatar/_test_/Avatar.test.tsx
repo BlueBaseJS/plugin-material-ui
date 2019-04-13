@@ -19,3 +19,24 @@ test('avatar component should  return  source Image', () => {
   // expect(component).toMatchSnapshot();
 	expect(component.find('Avatar').first().prop('src')).toEqual('https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg');
 });
+
+
+
+
+
+test('avatar component with text', () => {
+	const component = mount(
+    <Avatar type="text" text="" />
+  );
+  // expect(component).toMatchSnapshot();
+	expect(component.find('Avatar').first().prop('text')).toEqual('');
+});
+
+
+test('avatar component with text', () => {
+	const component = mount(
+    <Avatar type="text" text="string" />
+  );
+  // expect(component).toMatchSnapshot();
+	expect(component.find('Avatar').first().prop('text')).toEqual('');
+});
