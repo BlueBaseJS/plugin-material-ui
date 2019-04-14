@@ -86,7 +86,7 @@
     "@babel/cli": "^7.2.3",
     "@babel/core": "^7.3.4",
     "@bluebase/cli-essentials": "^0.0.4",
-    "@bluebase/code-standards": "^1.1.0",
+    "@bluebase/code-standards": "^1.3.1",
     "@bluebase/core": "^4.0.0-aplha.10",
     "@bluebase/storybook-addon": "^3.0.0",
     "@storybook/addon-a11y": "^5.0.1",
