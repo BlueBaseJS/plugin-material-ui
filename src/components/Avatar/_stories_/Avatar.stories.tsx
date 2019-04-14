@@ -26,7 +26,7 @@ stories.add('Simple Avatar ', () => (
 stories.add('Simple Avatar with text prop ', () => (
 	<Avatar
 		type="text"
-		text={{ uri: 'hello' }}   // why this prop is of imagesource type ? issue in typings.
+		text={'hello'}  // why this prop is of imagesource type ? issue in typings.
 	/>
 ));
 
