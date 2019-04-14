@@ -299,7 +299,7 @@
     "@babel/helper-create-class-features-plugin" "^7.3.0"
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-proposal-class-properties@^7.0.0", "@babel/plugin-proposal-class-properties@^7.2.1", "@babel/plugin-proposal-class-properties@^7.3.0":
+"@babel/plugin-proposal-class-properties@^7.0.0", "@babel/plugin-proposal-class-properties@^7.3.0", "@babel/plugin-proposal-class-properties@^7.4.0":
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-class-properties/-/plugin-proposal-class-properties-7.4.0.tgz#d70db61a2f1fd79de927eea91f6411c964e084b8"
   integrity sha512-t2ECPNOXsIeK1JxJNKmgbzQtoG27KIlVE61vTqX0DKR9E9sZlVVxWUtEW9D5FlZ8b8j7SBNCHY47GgPKCKlpPg==
@@ -593,7 +593,7 @@
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-flow" "^7.2.0"
 
-"@babel/plugin-transform-flow-strip-types@^7.0.0":
+"@babel/plugin-transform-flow-strip-types@^7.0.0", "@babel/plugin-transform-flow-strip-types@^7.4.0":
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-flow-strip-types/-/plugin-transform-flow-strip-types-7.4.0.tgz#f3c59eecff68c99b9c96eaafe4fe9d1fa8947138"
   integrity sha512-C4ZVNejHnfB22vI2TYN4RUp2oCmq6cSEAg4RygSvYZUECRqUu9O4PMEMNJ4wsemaRGg27BbgYctG4BZh+AgIHw==
@@ -1044,13 +1044,14 @@
     react-native-web "^0.9.10"
     webpack "^4.28.2"
 
-"@bluebase/code-standards@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@bluebase/code-standards/-/code-standards-1.1.0.tgz#e3d6629b3a1511214885129a60660b71b0467259"
-  integrity sha512-b7PYStNWEltRdpW7/PmTOZzSNUNlmRuP1t/QdZc9OBXS/p6Sub5I8S2vZdYp2lyBNtbZIE6nyS+UJHty9AU0MA==
+"@bluebase/code-standards@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/code-standards/-/code-standards-1.3.0.tgz#d69ba97d4f7a98585ef62b099b4d3604fedd3716"
+  integrity sha512-MzTb0JUn08y3C649XvB0UL862//Q5v3nsDeG8JbMx2o9jt09LF6SbHbDTQc2yrti4XtqwaSbWM9o3FnAReRfDQ==
   dependencies:
-    "@babel/plugin-proposal-class-properties" "^7.2.1"
+    "@babel/plugin-proposal-class-properties" "^7.4.0"
     "@babel/plugin-proposal-object-rest-spread" "^7.2.0"
+    "@babel/plugin-transform-flow-strip-types" "^7.4.0"
     "@babel/preset-react" "^7.0.0"
     "@babel/preset-typescript" "^7.1.0"
     metro-react-native-babel-preset "^0.53.0"
