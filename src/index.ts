@@ -19,7 +19,7 @@ import { Tab } from './components/Tab';
 import { Tabs } from './components/Tabs';
 import { TextInput } from './components/TextInput';
 import { createPlugin } from '@bluebase/core';
-
+import { ProgressBar } from './components/ProgressBar';
 export default createPlugin({
 	categories: ['ui'],
 	description: 'Material UI (web) comes to BlueBase!',
@@ -49,5 +49,6 @@ export default createPlugin({
 		Tab,
 		Tabs,
 		TextInput,
+		ProgressBar,
 	},
 });
