@@ -1,34 +1,30 @@
 
-import { AvatarProps, Image, Text } from '@bluebase/components';
-import Icon from '@material-ui/core/Icon';
+import { BlueBaseImage, Icon, Text } from '@bluebase/components';
 import MuiAvatar from '@material-ui/core/Avatar';
 import React from 'react';
 
-export const Avatar = (props: AvatarProps) => {
+export const Avatar = (props: any) => {
 
-
-	if (props.type === 'icon') {
+	const { type, icon, color, size, image, text, style } = props;
+	if (type === 'icon') {
 		return (
-			<MuiAvatar {...props} >
-				<Icon>{props.icon}</Icon>
-			</MuiAvatar >
-
+			<MuiAvatar {...props}>
+				<Icon name={icon} color={color} size={size} />
+			</MuiAvatar>
 		);
 	}
-	if (props.type === 'image') {
-
-		// const source = props.image && props.image.uri ? props.image.uri : props.image;
+	if (type === 'image') {
+		const ImageSource = image && image.uri ? { uri: image.uri } : props.image;
 		return (
-
-			<MuiAvatar {...props} >
-				<Image style={{ width: 100, height: 100 }} source={{ uri: props.image }} />
+			<MuiAvatar {...props}>
+				<BlueBaseImage source={ImageSource} style={style} />
 			</MuiAvatar>
 		);
 	}
 
 	return (
 		<MuiAvatar {...props} >
-			<Text>{props.text}</Text>
+			<Text style={style}>{text}</Text>
 		</MuiAvatar>
 	);
 

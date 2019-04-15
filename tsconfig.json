@@ -2,14 +2,26 @@
 	"extends": "@bluebase/code-standards/tsconfig",
 	"compilerOptions": {
 		"outDir": "dist",
+		"noImplicitAny": false,
 		"rootDir": ".",
-		"typeRoots": ["node_modules/@types"],
+		"typeRoots": [
+			"node_modules/@types"
+		],
 		"baseUrl": ".",
 		"paths": {
-			"*": ["typings/*"]
+			"*": [
+				"typings/*"
+			],
 		}
 	},
-	"include": ["src/**/*.ts"],
-	"exclude": ["node_modules/**", "**/*.spec.ts", "**/*.test.ts", "**/*.stories.ts"],
+	"include": [
+		"src/**/*.ts"
+	],
+	"exclude": [
+		"node_modules/**",
+		"**/*.spec.ts",
+		"**/*.test.ts",
+		"**/*.stories.ts"
+	],
 	"compileOnSave": false
 }

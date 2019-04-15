@@ -17,7 +17,8 @@ stories.addDecorator(withKnobs);
 stories.add('Simple Avatar ', () => (
 	<Avatar
 		type="image"
-		image={{ uri: 'https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg' }}
+		image={{ uri: 'https://via.placeholder.com/300/09f.png%20C/O%20https://placeholder.com/' }}
+		style={{ width: 200, height: 200 }}
 	/>
 ));
 
@@ -42,7 +43,9 @@ stories.add('Simple Avatar with icon prop ', () => (
 stories.add('Simple Avatar local images ', () => (
 	<Avatar
 		type="image"
-		image={require('./image/image.svg')}
+		image={require('./image/download.png')}
+		style={{ width: 100, height: 100 }}
+
 	/>
 
 ));
