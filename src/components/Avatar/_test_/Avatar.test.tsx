@@ -1,42 +1,89 @@
 import { Avatar } from '../Avatar';
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
+import { BlueBaseApp } from '@bluebase/core';
+import Plugin from '../../../index';
+import { waitForElement } from 'enzyme-async-helpers';
 
-test('avatar component should  return empty source', () => {
-	const component = mount(
-    <Avatar src="" />
+const path = 'https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg';
+
+
+
+
+test('avatar component should  return  source Image', async () => {
+
+
+	const wrapper = mount(
+    <BlueBaseApp plugins={[Plugin]}>
+
+      <Avatar
+        type="image"
+        image={{ uri: path }}
+      />
+
+    </BlueBaseApp>
   );
-  // expect(component).toMatchSnapshot();
-	expect(component.find('Avatar').first().prop('src')).toEqual('');
+
+	await waitForElement(wrapper, Avatar);
+
+	const sourceProp: any = wrapper.find('Avatar BlueBaseImage').first().prop('source');
+	expect(sourceProp.uri).toBe(path);
+
 });
 
 
 
 test('avatar component should  return  source Image', () => {
-	const component = mount(
-    <Avatar src="https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg" />
+
+
+	shallow(
+
+
+    <Avatar type="image" image={{ uri: 'https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg' }} />
   );
   // expect(component).toMatchSnapshot();
-	expect(component.find('Avatar').first().prop('src')).toEqual('https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg');
+  // 	expect(component.find('Avatar').first().prop('src')).toEqual('https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg');
 });
 
 
 
+test('avatar component should  return  source Image', () => {
 
 
-test('avatar component with text', () => {
-	const component = mount(
-    <Avatar type="text" text="" />
+	shallow(
+
+
+    <Avatar type="image" src="https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg" />
   );
   // expect(component).toMatchSnapshot();
-	expect(component.find('Avatar').first().prop('text')).toEqual('');
+  // 	expect(component.find('Avatar').first().prop('src')).toEqual('https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg');
 });
 
 
-test('avatar component with text', () => {
-	const component = mount(
-    <Avatar type="text" text="string" />
+
+test('avatar component should  return  source Image', () => {
+
+
+	shallow(
+
+
+    <Avatar type="text" src="https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg" />
   );
   // expect(component).toMatchSnapshot();
-	expect(component.find('Avatar').first().prop('text')).toEqual('');
+  // 	expect(component.find('Avatar').first().prop('src')).toEqual('https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg');
 });
+
+
+
+test('avatar component should  return  source Image', () => {
+
+
+	shallow(
+
+
+    <Avatar type="icon" src="https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg" />
+  );
+  // expect(component).toMatchSnapshot();
+  // 	expect(component.find('Avatar').first().prop('src')).toEqual('https://s3-us-west-2.amazonaws.com/bluerainimages/water-dispenser.svg');
+});
+

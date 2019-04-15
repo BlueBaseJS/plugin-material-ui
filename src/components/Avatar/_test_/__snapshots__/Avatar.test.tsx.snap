@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`avatar component should  return empty source 1`] = `
+<WithStyles(Avatar)
+  source=""
+>
+  <Text />
+</WithStyles(Avatar)>
+`;
