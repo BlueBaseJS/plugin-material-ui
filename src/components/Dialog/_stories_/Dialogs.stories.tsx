@@ -1,7 +1,7 @@
 import {
   DialogActionsProps,
   // DialogContentProps,
-  DialogProps,
+  // DialogProps,
   DialogTitleProps,
 } from '@bluebase/components';
 
@@ -22,7 +22,7 @@ import storiesOf from '@bluebase/storybook-addon';
 import { getComponent } from '@bluebase/core';
 
 
-const Dialog = getComponent<DialogProps>('Dialog');
+const Dialog = getComponent('Dialog');
 const DialogAction = getComponent<DialogActionsProps>('DialogActions');
 // const DialogContent = getComponent<DialogContentProps>('DialogContent');
 const DialogTitle = getComponent<DialogTitleProps>('DialogTitle');
@@ -48,24 +48,24 @@ function SimpleDialog(props: Ipropsss) {
 	return (
     <Dialog visible={true} onDismiss={handleClose} {...other}>
       <DialogTitle>Set backup account</DialogTitle>
-        <List>
-          <ListItem button onClick={() => handleListItemClick('addAccount')}>
-            <ListItemAvatar>
-              <Avatar>
-                <AddIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="add account" />
-          </ListItem>
-          <ListItem button onClick={() => handleListItemClick('addAccount')}>
-            <ListItemAvatar>
-              <Avatar>
-                <PersonIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="add account" />
-          </ListItem>
-        </List>
+      <List>
+        <ListItem button onClick={() => handleListItemClick('addAccount')}>
+          <ListItemAvatar>
+            <Avatar>
+              <AddIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText primary="add account" />
+        </ListItem>
+        <ListItem button onClick={() => handleListItemClick('addAccount')}>
+          <ListItemAvatar>
+            <Avatar>
+              <PersonIcon />
+            </Avatar>
+          </ListItemAvatar>
+          <ListItemText primary="add account" />
+        </ListItem>
+      </List>
       <DialogAction>
         <Button color="primary">
           Save changes
@@ -104,7 +104,16 @@ export default SimpleDialogDemo;
 
 storiesOf('Dialog', module)
 
-.add('fullDialog component with all components props', () => (
-  <SimpleDialogDemo />
+  .add('fullDialog component with all components props', () => (
+    <SimpleDialogDemo />
 
-));
+  ))
+
+
+
+
+  .add('Dialog with all components props story', () => (
+    <Dialog visible={true}>
+      helloo child story
+				</Dialog>
+  ));
