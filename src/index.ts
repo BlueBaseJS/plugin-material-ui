@@ -34,6 +34,7 @@ import { Switch } from './components/Switch';
 import { Tab } from './components/Tab';
 import { Tabs } from './components/Tabs';
 import { TextInput } from './components/TextInput';
+import WithRTL from './withRtl';
 import { withTheme } from './withTheme';
 
 export default createPlugin({
@@ -83,7 +84,7 @@ export default createPlugin({
 
 	filters: {
 		'bluebase.boot.end': (bootOptions: BootOptions, _ctx: any, BB: BlueBase) => {
-			BB.Components.addHocs('BlueBaseContent', withTheme);
+			BB.Components.addHocs('BlueBaseContent', withTheme, WithRTL);
 			return bootOptions;
 		},
 	},
