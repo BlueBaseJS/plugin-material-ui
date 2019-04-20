@@ -88,7 +88,7 @@
     "@bluebase/cli-essentials": "^0.0.4",
     "@bluebase/code-standards": "^1.1.0",
     "@bluebase/core": "^4.0.0-aplha.17",
-    "@bluebase/plugin-vector-icons": "^0.0.3",
+    "@bluebase/plugin-vector-icons": "^0.1.1",
     "@bluebase/storybook-addon": "^3.0.0",
     "@material-ui/icons": "^3.0.2",
     "@storybook/addon-a11y": "^5.0.1",
