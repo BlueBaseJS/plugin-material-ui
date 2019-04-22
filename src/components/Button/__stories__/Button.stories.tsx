@@ -125,6 +125,6 @@ stories
 
 	.add('spinner  Prop', () => (
 		<React.Fragment>
-			<Button color="secondary"    loading={true} variant="contained" />
+			<Button color="secondary" loading={true} variant="contained" />
 		</React.Fragment>
 	));
