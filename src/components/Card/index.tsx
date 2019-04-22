@@ -17,6 +17,7 @@ export const Card = (props: CardProps) => {
 			</CardActionArea>
 		</MuiCard>
 	);
+	
 
 };
 Card.deafultProps = CardDefaultProps;

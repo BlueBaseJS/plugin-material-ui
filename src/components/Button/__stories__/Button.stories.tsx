@@ -120,4 +120,11 @@ stories
 			<Button color="secondary" title="Outlined" variant="outlined" />
 			<Button color="primary" title="Text" variant="text" />
 		</React.Fragment>
+	))
+
+
+	.add('spinner  Prop', () => (
+		<React.Fragment>
+			<Button color="secondary"    loading={true} variant="contained" />
+		</React.Fragment>
 	));
