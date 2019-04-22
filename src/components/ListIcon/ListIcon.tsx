@@ -3,10 +3,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import React from 'react';
 
 export const ListIcon = (props: ListIconProps) => {
-	const { size, ...others } = props;
 	return (
 		<ListItemIcon>
-			<Icon {...others} />
+			<Icon {...props} />
 		</ListItemIcon>
 	);
 };
