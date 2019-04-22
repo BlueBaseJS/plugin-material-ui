@@ -3,6 +3,7 @@ import { DrawerActions, DrawerLayout } from './components/DrawerLayout';
 import { Avatar } from './components/Avatar';
 import { BottomNavigation } from './components/BottomNavigation';
 import { BottomNavigationAction } from './components/BottomNavigationAction';
+import {Badge} from './components/Badge'
 import { Button } from './components/Button';
 import { Card } from './components/Card';
 import { CardActions } from './components/CardActions';
@@ -47,6 +48,7 @@ export default createPlugin({
 
 	components: {
 		Avatar,
+		Badge,
 		BottomNavigation,
 		BottomNavigationAction,
 		Button,
