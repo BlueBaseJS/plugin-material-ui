@@ -55,7 +55,7 @@ stories
 
 	.add('Outlined Buttons', () => (
 		<React.Fragment>
-			<Button variant="outlined">
+			<Button variant="outlined" loading={true}>
 				Default
 		</Button>
 			<Button variant="outlined" color="primary">
@@ -125,6 +125,6 @@ stories
 
 	.add('spinner  Prop', () => (
 		<React.Fragment>
-			<Button color="secondary" loading={true} variant="contained" />
+			<Button color="secondary" title="loading" loading={true} variant="contained" />
 		</React.Fragment>
 	));
