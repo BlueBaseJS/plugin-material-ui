@@ -8,7 +8,7 @@ export const Button = (props: ButtonProps) => {
 
 	if (props.title && props.loading === false) {
 		return (
-			<MUIButton {...props}>
+			<MUIButton onClick={props.onPress}{...props}>
 				{props.title}
 			</MUIButton>
 		);
@@ -16,7 +16,7 @@ export const Button = (props: ButtonProps) => {
 
 	if (props.children && props.loading === false) {
 		return (
-			<MUIButton {...props}>
+			<MUIButton onClick={props.onPress}{...props}>
 				{props.children}
 			</MUIButton>
 		);
@@ -24,7 +24,7 @@ export const Button = (props: ButtonProps) => {
 
 	if (props.children && props.loading === true) {
 		return (
-			<MUIButton {...props}>
+			<MUIButton onClick={props.onPress}{...props}>
 				<CircularProgress />
 				{props.children}
 			</MUIButton>);
@@ -32,14 +32,12 @@ export const Button = (props: ButtonProps) => {
 
 	if (props.title && props.loading === true) {
 		return (
-			<MUIButton {...props}>
+			<MUIButton onClick={props.onPress}{...props}>
 				<CircularProgress />
 				{props.title}
 			</MUIButton>
 		);
 	}
-
-
 	return null;
 };
 Button.defaultProps = ButtonDefaultProps;
