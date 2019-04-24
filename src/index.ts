@@ -34,6 +34,14 @@ import { RadioGroup } from './components/RadioGroup';
 import { Slider } from './components/Slider';
 import { Switch } from './components/Switch';
 import { Tab } from './components/Tab';
+import { Table } from './components/Table';
+import { TableBody } from './components/TableBody';
+import { TableCell } from './components/TableCell';
+import { TableFooter } from './components/TableFooter';
+import { TableHead } from './components/TableHead';
+import { TablePagination } from './components/TablePagination';
+import { TableRow } from './components/TableRow';
+import { TableTitle } from './components/TableTitle';
 import { Tabs } from './components/Tabs';
 import { TextInput } from './components/TextInput';
 import { withTheme } from './withTheme';
@@ -80,6 +88,14 @@ export default createPlugin({
 		Slider,
 		Switch,
 		Tab,
+		Table,
+		TableBody,
+		TableCell,
+		TableFooter,
+		TableHead,
+		TablePagination,
+		TableRow,
+		TableTitle,
 		Tabs,
 		TextInput,
 	},
