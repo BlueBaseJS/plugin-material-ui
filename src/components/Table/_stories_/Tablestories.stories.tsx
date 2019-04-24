@@ -4,7 +4,7 @@ import { withPropsStyles } from '../../../withPropsStyles';
 import { Table } from '..';
 import { TableBody } from '../../TableBody';
 import { TableCell } from '../../TableCell';
-import { TableHead } from '../../TableHeader';
+import { TableHead } from '../../TableHead';
 import { TableRow } from '../../TableRow';
 
 const styles = (theme: { spacing: { unit: number } }) => ({

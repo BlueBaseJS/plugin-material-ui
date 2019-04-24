@@ -38,7 +38,7 @@ import { Table } from './components/Table';
 import { TableBody } from './components/TableBody';
 import { TableCell } from './components/TableCell';
 import { TableFooter } from './components/TableFooter';
-import { TableHead } from './components/TableHeader';
+import { TableHead } from './components/TableHead';
 import { TablePagination } from './components/TablePagination';
 import { TableRow } from './components/TableRow';
 import { TableTitle } from './components/TableTitle';
