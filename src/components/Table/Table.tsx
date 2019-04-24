@@ -1,6 +1,7 @@
 import { TableDefaultProps, TableProps } from '@bluebase/components';
-import React from 'react';
 import MuiTable from '@material-ui/core/Table';
+
+import React from 'react';
 
 const Table = (props: TableProps) => {
 	const { style, children, ...rest } = props;
