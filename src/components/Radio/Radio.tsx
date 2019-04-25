@@ -85,4 +85,4 @@ export const Radio = withPropsStyles(styles)((props: RadioProps) => {
 			control={node}
 		/>
 	);
-}) as React.ComponentType<RadioProps>;
+}) as any;

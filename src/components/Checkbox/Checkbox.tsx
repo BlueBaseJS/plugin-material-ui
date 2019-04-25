@@ -20,8 +20,9 @@ const styles = ({ color }: CheckboxProps, theme: any) => {
 	return {
 		root: {
 			// color,
+			color:theme.palette.color,
 			// tslint:disable-next-line: object-literal-sort-keys
-			'&$checked': {
+			'&$hover': {
 				color,
 			},
 			'&$disabled': {
@@ -86,4 +87,4 @@ export const Checkbox = withPropsStyles(styles)((props: CheckboxProps) => {
 			control={node}
 		/>
 	);
-}) as React.ComponentType<CheckboxProps>;
+}) as any;

@@ -59,4 +59,4 @@ export const Switch = withPropsStyles(styles)((props: SwitchProps) => {
 			control={node}
 		/>
 	);
-}) as React.ComponentType<SwitchProps>;
+}) as any;

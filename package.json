@@ -74,6 +74,7 @@
     "node": ">=8.9"
   },
   "dependencies": {
+    "@bluebase/cli": "^0.0.15",
     "@bluebase/component-mapper": "^1.4.0",
     "@bluebase/components": "^5.2.0",
     "@material-ui/core": "^3.9.3",
@@ -87,7 +88,7 @@
     "@babel/core": "^7.3.4",
     "@bluebase/cli-essentials": "^0.0.4",
     "@bluebase/code-standards": "^1.1.0",
-    "@bluebase/core": "^4.0.0-aplha.17",
+    "@bluebase/core": "^4.0.0-aplha.22",
     "@bluebase/plugin-vector-icons": "^0.0.3",
     "@bluebase/storybook-addon": "^3.0.0",
     "@material-ui/icons": "^3.0.2",
