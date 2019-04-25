@@ -87,4 +87,4 @@ export const Checkbox = withPropsStyles(styles)((props: CheckboxProps) => {
 			control={node}
 		/>
 	);
-}) as any;
+}) as React.ComponentType<CheckboxProps>;
