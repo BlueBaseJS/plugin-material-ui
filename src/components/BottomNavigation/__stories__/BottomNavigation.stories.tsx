@@ -23,15 +23,15 @@ stories
 	<BottomNavigation value={1} onChange={(_e, i) => console.log(`Clicked tab ${i}`)} >
 		<BottomNavigationAction
 			label="Item One"
-			icon={{ type: 'image', size: 20, source: { uri: 'https://placeimg.com/100/100/any' } }}
+			icon={{ type: 'icon', name: 'star' }}
 		/>
 		<BottomNavigationAction
 			label="Item Two"
-			icon={{ type: 'image', size: 20, source: { uri: 'https://placeimg.com/100/100/any' } }}
+			icon={{ type: 'icon', name: 'favorite' }}
 		/>
 		<BottomNavigationAction
 			label="Item Three"
-			icon={{ type: 'image', size: 20, source: { uri: 'https://placeimg.com/100/100/any' } }}
+			icon={{ type: 'icon', name: 'help' }}
 		/>
 	</BottomNavigation>
 ))
