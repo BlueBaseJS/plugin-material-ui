@@ -1,5 +1,6 @@
 import { Theme, withStyles } from '@material-ui/core/styles';
 import React from 'react';
+import { ThemeConsumer } from '@bluebase/core';
 
 const { createElement, forwardRef } = React;
 
@@ -8,14 +9,18 @@ export const withPropsStyles = ( style: any ) => {
 
 	const withPropsStylesInternal = ( component: React.ComponentType<any> ) => {
 
-		return forwardRef( (props, ref) => {
+		return forwardRef( (props, ref) => (
+			<ThemeConsumer>
+			{({ theme: bluebaseTheme }) => {
 
-			const proxy = (theme: Theme) => style(props, theme);
+				const proxy = (theme: Theme) => style(props, theme, bluebaseTheme);
 
-			const hoc = withStyles(proxy)(component);
+				const hoc = withStyles(proxy)(component);
 
-			return createElement(hoc, { ...props, ref }, props.children);
-		});
+				return createElement(hoc, { ...props, ref }, props.children);
+			}}
+			</ThemeConsumer>
+		));
 	};
 
 	return withPropsStylesInternal;

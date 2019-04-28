@@ -964,9 +964,10 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/core@^4.0.0-aplha.17":
-  version "4.0.0-aplha.19"
-  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-aplha.19.tgz#2b3e4265c7b3fed3ca46bd7278273eeb00461ebd"
+"@bluebase/core@^4.0.0-aplha.23":
+  version "4.0.0-aplha.23"
+  resolved "https://registry.yarnpkg.com/@bluebase/core/-/core-4.0.0-aplha.23.tgz#f05c2d7256c4c53e0f8c00f78c0b446379a6ed4d"
+  integrity sha512-DZ4Q7ShnTxDJ2M4SARToDP4pbMz7GxlH4J6q8xElQ5hWCSv7oR6Mz0hOe0sYtCx26bw73ElDqXI4JegEECtdUQ==
   dependencies:
     deepmerge "^3.2.0"
     hoist-non-react-statics "^3.3.0"
