@@ -18,7 +18,7 @@ const map = {
 		return;
 	},
 
-	onChange: ({ onChange, onValueChange }: any) => (event: any, checked: boolean)  => {
+	onChange: ({ onChange, onValueChange }: any) => (event: any, checked: boolean) => {
 		if (onChange) {
 			onChange(event, checked);
 		}
@@ -35,8 +35,7 @@ export const Switch = withPropsStyles(styles)((props: SwitchProps) => {
 	const newProps = objectMapper(props, map, { rest: true, ignore: ['onValueChange'] });
 
 	const { label, labelPlacement, classes, ...common } = newProps;
-
-	if (Object.keys(classes).length > 0) {
+	if (classes.color) {
 		delete common.color;
 	}
 

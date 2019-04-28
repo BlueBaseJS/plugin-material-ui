@@ -2,7 +2,6 @@ import { SwitchProps } from '@bluebase/components';
 import { Theme } from '@material-ui/core';
 
 export const styles = ({ color }: SwitchProps, theme: Theme) => {
-
 	const common = {
 		label: {},
 		labelPlacementStart: {
