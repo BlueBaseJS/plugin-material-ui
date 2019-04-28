@@ -40,11 +40,9 @@ export const Switch = withPropsStyles(styles)((props: SwitchProps) => {
 		delete common.color;
 	}
 
-	const node = (
-		<MUISwitch
-			classes={classes}
-			{...common}
-		/>
+	const { label: labelClass, labelPlacementStart, ...switchClasses } = classes;
+
+	const node = (<MUISwitch classes={switchClasses} {...common} />
 	);
 
 	if (!label) {
@@ -57,6 +55,7 @@ export const Switch = withPropsStyles(styles)((props: SwitchProps) => {
 			label={label}
 			labelPlacement={labelPlacement}
 			control={node}
+			classes={{ label: labelClass, labelPlacementStart }}
 		/>
 	);
 }) as React.ComponentType<SwitchProps>;
