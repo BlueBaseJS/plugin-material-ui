@@ -7,11 +7,31 @@ import React from 'react';
 import { SliderProps } from '@bluebase/components';
 import { componentMapper } from '@bluebase/component-mapper';
 
-const styles = (theme: Theme) => ({
+const styles = (theme: Theme): any => ({
 	helperText: {
 		marginTop: theme.spacing.unit * 2
 	},
+	inlineSlider: {
+		display: 'flex',
+		flex: 1,
+	},
+	inlineValue: {
+		marginLeft: theme.spacing.unit * 2
+	},
 	label: {
+		flex: 1,
+		marginBottom: theme.spacing.unit * 2
+	},
+	labelWrapper: {
+		display: 'flex',
+		flexDirection: 'row',
+	},
+	sliderWrapper: {
+		alignItems: 'center',
+		display: 'flex',
+		flex: 1,
+	},
+	value: {
 		marginBottom: theme.spacing.unit * 2
 	},
 });
@@ -42,6 +62,7 @@ export const Slider = withStyles(styles)(componentMapper<SliderProps>(MUISlider,
 			label,
 			required,
 			classes,
+			showValue,
 			...props
 		} = newProps;
 
@@ -50,10 +71,40 @@ export const Slider = withStyles(styles)(componentMapper<SliderProps>(MUISlider,
 			required,
 		};
 
+		// Label
+		let labelNode: React.ReactNode = null;
+
+		// Render a simple label
+		if (label && !showValue) {
+			labelNode = <FormLabel className={classes.label} htmlFor={id}>{label}</FormLabel>;
+		}
+		// If we have label and show value, then we show value in line with the label
+		else if (label && showValue) {
+			labelNode = (
+				<div className={classes.labelWrapper}>
+					<FormLabel className={classes.label} htmlFor={id}>{label}</FormLabel>
+					<FormLabel className={classes.value}>{props.value}</FormLabel>
+				</div>
+			);
+		}
+
+
+		let sliderNode = <Component id={id} {...props} />;
+
+		// If theres no label then we show value in line with the slider
+		if (!label && showValue) {
+			sliderNode = (
+				<div className={classes.sliderWrapper}>
+					<div className={classes.inlineSlider}>{sliderNode}</div>
+					<FormLabel className={classes.inlineValue}>{props.value}</FormLabel>
+				</div>
+			);
+		}
+
 		return (
 			<FormControl {...formControlProps}>
-				{label ? <FormLabel className={classes.label} htmlFor={id}>{label}</FormLabel> : null}
-				<Component id={id} {...props} />
+				{labelNode}
+				{sliderNode}
 				{helperText ? <FormHelperText className={classes.helperText}>{helperText}</FormHelperText> : null}
 			</FormControl>
 		);
