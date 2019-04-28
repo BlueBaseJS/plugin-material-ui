@@ -62,7 +62,7 @@ describe('Switch', () => {
 		);
 		// expect(component).toMatchSnapshot();
 		expect(component.find('WithStyles(Switch)').first().prop('classes')).toBeTruthy();
-		expect(component.find('WithStyles(Switch)').first().prop('color')).toEqual(undefined);
+		expect(component.find('WithStyles(Switch)').first().prop('color')).toEqual('red');
 	});
 
 	it('should set the label component', () => {
