@@ -11,7 +11,7 @@ stories.addDecorator(withKnobs);
 
 stories
 
-.add('Simple Tabs', () => (
+.add('Label only Tabs', () => (
 	<Tabs value={1} onChange={(_e, i) => console.log(`Clicked tab ${i}`)} >
 		<Tab label="Item One" />
 		<Tab label="Item Two" />
@@ -19,11 +19,19 @@ stories
 	</Tabs>
 ))
 
-.add('Icon Tabs', () => (
+.add('Icon & Label Tabs', () => (
 	<Tabs value={1} onChange={(_e, i) => console.log(`Clicked tab ${i}`)} >
-		<Tab label="Item One" icon={{ type: 'image', size: 20, source: { uri: 'https://placeimg.com/100/100/any' } }} />
-		<Tab label="Item Two" />
-		<Tab label="Item Three" disabled />
+		<Tab label="Item One" icon={{ type: 'icon', name: 'star' }} />
+		<Tab label="Item Two" icon={{ type: 'icon', name: 'favorite' }} />
+		<Tab label="Item Three" icon={{ type: 'icon', name: 'help' }} disabled />
+	</Tabs>
+))
+
+.add('Icon only Tabs', () => (
+	<Tabs value={1} onChange={(_e, i) => console.log(`Clicked tab ${i}`)} >
+		<Tab icon={{ type: 'icon', name: 'star' }} />
+		<Tab icon={{ type: 'icon', name: 'favorite' }} />
+		<Tab icon={{ type: 'icon', name: 'help' }} disabled />
 	</Tabs>
 ))
 ;
