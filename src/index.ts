@@ -1,6 +1,7 @@
 import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
 import { DrawerActions, DrawerLayout } from './components/DrawerLayout';
 import { Avatar } from './components/Avatar';
+import { Badge } from './components/Badge';
 import { BottomNavigation } from './components/BottomNavigation';
 import { BottomNavigationAction } from './components/BottomNavigationAction';
 import { Button } from './components/Button';
@@ -18,7 +19,6 @@ import { Divider } from './components/Divider';
 import { DrawerItem } from './components/DrawerItem';
 import { DrawerSection } from './components/DrawerSection';
 import { IconButton } from './components/IconButton';
-
 import { List } from './components/List';
 import { ListAvatar } from './components/ListAvatar';
 import { ListIcon } from './components/ListIcon';
@@ -34,6 +34,14 @@ import { RadioGroup } from './components/RadioGroup';
 import { Slider } from './components/Slider';
 import { Switch } from './components/Switch';
 import { Tab } from './components/Tab';
+import { Table } from './components/Table';
+import { TableBody } from './components/TableBody';
+import { TableCell } from './components/TableCell';
+import { TableFooter } from './components/TableFooter';
+import { TableHead } from './components/TableHead';
+import { TablePagination } from './components/TablePagination';
+import { TableRow } from './components/TableRow';
+import { TableTitle } from './components/TableTitle';
 import { Tabs } from './components/Tabs';
 import { TextInput } from './components/TextInput';
 import { withTheme } from './withTheme';
@@ -47,6 +55,7 @@ export default createPlugin({
 
 	components: {
 		Avatar,
+		Badge,
 		BottomNavigation,
 		BottomNavigationAction,
 		Button,
@@ -80,6 +89,14 @@ export default createPlugin({
 		Slider,
 		Switch,
 		Tab,
+		Table,
+		TableBody,
+		TableCell,
+		TableFooter,
+		TableHead,
+		TablePagination,
+		TableRow,
+		TableTitle,
 		Tabs,
 		TextInput,
 	},
