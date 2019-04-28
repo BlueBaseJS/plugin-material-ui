@@ -33,19 +33,19 @@ describe('Switch', () => {
 	});
 
 	it('should pass the color as is when set to "primary"', () => {
-		mount(
+		const component = mount(
 			<Switch color="primary" />
 		);
 
-		// expect(component.find('Switch').first().prop('color')).toEqual('primary');
+		expect(component.find('Switch').first().prop('color')).toEqual('primary');
 	});
 
 	it('should pass the color as is when set to "secondary"', () => {
-		mount(
+		const component = mount(
 			<Switch color="secondary" />
 		);
 
-		// expect(component.find('Switch').first().prop('color')).toEqual('secondary');
+		expect(component.find('Switch').first().prop('color')).toEqual('secondary');
 	});
 
 	it('should pass the color as is when set to "default"', () => {
