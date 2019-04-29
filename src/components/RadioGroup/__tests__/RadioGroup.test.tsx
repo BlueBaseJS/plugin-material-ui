@@ -1,20 +1,26 @@
+import { BlueBaseApp } from '@bluebase/core';
+import Plugin from '../../../index';
 import { Radio } from '../../Radio';
 import { RadioGroup } from '../RadioGroup';
 import React from 'react';
 import { mount } from 'enzyme';
+import { waitForElement } from 'enzyme-async-helpers';
 
 describe('RadioGroup', () => {
 
-	it('should map onValueChange fn to onChange fn', () => {
+	it('should map onValueChange fn to onChange fn', async () => {
 
 		const cb = jest.fn();
 		const component = mount(
-			<RadioGroup onValueChange={cb}>
-				<Radio label="Option A" value="option-a" />
-				<Radio label="Option B" value="option-b" />
-				<Radio label="Option C" value="option-c" />
-			</RadioGroup>
+			<BlueBaseApp plugins={[Plugin]}>
+				<RadioGroup onValueChange={cb}>
+					<Radio label="Option A" value="option-a" />
+					<Radio label="Option B" value="option-b" />
+					<Radio label="Option C" value="option-c" />
+				</RadioGroup>
+			</BlueBaseApp>
 		);
+		await waitForElement(component, RadioGroup);
 
 		const radio = component.find('Radio').first();
 
@@ -27,19 +33,22 @@ describe('RadioGroup', () => {
 		expect(cb).toBeCalledWith('option-a');
 	});
 
-	it('should pass onChange as is if available', () => {
+	it('should pass onChange as is if available', async () => {
 
 		const cb = jest.fn();
 
 		const RG = RadioGroup as any;
 
 		const component = mount(
-			<RG onChange={cb}>
-				<Radio label="Option A" value="option-a" />
-				<Radio label="Option B" value="option-b" />
-				<Radio label="Option C" value="option-c" />
-			</RG>
+			<BlueBaseApp plugins={[Plugin]}>
+				<RG onChange={cb}>
+					<Radio label="Option A" value="option-a" />
+					<Radio label="Option B" value="option-b" />
+					<Radio label="Option C" value="option-c" />
+				</RG>
+			</BlueBaseApp>
 		);
+		await waitForElement(component, RadioGroup);
 
 		const onChange = component.find('RadioGroup').first().prop('onChange') as any;
 
@@ -50,15 +59,18 @@ describe('RadioGroup', () => {
 		expect(cb).toBeCalledWith('foo', true);
 	});
 
-	it('should display label & helperText', () => {
+	it('should display label & helperText', async () => {
 
 		const component = mount(
-			<RadioGroup label="FooBar" helperText="description">
-				<Radio label="Option A" value="option-a" />
-				<Radio label="Option B" value="option-b" />
-				<Radio label="Option C" value="option-c" />
-			</RadioGroup>
+			<BlueBaseApp plugins={[Plugin]}>
+				<RadioGroup label="FooBar" helperText="description">
+					<Radio label="Option A" value="option-a" />
+					<Radio label="Option B" value="option-b" />
+					<Radio label="Option C" value="option-c" />
+				</RadioGroup>
+			</BlueBaseApp>
 		);
+		await waitForElement(component, RadioGroup);
 
 		// expect(component).toMatchSnapshot();
 		const label = component.find('FormLabel');
@@ -72,15 +84,18 @@ describe('RadioGroup', () => {
 
 	});
 
-	it('should NOT display label or helperText', () => {
+	it('should NOT display label or helperText', async () => {
 
 		const component = mount(
-			<RadioGroup>
-				<Radio label="Option A" value="option-a" />
-				<Radio label="Option B" value="option-b" />
-				<Radio label="Option C" value="option-c" />
-			</RadioGroup>
+			<BlueBaseApp plugins={[Plugin]}>
+				<RadioGroup>
+					<Radio label="Option A" value="option-a" />
+					<Radio label="Option B" value="option-b" />
+					<Radio label="Option C" value="option-c" />
+				</RadioGroup>
+			</BlueBaseApp>
 		);
+		await waitForElement(component, RadioGroup);
 
 		// expect(component).toMatchSnapshot();
 		const label = component.find('FormLabel');

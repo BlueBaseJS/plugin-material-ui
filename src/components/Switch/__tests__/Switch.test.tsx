@@ -1,15 +1,21 @@
+import { BlueBaseApp } from '@bluebase/core';
+import Plugin from '../../../index';
 import React from 'react';
 import { Switch } from '../Switch';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { mount } from 'enzyme';
 import { styles } from '../styles';
+import { waitForElement } from 'enzyme-async-helpers';
 
 describe('Switch', () => {
 
-	it('should set the checked to true when checked is true', () => {
+	it('should set the checked to true when checked is true', async () => {
 		const component = mount(
-			<Switch checked />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Switch checked />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Switch);
 
 		// expect(component).toMatchSnapshot();
 		expect(component.find('Switch').first().prop('checked')).toEqual(true);
@@ -24,63 +30,84 @@ describe('Switch', () => {
 		expect((classes as any).disabled['& + $bar'].opacity).toBe(0.1);
 	});
 
-	it('should set the checked to false when checked is false', () => {
+	it('should set the checked to false when checked is false', async () => {
 		const component = mount(
-			<Switch checked={false} />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Switch checked={false} />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Switch);
 
 		expect(component.find('Switch').first().prop('checked')).toEqual(false);
 	});
 
-	it('should pass the color as is when set to "primary"', () => {
+	it('should pass the color as is when set to "primary"', async () => {
 		const component = mount(
-			<Switch color="primary" />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Switch color="primary" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Switch);
 
 		expect(component.find('Switch').first().prop('color')).toEqual('primary');
 	});
 
-	it('should pass the color as is when set to "secondary"', () => {
+	it('should pass the color as is when set to "secondary"', async () => {
 		const component = mount(
-			<Switch color="secondary" />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Switch color="secondary" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Switch);
 
 		expect(component.find('Switch').first().prop('color')).toEqual('secondary');
 	});
 
-	it('should pass the color as is when set to "default"', () => {
+	it('should pass the color as is when set to "default"', async () => {
 		const component = mount(
-			<Switch color="default" />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Switch color="default" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Switch);
 
 		expect(component.find('Switch').first().prop('color')).toEqual('default');
 	});
 
-	it('should set the color prop to undefined and create classes for custom colors', () => {
+	it('should set the color prop to undefined and create classes for custom colors', async () => {
 		const component = mount(
-			<Switch color="red" />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Switch color="red" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Switch);
 		// expect(component).toMatchSnapshot();
 		expect(component.find('WithStyles(Switch)').first().prop('classes')).toBeTruthy();
 		expect(component.find('WithStyles(Switch)').first().prop('color')).toEqual(undefined);
 	});
 
-	it('should set the label component', () => {
+	it('should set the label component', async () => {
 		const component = mount(
-			<Switch label="Foo" />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Switch label="Foo" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Switch);
 		// expect(component).toMatchSnapshot();
 		expect(component.find('FormControlLabel').length).toBeGreaterThan(0);
 		expect(component.find('FormControlLabel').first().prop('label')).toEqual('Foo');
 	});
 
-	it('should map onValueChange fn to onChange fn', () => {
+	it('should map onValueChange fn to onChange fn', async () => {
 
 		const cb = jest.fn();
 		const component = mount(
-			<Switch label="Foo" onValueChange={cb} />
-		);
+			<BlueBaseApp plugins={[Plugin]}>
 
+				<Switch label="Foo" onValueChange={cb} />
+			</BlueBaseApp>
+		);
+		await waitForElement(component, Switch);
 		const sw = component.find('Switch').first();
 		const onChange = sw.prop('onChange') as any;
 
@@ -91,12 +118,16 @@ describe('Switch', () => {
 		expect(cb).toBeCalledWith(undefined, true);
 	});
 
-	it('should map onValueChange fn to onChange fn with value', () => {
+	it('should map onValueChange fn to onChange fn with value', async () => {
 
 		const cb = jest.fn();
 		const component = mount(
-			<Switch label="Foo" value="foo" onValueChange={cb} />
+			<BlueBaseApp plugins={[Plugin]}>
+
+				<Switch label="Foo" value="foo" onValueChange={cb} />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Switch);
 
 		const sw = component.find('Switch').first();
 		const onChange = sw.prop('onChange') as any;
@@ -108,16 +139,19 @@ describe('Switch', () => {
 		expect(cb).toBeCalledWith('foo', true);
 	});
 
-	it('should pass onChange as is if available', () => {
+	it('should pass onChange as is if available', async () => {
 
 		const cb = jest.fn();
 
 		const SWITCH = Switch as any;
 
 		const component = mount(
-			<SWITCH label="Foo" onChange={cb} />
-		);
+			<BlueBaseApp plugins={[Plugin]}>
 
+				<SWITCH label="Foo" onChange={cb} />
+			</BlueBaseApp>
+		);
+		await waitForElement(component, SWITCH);
 		const onChange = component.find('Switch').first().prop('onChange') as any;
 
 		onChange('foo', true);

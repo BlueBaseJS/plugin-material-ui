@@ -1,9 +1,9 @@
-import { ButtonDefaultProps, ButtonProps, ActivityIndicator, DynamicIcon } from '@bluebase/components';
+import { ActivityIndicator, ButtonDefaultProps, ButtonProps, DynamicIcon } from '@bluebase/components';
 import MUIButton from '@material-ui/core/Button';
-import { componentMapper } from '@bluebase/component-mapper';
 import React from 'react';
-import { withPropsStyles } from '../../withPropsStyles';
+import { componentMapper } from '@bluebase/component-mapper';
 import { styles } from './styles';
+import { withPropsStyles } from '../../withPropsStyles';
 
 export const Button = withPropsStyles(styles)(componentMapper<ButtonProps>(MUIButton, {
 	children: ({ title, children, loading, icon }: ButtonProps) => {
