@@ -76,6 +76,28 @@ describe('Button', () => {
 		expect(component.find('Button').last().prop('color')).toEqual('default');
 	});
 
+	it('should pass the color as "default" when no color is given', async () => {
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Button />
+			</BlueBaseApp>
+		);
+		await waitForElement(component, Button);
+
+		expect(component.find('Button').last().prop('color')).toEqual('primary');
+	});
+
+	it('should pass the color as given', async () => {
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Button color={'#000000'}/>
+			</BlueBaseApp>
+		);
+		await waitForElement(component, Button);
+		expect(component.find('Button').last().prop('color')).toBeDefined();
+	});
+
+
 	it('should loading the button when loading is true ', async () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
