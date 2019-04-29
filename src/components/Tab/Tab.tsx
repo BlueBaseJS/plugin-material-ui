@@ -4,7 +4,25 @@ import React from 'react';
 import { componentMapper } from '@bluebase/component-mapper';
 
 export const Tab = componentMapper<TabProps>(MuiTab, {
-	icon: ({ icon }) => icon ? React.createElement(DynamicIcon, icon) : undefined
+	icon: ({ icon }) => {
+
+		if (!icon) {
+			return;
+		}
+
+		const size = icon.size || 24;
+
+		const props = {
+			size,
+			style: {
+				lineHeight: size,
+				...icon.style,
+			},
+			...icon,
+		};
+
+		return React.createElement(DynamicIcon, props);
+	}
 }, {
 	rest: true
 });

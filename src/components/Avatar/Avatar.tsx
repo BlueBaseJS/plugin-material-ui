@@ -10,7 +10,7 @@ export const Avatar = (props: AvatarProps) => {
 	if (type === 'icon') {
 		return (
 			<MuiAvatar {...rest}>
-				<Icon name={icon} color={color} size={size} />
+				<Icon name={icon} color={color} />
 			</MuiAvatar>
 		);
 	}

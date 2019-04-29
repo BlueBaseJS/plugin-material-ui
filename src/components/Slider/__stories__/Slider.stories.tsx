@@ -54,6 +54,29 @@ stories
 	</View>
 ))
 
+.add('Label + showValue', () => (
+	<View style={{ padding: 20 }}>
+		<ControlledSlider
+			maximumValue={32}
+			minimumValue={16}
+			step={1}
+			label="Temperature"
+			showValue
+		/>
+	</View>
+))
+
+.add('No Label + showValue', () => (
+	<View style={{ padding: 50 }}>
+		<ControlledSlider
+			maximumValue={32}
+			minimumValue={16}
+			step={1}
+			showValue
+		/>
+	</View>
+))
+
 .add('Required', () => (
 	<View style={{ padding: 20 }}>
 		<ControlledSlider

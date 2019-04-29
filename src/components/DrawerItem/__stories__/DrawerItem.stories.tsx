@@ -18,11 +18,11 @@ stories.add('Default props', () => (
 ));
 
 stories.add('With Icon', () => (
-	<DrawerItem title="Item 1" icon={{ name: 'rocket' }} />
+	<DrawerItem title="Item 1" icon={{ name: 'favorite' }} />
 ));
 
 stories.add('onPress listener', () => (
-	<DrawerItem title="Click Me" onPress={action('drawer-item-click')} />
+	<DrawerItem title="Click Me" icon={{ name: 'favorite' }} onPress={action('drawer-item-click')} />
 ));
 
 stories.add('Active', () => (

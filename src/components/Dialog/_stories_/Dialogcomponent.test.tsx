@@ -1,7 +1,6 @@
 import {
   DialogActionsProps,
   DialogContentProps,
-  DialogProps,
   DialogTitleProps,
 } from '@bluebase/components';
 
@@ -14,12 +13,13 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import PersonIcon from '@material-ui/icons/Person';
 import React from 'react';
+import { Dialog } from '../index';
 import Typography from '@material-ui/core/Typography';
 import { getComponent } from '@bluebase/core';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 
-test('DialogContent component should use child prop to show children', () => {
+test('DialogContent component should use child pr children', () => {
 
 	const component = shallow(
     <SimpleDialogDemo />
@@ -30,8 +30,23 @@ test('DialogContent component should use child prop to show children', () => {
 
 
 
+test('DialogContent component should use child prop to show children', () => {
 
-const Dialog = getComponent<DialogProps>('Dialog');
+	const component = mount(
+    <Dialog visible={true}>
+
+      <Button color="primary">
+        Save changes
+      </Button>
+    </Dialog>
+  );
+   	expect(component.childAt(0).childAt(0).text()).toBeTruthy();
+
+});
+
+
+
+// const Dialog = getComponent<DialogProps>('Dialog');
 const DialogAction = getComponent<DialogActionsProps>('DialogAction');
 const DialogContent = getComponent<DialogContentProps>('DialogContent');
 const DialogTitle = getComponent<DialogTitleProps>('DialogTitle');
@@ -56,11 +71,11 @@ function SimpleDialog(props: Ipropsss) {
 	}
 
 	return (
-    <Dialog  visible={true} onDismiss={handleClose} {...other}>
+    <Dialog visible={true} onDismiss={handleClose} {...other}>
       <DialogTitle>Set backup account</DialogTitle>
       <DialogContent>
         <List>
-        <ListItem button onClick={() => handleListItemClick('addAccount')}>
+          <ListItem button onClick={() => handleListItemClick('addAccount')}>
             <ListItemAvatar>
               <Avatar>
                 <AddIcon />

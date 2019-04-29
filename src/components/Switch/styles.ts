@@ -2,17 +2,28 @@ import { SwitchProps } from '@bluebase/components';
 import { Theme } from '@material-ui/core';
 
 export const styles = ({ color }: SwitchProps, theme: Theme) => {
+	const common = {
+		label: {},
+		labelPlacementStart: {
+			'& $label': {
+				flex: 1,
+			},
+		},
+	};
+
 	// If color is NOT primary, secondary or default then create custom styles
 	if (color === 'primary' || color === 'secondary' || color === 'default') {
-		return {};
+		return common;
 	}
 
 	// If color is undefined, then use defaults
 	if (color === undefined) {
-		return {};
+		return common;
 	}
 
 	return {
+		...common,
+
 		bar: {},
 		checked: {},
 		icon: {},
