@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should use title prop to show children 1`] = `
+<BlueBaseApp
+  plugins={
+    Array [
+      Object {
+        "categories": Array [
+          "ui",
+        ],
+        "defaultConfigs": Object {},
+        "description": "Material UI (web) comes to BlueBase!",
+        "enabled": true,
+        "key": "material-ui",
+        "name": "Material UI",
+        "value": Object {
+          "assets": Object {},
+          "components": Object {
+            "Avatar": [Function],
+            "BottomNavigation": [Function],
+            "BottomNavigationAction": [Function],
+            "Button": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "defaultProps": Object {
+                "color": "primary",
+                "fullWidth": false,
+                "loading": false,
+                "size": "medium",
+                "variant": "contained",
+              },
+              "render": [Function],
+            },
+            "Card": [Function],
+            "CardActions": [Function],
+            "CardContent": [Function],
+            "CardCover": [Function],
+            "CardHeader": [Function],
+            "Checkbox": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+            "Dialog": [Function],
+            "DialogActions": [Function],
+            "DialogContent": [Function],
+            "DialogTitle": [Function],
+            "Divider": [Function],
+            "DrawerActions": [Function],
+            "DrawerItem": [Function],
+            "DrawerLayout": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+            "DrawerSection": [Function],
+            "IconButton": [Function],
+            "List": [Function],
+            "ListAvatar": [Function],
+            "ListIcon": [Function],
+            "ListItem": [Function],
+            "ListSubheader": [Function],
+            "Menu": [Function],
+            "MenuItem": [Function],
+            "Picker": [Function],
+            "PickerItem": [Function],
+            "Radio": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+            "RadioGroup": [Function],
+            "Slider": [Function],
+            "Switch": Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "render": [Function],
+            },
+            "Tab": [Function],
+            "Tabs": [Function],
+            "TextInput": [Function],
+          },
+          "filters": Object {
+            "bluebase.boot.end": [Function],
+          },
+          "fonts": Object {},
+          "routes": undefined,
+          "themes": Object {},
+        },
+        "version": "0.0.1",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Text>
+        <Text>
+          Loading
+        </Text>
+      </Text>
+    </View>
+  </View>
+</BlueBaseApp>
+`;

@@ -2,8 +2,9 @@ import { DrawerActionsObject, DrawerLayoutProps, View, } from '@bluebase/compone
 import Drawer from '@material-ui/core/Drawer';
 import { DrawerContext } from './DrawerContext';
 import React from 'react';
-import { Theme } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 import { withPropsStyles } from '../../withPropsStyles';
+import { Theme } from '@bluebase/core';
 
 export interface DrawerLayoutState extends DrawerActionsObject {
 	open: boolean,
@@ -66,21 +67,23 @@ export class DrawerLayoutComponent extends React.Component<DrawerLayoutPropsInte
 	}
 }
 
-const styles = (props: DrawerLayoutProps, theme: Theme) => ({
+const muiTheme = createMuiTheme();
+
+const styles = (props: DrawerLayoutProps, _theme: Theme) => ({
 	content: {
 		flexGrow: 1,
 		marginLeft: 0,
 		overflowY: 'auto',
-		transition: theme.transitions.create('margin', {
-			duration: theme.transitions.duration.leavingScreen,
-			easing: theme.transitions.easing.sharp,
+		transition: muiTheme.transitions.create('margin', {
+			duration: muiTheme.transitions.duration.leavingScreen,
+			easing: muiTheme.transitions.easing.sharp,
 		}),
 	},
 	contentShift: {
 		marginLeft: props.drawerWidth,
-		transition: theme.transitions.create('margin', {
-			duration: theme.transitions.duration.enteringScreen,
-			easing: theme.transitions.easing.easeOut,
+		transition: muiTheme.transitions.create('margin', {
+			duration: muiTheme.transitions.duration.enteringScreen,
+			easing: muiTheme.transitions.easing.easeOut,
 		}),
 	},
 	drawer: {
@@ -93,4 +96,4 @@ const styles = (props: DrawerLayoutProps, theme: Theme) => ({
 	},
 });
 
-export const DrawerLayout = withPropsStyles(styles)(DrawerLayoutComponent) as any;
+export const DrawerLayout = withPropsStyles(styles)(DrawerLayoutComponent) as React.ComponentType<DrawerLayoutProps>;

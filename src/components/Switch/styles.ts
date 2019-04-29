@@ -1,5 +1,6 @@
 import { SwitchProps } from '@bluebase/components';
-import { Theme } from '@material-ui/core';
+import { Theme } from '@bluebase/core';
+// import { Theme } from '@material-ui/core';
 
 export const styles = ({ color }: SwitchProps, theme: Theme) => {
 	// If color is NOT primary, secondary or default then create custom styles
@@ -30,20 +31,20 @@ export const styles = ({ color }: SwitchProps, theme: Theme) => {
 
 		disabled: {
 			'& + $bar': {
-				opacity: theme.palette.type === 'light' ? 0.12 : 0.1,
+				opacity: theme.mode === 'light' ? 0.12 : 0.1,
 			},
 			// tslint:disable-next-line: object-literal-sort-keys
 			'& $icon': {
-				boxShadow: theme.shadows[1],
+				boxShadow: theme.elevation(1),
 			},
 			'&$switchBase': {
-				color: theme.palette.type === 'light' ? theme.palette.grey[400] : theme.palette.grey[800],
+				color: theme.mode === 'light' ? '#BDBDBD' : '#424242',
 				// tslint:disable-next-line: object-literal-sort-keys
 				'& + $bar': {
 					backgroundColor:
-						theme.palette.type === 'light'
-							? theme.palette.common.black
-							: theme.palette.common.white,
+						theme.mode === 'light'
+							? '#000000'
+							: '#FFFFFF',
 				},
 			},
 		},

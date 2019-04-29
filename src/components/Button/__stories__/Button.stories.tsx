@@ -1,12 +1,12 @@
 import {  /*ButtonProps*/ } from '@bluebase/components';
 import React from 'react';
 import { action } from '@storybook/addon-actions';
- import { getComponent } from '@bluebase/core';
+import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 
- const Button = getComponent<any>('Button');
+const Button = getComponent<any>('Button');
 
 const stories = storiesOf('Button', module);
 
@@ -20,11 +20,20 @@ stories
 			<Button variant="contained" onPress={action('button-press')}>
 				Default
 		</Button>
-			<Button variant="contained" color="error" onPress={action('button-press')}>
+			<Button variant="contained" color="primary" onPress={action('button-press')}>
 				Primary
 		</Button>
 			<Button variant="contained" color="secondary" onPress={action('button-press')}>
 				Secondary
+		</Button>
+			<Button variant="contained" color="success" onPress={action('button-press')}>
+				Success
+		</Button>
+			<Button variant="contained" color="warning" onPress={action('button-press')}>
+				Warning
+		</Button>
+			<Button variant="contained" color="error" onPress={action('button-press')}>
+				Error
 		</Button>
 			<Button variant="contained" color="secondary" disabled onPress={action('button-press')}>
 				Disabled
@@ -43,6 +52,15 @@ stories
 		</Button>
 			<Button color="secondary">
 				Secondary
+		</Button>
+			<Button color="success">
+				Success
+		</Button>
+			<Button color="error">
+				Error
+		</Button>
+			<Button color="warning">
+				Warning
 		</Button>
 			<Button disabled>
 				Disabled
@@ -63,6 +81,15 @@ stories
 		</Button>
 			<Button variant="outlined" color="secondary">
 				Secondary
+		</Button>
+			<Button variant="outlined" color="error">
+				Error
+		</Button>
+			<Button variant="outlined" color="success">
+				Success
+		</Button>
+			<Button variant="outlined" color="warning">
+				Warning
 		</Button>
 			<Button variant="outlined" disabled>
 				Disabled
@@ -123,17 +150,10 @@ stories
 	))
 
 
-	.add('color Prop custom', () => (
-		<React.Fragment>
-			<Button 	color="green" title="Contained" variant="contained" />
-			<Button color="secondary" title="Outlined" variant="outlined" />
-			<Button color="primary" title="Text" variant="text" />
-		</React.Fragment>
-	))
 
 	.add('color Prop custom', () => (
 		<React.Fragment>
-			<Button 	color="success" title="success" variant="contained" />
+			<Button color="success" title="success" variant="contained" />
 			<Button color="error" title="error" variant="outlined" />
 			<Button color="warning" title="warning" variant="text" />
 		</React.Fragment>

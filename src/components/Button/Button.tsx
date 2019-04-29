@@ -1,18 +1,14 @@
 import {
-	// ButtonDefaultProps,
+	ButtonDefaultProps,
 	ButtonProps
 } from '@bluebase/components';
 import MUIButton from '@material-ui/core/Button';
 import React from 'react';
+import { Theme } from '@bluebase/core';
 import { objectMapper } from '@bluebase/component-mapper';
 import { withPropsStyles } from '../../withPropsStyles';
 
-
-
-
-
-
-const styles = ({ color }: any, theme: any) => {
+const styles = ({ color }: any, theme: Theme) => {
 
 	switch (color) {
 		case 'primary':
@@ -21,44 +17,72 @@ const styles = ({ color }: any, theme: any) => {
 			return {};
 		case 'success':
 			return ({
-				root: {
+				contained: {
 					backgroundColor: theme.palette.success.main,
 					color: theme.palette.success.contrastText,
 					// tslint:disable-next-line: object-literal-sort-keys
-					'&$hover': {
+					'&:hover': {
+						backgroundColor: theme.palette.success.dark,
 						color: theme.palette.success.contrastText,
 					},
-
-				}
+				},
+				outlined: {
+					borderColor: theme.palette.success.main,
+					color: theme.palette.success.main,
+					// tslint:disable-next-line: object-literal-sort-keys
+					'&:hover': {
+						backgroundColor: theme.palette.success.contrastText,
+					},
+				},
+				root: {
+					color: theme.palette.success.main,
+				},
 			});
 		case 'error':
 
 			return ({
-				root: {
+				contained: {
 					backgroundColor: theme.palette.error.main,
-					color: theme.palette.success.contrastText,
+					color: theme.palette.error.contrastText,
 					// tslint:disable-next-line: object-literal-sort-keys
-					'&$hover': {
+					'&:hover': {
+						backgroundColor: theme.palette.error.dark,
 						color: theme.palette.error.contrastText,
 					},
-					'&$disabled': {
-						color: theme.palette.action.disabled,
+				},
+				outlined: {
+					borderColor: theme.palette.error.main,
+					color: theme.palette.error.main,
+					// tslint:disable-next-line: object-literal-sort-keys
+					'&:hover': {
+						backgroundColor: theme.palette.error.contrastText,
 					},
+				},
+				root: {
+					color: theme.palette.error.main,
 				}
 			});
 		case 'warning':
 			return ({
-				root: {
+				contained: {
 					backgroundColor: theme.palette.warning.main,
-					color: theme.palette.success.contrastText,
+					color: theme.palette.warning.contrastText,
 					// tslint:disable-next-line: object-literal-sort-keys
-					'&$hover': {
+					'&:hover': {
+						backgroundColor: theme.palette.warning.dark,
 						color: theme.palette.warning.contrastText,
-
 					},
-					'&$disabled': {
-						color: theme.palette.action.disabled,
+				},
+				outlined: {
+					borderColor: theme.palette.warning.main,
+					color: theme.palette.warning.main,
+					// tslint:disable-next-line: object-literal-sort-keys
+					'&:hover': {
+						backgroundColor: theme.palette.background.default,
 					},
+				},
+				root: {
+					color: theme.palette.warning.main,
 				}
 			});
 		default:
@@ -106,4 +130,6 @@ export const Button = withPropsStyles(styles)((props: any) => {
 			{props.children ? props.children : props.title}
 		</MUIButton>
 	);
-}) as any;
+}) as React.ComponentType<ButtonProps>;
+
+Button.defaultProps = ButtonDefaultProps;
