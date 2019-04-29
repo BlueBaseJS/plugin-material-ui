@@ -1,6 +1,7 @@
 import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
 import { DrawerActions, DrawerLayout } from './components/DrawerLayout';
 import { Avatar } from './components/Avatar';
+import { Badge } from './components/Badge';
 import { BottomNavigation } from './components/BottomNavigation';
 import { BottomNavigationAction } from './components/BottomNavigationAction';
 import { Button } from './components/Button';
@@ -18,7 +19,6 @@ import { Divider } from './components/Divider';
 import { DrawerItem } from './components/DrawerItem';
 import { DrawerSection } from './components/DrawerSection';
 import { IconButton } from './components/IconButton';
-
 import { List } from './components/List';
 import { ListAvatar } from './components/ListAvatar';
 import { ListIcon } from './components/ListIcon';
@@ -55,6 +55,7 @@ export default createPlugin({
 
 	components: {
 		Avatar,
+		Badge,
 		BottomNavigation,
 		BottomNavigationAction,
 		Button,
