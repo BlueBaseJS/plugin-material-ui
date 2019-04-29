@@ -88,7 +88,7 @@
     "@babel/core": "^7.3.4",
     "@bluebase/cli-essentials": "^0.0.4",
     "@bluebase/code-standards": "^1.3.1",
-    "@bluebase/core": "^4.0.0-aplha.17",
+    "@bluebase/core": "^4.0.0-aplha.23",
     "@bluebase/plugin-vector-icons": "^0.0.3",
     "@bluebase/storybook-addon": "^3.0.0",
     "@material-ui/icons": "^3.0.2",
