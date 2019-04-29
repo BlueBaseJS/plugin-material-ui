@@ -12,7 +12,7 @@
   "config": {},
   "size-limit": [
     {
-      "limit": "36 KB",
+      "limit": "45 KB",
       "webpack": false,
       "path": "dist/**/!(*.test).js"
     }

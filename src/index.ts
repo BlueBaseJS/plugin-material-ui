@@ -58,8 +58,6 @@ import { Tabs } from './components/Tabs';
 import { TextInput } from './components/TextInput';
 import { withTheme } from './withTheme';
 
-
-
 export default createPlugin({
 	categories: ['ui'],
 	description: 'Material UI (web) comes to BlueBase!',
