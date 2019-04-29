@@ -1,9 +1,9 @@
-import { SwitchProps } from '@bluebase/components';
+import { ButtonProps } from '@bluebase/components';
 import { Theme } from '@bluebase/core';
 import { Theme as MuiTheme } from '@material-ui/core';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
-export const styles = ({ color }: SwitchProps, muiTheme: MuiTheme, theme: Theme) => {
+export const styles = ({ color }: ButtonProps, muiTheme: MuiTheme, theme: Theme) => {
 	if (!color || color === 'default') {
 		return;
 	}
