@@ -4,7 +4,7 @@ import { Theme as MuiTheme } from '@material-ui/core';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
 export const styles = ({ color, disabled }: ButtonProps, muiTheme: MuiTheme, theme: Theme) => {
-	if (!color || color === 'default' && !disabled) {
+	if (!color || (color === 'default' && !disabled)) {
 		return;
 	}
 
@@ -20,11 +20,11 @@ export const styles = ({ color, disabled }: ButtonProps, muiTheme: MuiTheme, the
 	// If color is NOT primary, secondary or default then create custom styles
 	if (
 		(color === 'primary' ||
-		color === 'secondary' ||
-		color === 'success' ||
-		color === 'error' ||
-		color === 'warning')
-		&& !disabled
+			color === 'secondary' ||
+			color === 'success' ||
+			color === 'error' ||
+			color === 'warning') &&
+		!disabled
 	) {
 		colors.hover = (theme.palette as any)[color].dark;
 		colors.main = (theme.palette as any)[color].main;
