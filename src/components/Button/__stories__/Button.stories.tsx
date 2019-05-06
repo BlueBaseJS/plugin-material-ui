@@ -35,7 +35,7 @@ stories
 			<Button variant="contained" color="success" onPress={action('button-press')}>
 				Success
 			</Button>
-			<Button variant="contained" color="secondary" disabled onPress={action('button-press')}>
+			<Button variant="contained" disabled onPress={action('button-press')}>
 				Disabled
 			</Button>
 		</React.Fragment>
