@@ -8,6 +8,6 @@ export const IconButton = componentMapper<IconButtonProps>(MUIIconButton, {
 	children: ({ name, size, color }) => <Icon name={name} size={size} color={color} />,
 	disabled: ({ disabled }: IconButtonProps) => disabled,
 	onClick: 'onPress',
-}, { rest: true, });
+}, { rest: true, ignore: ['color'] });
 
 IconButton.defaultProps = IconButtonDefaultProps;
