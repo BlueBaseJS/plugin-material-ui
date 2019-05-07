@@ -1,13 +1,12 @@
 import { PickerDefaultProps, PickerItem as BBPickerItem, PickerProps } from '@bluebase/components';
-import FilledInput from '@material-ui/core/FilledInput';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
 import React from 'react';
-import Select from '@material-ui/core/Select';
 import { objectMapper } from '@bluebase/component-mapper';
+import { PickerContext } from './PickerContext';
+import { SelectPicker } from './SelectPicker';
+import { DialogPicker } from './DialogPicker';
 
 const fieldMap = {
 	displayEmpty: ({ placeholder }: PickerProps) => !!placeholder,
@@ -41,6 +40,7 @@ export const Picker = (props: PickerProps & { PickerItem?: typeof BBPickerItem }
 		helperText,
 		id,
 		label,
+		mode,
 		name,
 		native,
 		onChange,
@@ -53,15 +53,6 @@ export const Picker = (props: PickerProps & { PickerItem?: typeof BBPickerItem }
 		...rest
 	} = newProps;
 
-	let InputComponent = Input;
-
-	if (variant === 'filled') {
-		InputComponent = FilledInput;
-	}
-	if (variant === 'outlined') {
-		InputComponent = OutlinedInput as any;
-	}
-
 	const formControlProps = {
 		disabled,
 		error,
@@ -70,25 +61,16 @@ export const Picker = (props: PickerProps & { PickerItem?: typeof BBPickerItem }
 		...rest
 	};
 
-	const selectProps = {
-		displayEmpty,
-		input: <InputComponent {...{ id, name, }} />,
-		// inputProps: { id, name, },
-		native,
-		onChange,
-		readOnly,
-		value,
-	};
+	const PickerComponent = mode === 'dialog' ? DialogPicker : SelectPicker;
 
 	return (
-		<FormControl {...formControlProps}>
-			{label ? <InputLabel htmlFor={id}>{label}</InputLabel> : null}
-			<Select {...selectProps} >
-				{placeholder ? <PickerItem value="" label={placeholder} disabled /> : null}
-				{children}
-			</Select>
-      {helperText ? <FormHelperText>{helperText}</FormHelperText> : null}
-		</FormControl>
+		<PickerContext.Provider value={mode}>
+			<FormControl {...formControlProps}>
+				{label ? <InputLabel htmlFor={id}>{label}</InputLabel> : null}
+				<PickerComponent {...props as any} />
+				{helperText ? <FormHelperText>{helperText}</FormHelperText> : null}
+			</FormControl>
+		</PickerContext.Provider>
 	);
 };
 

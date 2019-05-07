@@ -48,6 +48,35 @@ stories
 		label="Language"
 		name="language"
 		id="language-simple"
+		mode="default"
+	>
+		<Picker.Item label="Java" value="java" />
+		<Picker.Item label="JavaScript" value="js" />
+		<Picker.Item label="PHP" value="php" />
+	</Picker>
+))
+
+.add('Dropdown', () => (
+	<Picker
+		onValueChange={action('Picker')}
+		label="Language"
+		name="language"
+		id="language-simple"
+		mode="dropdown"
+	>
+		<Picker.Item label="Java" value="java" />
+		<Picker.Item label="JavaScript" value="js" />
+		<Picker.Item label="PHP" value="php" />
+	</Picker>
+))
+
+.add('Dialog', () => (
+	<Picker
+		onValueChange={action('Picker')}
+		label="Language"
+		name="language"
+		id="language-simple"
+		mode="dialog"
 	>
 		<Picker.Item label="Java" value="java" />
 		<Picker.Item label="JavaScript" value="js" />
