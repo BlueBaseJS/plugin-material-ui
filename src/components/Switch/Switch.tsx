@@ -32,7 +32,7 @@ const map = {
 
 export const Switch = withPropsStyles(styles)((props: SwitchProps) => {
 
-	const newProps = objectMapper(props, map, { rest: true, ignore: ['color', 'onValueChange'] });
+	const newProps = objectMapper(props, map, { rest: true, ignore: ['onValueChange'] });
 
 	const { label, labelPlacement, classes, ...common } = newProps;
 	if (classes.color) {

@@ -106,7 +106,7 @@ describe('DrawerLayout', () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
 				<DrawerLayout
-					drawerType="slide"
+					drawerType="front"
 					drawerWidth={200}
 					renderNavigationView={() => (
 						<Text testID="navigation-view">I'm inside drawer</Text>

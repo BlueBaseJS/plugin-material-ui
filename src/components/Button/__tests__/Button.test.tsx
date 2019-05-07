@@ -105,7 +105,8 @@ describe('Button', () => {
 			</BlueBaseApp>
 		);
 		await waitForElement(component, Button);
-		expect(component.find('Button').first().prop('loading')).toEqual(true);
+		// expect(component).toMatchSnapshot()
+		expect(component.find('Button ActivityIndicator').length).toBeGreaterThan(0);
 	});
 
 	it('should display icon on button when icon is given ', async () => {

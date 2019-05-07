@@ -38,6 +38,6 @@ export const Button = withPropsStyles(styles)(componentMapper<ButtonProps>(MUIBu
 		);
 	},
 	onClick: 'onPress',
-}, { rest: true, ignore: ['color', 'loading'] })) as React.ComponentType<ButtonProps>;
+}, { rest: true, ignore: ['loading'] })) as React.ComponentType<ButtonProps>;
 
 Button.defaultProps = ButtonDefaultProps;
