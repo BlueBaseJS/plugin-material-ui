@@ -1,74 +1,110 @@
+import { BlueBaseApp } from '@bluebase/core';
+import Plugin from '../../../index';
 import { Radio } from '../Radio';
 import React from 'react';
 import { mount } from 'enzyme';
+import { waitForElement } from 'enzyme-async-helpers';
 
 describe('Radio', () => {
 
-	it('should set the checked to true when checked is true', () => {
+	it('should set the checked to true when checked is true', async () => {
 		const component = mount(
-			<Radio checked />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Radio checked />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Radio);
 
 		// expect(component).toMatchSnapshot();
 		expect(component.find('Radio').first().prop('checked')).toEqual(true);
 	});
 
-	it('should set the checked to false when checked is false', () => {
+	it('should set the checked to false when checked is false', async () => {
 		const component = mount(
-			<Radio checked={false} />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Radio checked={false} />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Radio);
 
 		expect(component.find('Radio').first().prop('checked')).toEqual(false);
 	});
 
-	it('should pass the color as is when set to "primary"', () => {
+	it('should pass the color as is when set to "primary"', async () => {
 		const component = mount(
-			<Radio color="primary" />
+			<BlueBaseApp plugins={[Plugin]}>
+
+				<Radio color="primary" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Radio);
 
 		expect(component.find('Radio').first().prop('color')).toEqual('primary');
 	});
 
-	it('should pass the color as is when set to "secondary"', () => {
+	it('should pass the color as is when set to "secondary"', async () => {
 		const component = mount(
-			<Radio color="secondary" />
+			<BlueBaseApp plugins={[Plugin]}>
+
+				<Radio color="secondary" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Radio);
 
 		expect(component.find('Radio').first().prop('color')).toEqual('secondary');
 	});
 
-	it('should pass the color as is when set to "default"', () => {
+	it('should pass the color as is when set to "default"', async () => {
 		const component = mount(
-			<Radio color="default" />
+			<BlueBaseApp plugins={[Plugin]}>
+
+				<Radio color="default" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Radio);
 
 		expect(component.find('Radio').first().prop('color')).toEqual('default');
 	});
 
-	it('should set the color prop to undefined and create classed for custom colors', () => {
+	it('should set the color prop to undefined and create classed for custom colors', async () => {
 		const component = mount(
-			<Radio color="red" />
+			<BlueBaseApp plugins={[Plugin]}>
+
+				<Radio color="red" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Radio);
+
 		// expect(component).toMatchSnapshot();
 		expect(component.find('WithStyles(Radio)').first().prop('classes')).toBeTruthy();
 		expect(component.find('WithStyles(Radio)').first().prop('color')).toEqual(undefined);
 	});
 
-	it('should set the label component', () => {
+	it('should set the label component', async () => {
 		const component = mount(
-			<Radio label="Foo" />
+			<BlueBaseApp plugins={[Plugin]}>
+
+				<Radio label="Foo" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Radio);
+
 		// expect(component).toMatchSnapshot();
 		expect(component.find('FormControlLabel').length).toBeGreaterThan(0);
 		expect(component.find('FormControlLabel').first().prop('label')).toEqual('Foo');
 	});
 
-	it('should map onValueChange fn to onChange fn', () => {
+	it('should map onValueChange fn to onChange fn', async () => {
 
 		const cb = jest.fn();
 		const component = mount(
-			<Radio label="Foo" onValueChange={cb} />
+			<BlueBaseApp plugins={[Plugin]}>
+
+				<Radio label="Foo" onValueChange={cb} />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Radio);
+
 
 		const radio = component.find('Radio').first();
 		const onChange = radio.prop('onChange') as any;
@@ -80,13 +116,15 @@ describe('Radio', () => {
 		expect(cb).toBeCalledWith(undefined, true);
 	});
 
-	it('should map onValueChange fn to onChange fn with value', () => {
+	it('should map onValueChange fn to onChange fn with value', async () => {
 
 		const cb = jest.fn();
 		const component = mount(
-			<Radio label="Foo" value="foo" onValueChange={cb} />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Radio label="Foo" value="foo" onValueChange={cb} />
+			</BlueBaseApp>
 		);
-
+		await waitForElement(component, Radio);
 		const radio = component.find('Radio').first();
 		const onChange = radio.prop('onChange') as any;
 
@@ -97,15 +135,18 @@ describe('Radio', () => {
 		expect(cb).toBeCalledWith('foo', true);
 	});
 
-	it('should pass onChange as is if available', () => {
+	it('should pass onChange as is if available', async () => {
 
 		const cb = jest.fn();
 
 		const RADIO = Radio as any;
 
 		const component = mount(
-			<RADIO label="Foo" onChange={cb} />
+			<BlueBaseApp plugins={[Plugin]}>
+				<RADIO label="Foo" onChange={cb} />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, RADIO);
 
 		const onChange = component.find('Radio').first().prop('onChange') as any;
 

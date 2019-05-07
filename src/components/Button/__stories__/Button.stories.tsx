@@ -19,37 +19,49 @@ stories
 		<React.Fragment>
 			<Button variant="contained" onPress={action('button-press')}>
 				Default
-		</Button>
+			</Button>
 			<Button variant="contained" color="primary" onPress={action('button-press')}>
 				Primary
-		</Button>
+			</Button>
 			<Button variant="contained" color="secondary" onPress={action('button-press')}>
 				Secondary
-		</Button>
+			</Button>
+			<Button variant="contained" color="error" onPress={action('button-press')}>
+				Error
+			</Button>
+			<Button variant="contained" color="warning" onPress={action('button-press')}>
+				Warning
+			</Button>
+			<Button variant="contained" color="success" onPress={action('button-press')}>
+				Success
+			</Button>
 			<Button variant="contained" color="secondary" disabled onPress={action('button-press')}>
 				Disabled
-		</Button>
-			<Button variant="contained" onPress={action('button-press')}>
-				Link
-		</Button>
+			</Button>
 		</React.Fragment>
 	))
 
 	.add('Text Buttons', () => (
 		<React.Fragment>
-			<Button>Default</Button>
-			<Button color="primary">
+			<Button variant="text">Default</Button>
+			<Button variant="text" color="primary">
 				Primary
-		</Button>
-			<Button color="secondary">
+			</Button>
+			<Button variant="text" color="secondary">
 				Secondary
-		</Button>
-			<Button disabled>
+			</Button>
+			<Button variant="text" color="error" onPress={action('button-press')}>
+				Error
+			</Button>
+			<Button variant="text" color="warning" onPress={action('button-press')}>
+				Warning
+			</Button>
+			<Button variant="text" color="success" onPress={action('button-press')}>
+				Success
+			</Button>
+			<Button variant="text" disabled>
 				Disabled
-		</Button>
-			<Button>
-				Link
-		</Button>
+			</Button>
 		</React.Fragment>
 	))
 
@@ -57,19 +69,25 @@ stories
 		<React.Fragment>
 			<Button variant="outlined">
 				Default
-		</Button>
+			</Button>
 			<Button variant="outlined" color="primary">
 				Primary
-		</Button>
+			</Button>
 			<Button variant="outlined" color="secondary">
 				Secondary
-		</Button>
+			</Button>
+			<Button variant="outlined" color="error" onPress={action('button-press')}>
+				Error
+			</Button>
+			<Button variant="outlined" color="warning" onPress={action('button-press')}>
+				Warning
+			</Button>
+			<Button variant="outlined" color="success" onPress={action('button-press')}>
+				Success
+			</Button>
 			<Button variant="outlined" disabled>
 				Disabled
-		</Button>
-			<Button variant="outlined">
-				Link
-		</Button>
+			</Button>
 		</React.Fragment>
 	))
 
@@ -119,5 +137,45 @@ stories
 			<Button color="primary" title="Contained" variant="contained" />
 			<Button color="secondary" title="Outlined" variant="outlined" />
 			<Button color="primary" title="Text" variant="text" />
+		</React.Fragment>
+	))
+
+	.add('Loading Buttons', () => (
+		<React.Fragment>
+			<Button loading variant="contained" onPress={action('button-press')}>
+				Default
+		</Button>
+			<Button loading variant="contained" color="primary" onPress={action('button-press')}>
+				Primary
+		</Button>
+			<Button loading variant="contained" color="secondary" onPress={action('button-press')}>
+				Secondary
+		</Button>
+			<Button loading variant="contained" color="secondary" disabled onPress={action('button-press')}>
+				Disabled
+		</Button>
+			<Button loading variant="contained" onPress={action('button-press')}>
+				Link
+		</Button>
+		</React.Fragment>
+	))
+
+	.add('Icon Buttons', () => (
+		<React.Fragment>
+			<Button icon={{ type: 'icon', name: 'favorite' }} variant="contained" color="primary" onPress={action('button-press')}>
+				Default
+			</Button>
+			<Button icon={{ type: 'icon', name: 'favorite' }} variant="contained" color="primary" onPress={action('button-press')}>
+				Primary
+			</Button>
+			<Button icon={{ type: 'icon', name: 'favorite' }} variant="contained" color="secondary" onPress={action('button-press')}>
+				Secondary
+			</Button>
+			<Button icon={{ type: 'icon', name: 'favorite' }} variant="contained" color="secondary" disabled onPress={action('button-press')}>
+				Disabled
+			</Button>
+			<Button icon={{ type: 'icon', name: 'favorite' }} variant="contained" onPress={action('button-press')}>
+				Link
+			</Button>
 		</React.Fragment>
 	));
