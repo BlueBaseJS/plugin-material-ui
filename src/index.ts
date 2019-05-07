@@ -104,7 +104,7 @@ export default createPlugin({
 
 	filters: {
 		'bluebase.boot.end': (bootOptions: BootOptions, _ctx: any, BB: BlueBase) => {
-			BB.Components.addHocs('BlueBaseContent', withTheme, WithRTL);
+			BB.Components.addHocs('BlueBaseContent', WithRTL, withTheme);
 			return bootOptions;
 		},
 	},

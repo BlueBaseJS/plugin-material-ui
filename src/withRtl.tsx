@@ -4,8 +4,6 @@ import React from 'react';
 import { create } from 'jss';
 import rtl from 'jss-rtl';
 
-
-
 // Configure JSS
 const jss = create({
 	plugins: [
@@ -18,10 +16,10 @@ const jss = create({
 const generateClassName = createGenerateClassName();
 
 
-const withRTL = (props: any) => {
+const withRTL = (Component: React.ComponentType<any>) => (props: any) => {
 	return (
 		<JssProvider jss={jss} generateClassName={generateClassName}>
-			{props.children}
+			<Component {...props} />
 		</JssProvider>
 	);
 };
