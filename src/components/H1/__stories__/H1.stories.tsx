@@ -7,6 +7,6 @@ const H1 = getComponent('H1');
 
 storiesOf('H1', module)
 
-.add('Default props', () => (
-	<H1 >Example</H1>
-));
+	.add('Default props', () => (
+		<H1 align="center" color="success" gutterBottom={true} noWrap={true} style={{}} >Example</H1>
+	));
