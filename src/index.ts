@@ -1,5 +1,6 @@
 import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
 import { DrawerActions, DrawerLayout } from './components/DrawerLayout';
+
 import { Avatar } from './components/Avatar';
 import { Badge } from './components/Badge';
 import { BottomNavigation } from './components/BottomNavigation';
@@ -24,7 +25,6 @@ import { ListAvatar } from './components/ListAvatar';
 import { ListIcon } from './components/ListIcon';
 import { ListItem } from './components/ListItem';
 import { ListSubheader } from './components/ListSubheader';
-
 import { Menu } from './components/Menu/Menu';
 import { MenuItem } from './components/Menu/MenuItem';
 import { Picker } from './components/Picker';
@@ -42,7 +42,7 @@ import { TableHead } from './components/TableHead';
 import { TablePagination } from './components/TablePagination';
 import { TableRow } from './components/TableRow';
 import { TableTitle } from './components/TableTitle';
-import { Tabs } from './components/Tabs';
+import { Tabs } from './components/Tabs/Tabs';
 import { TextInput } from './components/TextInput';
 import WithRTL from './withRtl';
 import { withTheme } from './withTheme';

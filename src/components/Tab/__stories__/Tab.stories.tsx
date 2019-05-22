@@ -16,7 +16,11 @@ stories
 ))
 
 .add('Icon Only Tab', () => (
-	<Tab icon={{ type: 'image', size: 20, source: { uri: 'https://placeimg.com/100/100/any' } }} />
+	<Tab
+	label="Asad"
+selected={true}
+	// icon={{ type: 'image', size: 20, source: { uri: 'https://placeimg.com/100/100/any' } }} 
+	/>
 ))
 
 .add('Icon & Label Tab', () => (
