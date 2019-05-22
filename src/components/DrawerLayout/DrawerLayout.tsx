@@ -30,23 +30,27 @@ export class DrawerLayoutComponent extends React.Component<DrawerLayoutPropsInte
 			drawerPosition,
 			drawerType,
 			onDrawerClose,
-			onDrawerOpen,
+			// onDrawerOpen,
 			renderNavigationView,
 			style,
 		} = this.props;
 
+		const variant = (drawerType === 'slide') ? 'persistent' : 'temporary' as any;
 
-		const drawerProps = {
+		const drawerProps: any = {
 			anchor: drawerPosition,
 			children: renderNavigationView && renderNavigationView(),
 			className: classes.drawer,
 			classes: { paper: classes.drawerPaper },
-			onBackdropClick: () => this.state.toggleDrawer(),
 			onClose: onDrawerClose,
-			onRendered: onDrawerOpen,
+			// onRendered: onDrawerOpen,
 			open: this.state.open,
-			variant: (drawerType === 'slide') ? 'persistent' : 'temporary' as any,
+			variant,
 		};
+
+		if (variant === 'temporary') {
+			drawerProps.onBackdropClick = () => this.state.toggleDrawer();
+		}
 
 		const contentClassName = (drawerType === 'slide')
 		? `${classes.content} ${this.state.open ? classes.contentShift : ''}`

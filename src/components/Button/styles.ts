@@ -4,7 +4,7 @@ import { Theme as MuiTheme } from '@material-ui/core';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
 export const styles = ({ color, disabled }: ButtonProps, muiTheme: MuiTheme, theme: Theme) => {
-	if (!color || color === 'default' && !disabled) {
+	if (!color || (color === 'default' && !disabled)) {
 		return;
 	}
 
