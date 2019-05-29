@@ -146,7 +146,7 @@ stories
 			<Button
 				loading
 				variant="contained"
-				color="secondary"
+				// color="secondary"
 				disabled
 				onPress={action('button-press')}
 			>
@@ -154,6 +154,24 @@ stories
 			</Button>
 			<Button loading variant="contained" onPress={action('button-press')}>
 				Link
+			</Button>
+			<Button loading variant="outlined" color="primary" onPress={action('button-press')}>
+				Primary
+			</Button>
+			<Button loading variant="text" color="secondary" onPress={action('button-press')}>
+				Secondary
+			</Button>
+			<Button loading variant="outlined" color="primary" onPress={action('button-press')}>
+				Primary
+			</Button>
+			<Button loading variant="text" color="#000000" onPress={action('button-press')}>
+				Custom
+			</Button>
+			<Button loading variant="outlined" color="error" onPress={action('button-press')}>
+				Error
+			</Button>
+			<Button loading variant="text" color="success" onPress={action('button-press')}>
+				Success
 			</Button>
 		</React.Fragment>
 	))
