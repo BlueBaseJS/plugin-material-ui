@@ -137,19 +137,13 @@ stories
 			<Button loading variant="contained" onPress={action('button-press')}>
 				Default
 			</Button>
-			<Button loading variant="contained" color="primary" onPress={action('button-press')}>
+			<Button loading variant="contained" color="yellow" onPress={action('button-press')}>
 				Primary
 			</Button>
 			<Button loading variant="contained" color="secondary" onPress={action('button-press')}>
 				Secondary
 			</Button>
-			<Button
-				loading
-				variant="contained"
-				// color="secondary"
-				disabled
-				onPress={action('button-press')}
-			>
+			<Button loading variant="contained" disabled onPress={action('button-press')}>
 				Disabled
 			</Button>
 			<Button loading variant="contained" onPress={action('button-press')}>
@@ -161,8 +155,8 @@ stories
 			<Button loading variant="text" color="secondary" onPress={action('button-press')}>
 				Secondary
 			</Button>
-			<Button loading variant="outlined" color="primary" onPress={action('button-press')}>
-				Primary
+			<Button loading variant="outlined" color="warning" onPress={action('button-press')}>
+				Warning{' '}
 			</Button>
 			<Button loading variant="text" color="#000000" onPress={action('button-press')}>
 				Custom

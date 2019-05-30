@@ -14,24 +14,17 @@ import { withPropsStyles } from '../../withPropsStyles';
 
 const loaderColor = (theme: Theme, buttonProps: ButtonProps) => {
 	const { color, disabled, variant } = buttonProps;
-	if (variant === 'contained' && !disabled) {
-		return '#fff';
-	}
+	const themeColors = ['primary', 'secondary', 'success', 'error', 'warning'];
 	if (disabled) {
 		return '#9e9e9e';
 	}
-	if (
-		(color === 'primary' ||
-			color === 'secondary' ||
-			color === 'success' ||
-			color === 'error' ||
-			color === 'warning') &&
-		!disabled
-	) {
-		return (theme.palette as any)[color].main;
-	} else {
-		return color;
+	if (variant === 'contained') {
+		return '#fff';
 	}
+	if (color && themeColors.indexOf(color) !== -1) {
+		return (theme.palette as any)[color].main;
+	}
+	return color;
 };
 
 export const Button = withPropsStyles(styles)(

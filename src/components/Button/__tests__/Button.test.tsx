@@ -10,7 +10,7 @@ describe('Button', () => {
 	test('Button component should use title prop to show children', async () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
-				<Button title="Foo" />
+				<Button title="Foo" disabled />
 			</BlueBaseApp>
 		);
 		await waitForElement(component, Button);
@@ -21,12 +21,19 @@ describe('Button', () => {
 				.last()
 				.prop('title')
 		).toEqual('Foo');
+
+		expect(
+			component
+				.find('Button')
+				.last()
+				.prop('variant')
+		).toEqual('contained');
 	});
 
 	test('Button component should use children prop to show content', async () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
-				<Button title="Foo">
+				<Button title="Foo" disabled loading>
 					<Text>Bar</Text>
 				</Button>
 			</BlueBaseApp>
@@ -39,12 +46,24 @@ describe('Button', () => {
 				.last()
 				.text()
 		).toEqual('Bar');
+		expect(
+			component
+				.find('Button')
+				.last()
+				.prop('disabled')
+		).toEqual(true);
+		expect(
+			component
+				.find('Button')
+				.first()
+				.prop('loading')
+		).toBe(true);
 	});
 
 	it('should disable the button when disabled is true ', async () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
-				<Button disabled />
+				<Button disabled color="" />
 			</BlueBaseApp>
 		);
 		await waitForElement(component, Button);
@@ -59,7 +78,7 @@ describe('Button', () => {
 	it('should pass the color as is when set to "primary"', async () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
-				<Button color="primary" />
+				<Button color="primary" variant="text" />
 			</BlueBaseApp>
 		);
 		await waitForElement(component, Button);
@@ -67,15 +86,15 @@ describe('Button', () => {
 		expect(
 			component
 				.find('Button')
-				.last()
+				.first()
 				.prop('color')
-		).toEqual('default');
+		).toEqual('primary');
 	});
 
 	it('should pass the color as is when set to "secondary"', async () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
-				<Button color="secondary" />
+				<Button color="secondary" variant="text" />
 			</BlueBaseApp>
 		);
 		await waitForElement(component, Button);
@@ -91,7 +110,7 @@ describe('Button', () => {
 	it('should pass the color as is when set to "default"', async () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
-				<Button color="default" />
+				<Button color="default" variant="text" />
 			</BlueBaseApp>
 		);
 		await waitForElement(component, Button);
@@ -102,6 +121,57 @@ describe('Button', () => {
 				.last()
 				.prop('color')
 		).toEqual('default');
+	});
+	it('should pass the color as is when set to "success"', async () => {
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Button color="success" variant="text" />
+			</BlueBaseApp>
+		);
+		await waitForElement(component, Button);
+
+		expect(
+			component
+				.find('Button')
+				.first()
+				.prop('color')
+		).toEqual('success');
+	});
+	it('should pass the color as is when set to "error"', async () => {
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Button color={'error'} variant="text" loading />
+			</BlueBaseApp>
+		);
+		await waitForElement(component, Button);
+
+		expect(
+			component
+				.find('Button')
+				.first()
+				.prop('color')
+		).toEqual('error');
+		expect(
+			component
+				.find('Button')
+				.first()
+				.prop('loading')
+		).toEqual(true);
+	});
+	it('should pass the color as is when set to "warning"', async () => {
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Button color="warning" variant="text" />
+			</BlueBaseApp>
+		);
+		await waitForElement(component, Button);
+
+		expect(
+			component
+				.find('Button')
+				.first()
+				.prop('color')
+		).toEqual('warning');
 	});
 
 	it('should pass the color as "default" when no color is given', async () => {
@@ -133,6 +203,27 @@ describe('Button', () => {
 				.last()
 				.prop('color')
 		).toBeDefined();
+	});
+
+	it('should pass the color as given on loading', async () => {
+		const component = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Button color={'#000000'} loading variant={'text'} />
+			</BlueBaseApp>
+		);
+		await waitForElement(component, Button);
+		expect(
+			component
+				.find('Button')
+				.first()
+				.prop('color')
+		).toBe('#000000');
+		expect(
+			component
+				.find('Button')
+				.first()
+				.prop('loading')
+		).toBe(true);
 	});
 
 	it('should loading the button when loading is true ', async () => {
