@@ -137,7 +137,7 @@ stories
 			<Button loading variant="contained" onPress={action('button-press')}>
 				Default
 			</Button>
-			<Button loading variant="contained" color="yellow" onPress={action('button-press')}>
+			<Button loading variant="contained" color="primary" onPress={action('button-press')}>
 				Primary
 			</Button>
 			<Button loading variant="contained" color="secondary" onPress={action('button-press')}>
