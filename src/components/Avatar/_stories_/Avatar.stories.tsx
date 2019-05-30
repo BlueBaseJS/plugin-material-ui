@@ -36,7 +36,7 @@ stories.add('Simple Avatar with icon prop and size', () => (
 		type="icon"
 		icon="check"
 		size={200}
-		color='white'
+		color={'white'}
 		avatarColor="green"
 	/>
 ));
