@@ -1,6 +1,8 @@
-import React from 'react';
 // import { Tab } from '@bluebase/components';
-import { getComponent } from '@bluebase/core';
+import { Theme, getComponent } from '@bluebase/core';
+
+import React from 'react';
+import { TabsComponent } from './TabsComponent';
 import storiesOf from '@bluebase/storybook-addon';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
@@ -12,80 +14,57 @@ const stories = storiesOf('Tabs', module);
 stories.addDecorator(withInfo);
 stories.addDecorator(withKnobs);
 
-const style = {
-	root: {
-		backgroundColor: 'white',
-		flexGrow: 1,
-	},
-	tabsRoot: {
-		borderBottom: '1px solid #e8e8e8',
-	},
-	tabsIndicator: {
-		backgroundColor: '#1890ff',
-	},
-	tabRoot: {
-		textTransform: 'initial',
-		minWidth: 72,
-		// marginRight: theme.spacing.unit * 4,
-		fontFamily: [
-			'-apple-system',
-			'BlinkMacSystemFont',
-			'"Segoe UI"',
-			'Roboto',
-			'"Helvetica Neue"',
-			'Arial',
-			'sans-serif',
-			'"Apple Color Emoji"',
-			'"Segoe UI Emoji"',
-			'"Segoe UI Symbol"',
-		].join(','),
-		'&:hover': {
-			color: 'yellow',
-			opacity: 1,
-		},
-		'&$tabSelected': {
-			color: 'yellow',
-		},
-		'&:focus': {
-			color: 'red',
-		},
-	},
-	tabSelected: {},
-	typography: {
-		// padding: theme.spacing.unit * 3,
-	},
+const tabsStyles = (_theme: Theme) => {
+	return {
+		root: {},
+	};
 };
 
-stories.add('Label only Tabs', () => (
-	<Tabs
-		styles={style}
-		// styles={{}}
+const tabStyles = (theme: Theme) => {
+	return {
+		root: {
+			backgroundColor: theme.palette.secondary.main,
+			color: theme.palette.secondary.contrastText,
+		},
+	};
+};
+const tab3Styles = (theme: Theme) => {
+	return {
+		root: {
+			backgroundColor: theme.palette.success.main,
+			color: theme.palette.success.contrastText,
+		},
+	};
+};
 
-		value={1}
-		// onChange={(_e, i) => console.log(`Clicked tab ${i}`)}
-	>
-		<Tab
-			// disableRip.ple
-			classes={{ root: style.tabRoot, selected: style.tabSelected }}
-			label="Tab 1"
-		/>
-		<Tab label="Tab 2" />
-		<Tab label="Tab 3" disabled />
-	</Tabs>
-));
+stories
+	.add('Label only Tabs', () => {
+		return <TabsComponent />;
+	})
 
-// .add('Icon & Label Tabs', () => (
-// 	<Tabs value={1} onChange={(_e, i) => console.log(`Clicked tab ${i}`)}>
-// 		<Tab label="Item One" icon={{ type: 'icon', name: 'star' }} />
-// 		<Tab label="Item Two" icon={{ type: 'icon', name: 'favorite' }} />
-// 		<Tab label="Item Three" icon={{ type: 'icon', name: 'help' }} disabled />
-// 	</Tabs>
-// ))
+	.add('Icon & Label Tabs', () => (
+		<Tabs value={1} onChange={(_e: any, i: any) => console.log(`Clicked tab ${i}`)}>
+			<Tab label="Item One" icon="star" />
+			<Tab label="Item Two" icon="favorite" />
+			<Tab label="Item Three" icon="help" />
+		</Tabs>
+	))
 
-// .add('Icon only Tabs', () => (
-// 	<Tabs value={1} onChange={(_e, i) => console.log(`Clicked tab ${i}`)}>
-// 		<Tab icon={{ type: 'icon', name: 'star' }} />
-// 		<Tab icon={{ type: 'icon', name: 'favorite' }} />
-// 		<Tab icon={{ type: 'icon', name: 'help' }} disabled />
-// 	</Tabs>
-// ));
+	.add('Icon only Tabs', () => (
+		<Tabs value={1} onChange={(_e: any, i: any) => console.log(`Clicked tab ${i}`)}>
+			<Tab icon="star" />
+			<Tab icon="favorite" />
+			<Tab icon="help" disabled />
+		</Tabs>
+	))
+	.add('Tabs With styles', () => (
+		<Tabs
+			styles={tabsStyles}
+			value={1}
+			onChange={(_e: any, i: any) => console.log(`Clicked tab ${i}`)}
+		>
+			<Tab icon="star" />
+			<Tab label="Tab" styles={tabStyles} />
+			<Tab icon="help" styles={tab3Styles} />
+		</Tabs>
+	));
