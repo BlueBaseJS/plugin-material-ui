@@ -15,6 +15,8 @@ stories
 
 	.add('Label Only Tab', () => <Tab label="Item One" />)
 
-	.add('Icon Only Tab', () => <Tab icon="delete" />)
+	.add('Icon Only Tab', () => <Tab icon={{ type: 'icon', name: 'delete' }} />)
 
-	.add('Icon & Label Tab', () => <Tab label="Item One" icon="favorite" />);
+	.add('Icon & Label Tab', () => (
+		<Tab label="Item One" icon={{ type: 'icon', name: 'favorite' }} />
+	));

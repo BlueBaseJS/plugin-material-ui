@@ -44,17 +44,17 @@ stories
 
 	.add('Icon & Label Tabs', () => (
 		<Tabs value={1} onChange={(_e: any, i: any) => console.log(`Clicked tab ${i}`)}>
-			<Tab label="Item One" icon="star" />
-			<Tab label="Item Two" icon="favorite" />
-			<Tab label="Item Three" icon="help" />
+			<Tab label="Item One" icon={{ type: 'icon', name: 'star' }} />
+			<Tab label="Item Two" icon={{ type: 'icon', name: 'favorite' }} />
+			<Tab label="Item Three" icon={{ type: 'icon', name: 'help' }} />
 		</Tabs>
 	))
 
 	.add('Icon only Tabs', () => (
 		<Tabs value={1} onChange={(_e: any, i: any) => console.log(`Clicked tab ${i}`)}>
-			<Tab icon="star" />
-			<Tab icon="favorite" />
-			<Tab icon="help" disabled />
+			<Tab icon={{ type: 'icon', name: 'star' }} />
+			<Tab icon={{ type: 'icon', name: 'favorite' }} />
+			<Tab icon={{ type: 'icon', name: 'help' }} disabled />
 		</Tabs>
 	))
 	.add('Tabs With styles', () => (
@@ -63,8 +63,8 @@ stories
 			value={1}
 			onChange={(_e: any, i: any) => console.log(`Clicked tab ${i}`)}
 		>
-			<Tab icon="star" />
+			<Tab icon={{ type: 'icon', name: 'star' }} />
 			<Tab label="Tab" styles={tabStyles} />
-			<Tab icon="help" styles={tab3Styles} />
+			<Tab icon={{ type: 'icon', name: 'help' }} styles={tab3Styles} />
 		</Tabs>
 	));
