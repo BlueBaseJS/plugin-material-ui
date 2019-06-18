@@ -8,7 +8,7 @@ describe('Tab', () => {
 	it('should render an Icon when icon prop is given', async () => {
 		const component = mount(
 			<BlueBaseApp>
-				<Tab icon="delete" />
+				<Tab icon={{ name: 'delete' }} />
 			</BlueBaseApp>
 		);
 
@@ -16,7 +16,7 @@ describe('Tab', () => {
 
 		expect(
 			component
-				.find('Tab Icon')
+				.find('Tab DynamicIcon')
 				.first()
 				.prop('name')
 		).toBe('delete');
