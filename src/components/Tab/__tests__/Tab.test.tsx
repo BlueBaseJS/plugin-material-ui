@@ -1,4 +1,5 @@
 import { BlueBaseApp } from '@bluebase/core';
+import { DynamicIcon } from '@bluebase/core/dist/components';
 import React from 'react';
 import { Tab } from '../Tab';
 import { mount } from 'enzyme';
@@ -38,5 +39,21 @@ describe('Tab', () => {
 				.prop('label')
 		).toBe('Item');
 		expect(component.find('Tab Icon')).toHaveLength(0);
+	});
+
+	it('should render an Icon when icon element is given', async () => {
+		const component: any = mount(
+			<BlueBaseApp>
+				<Tab label="Item" icon={<DynamicIcon type="icon" name="delete" />} />
+			</BlueBaseApp>
+		);
+
+		await waitForElement(component as any, Tab);
+		const icon = component
+			.find('Tab')
+			.last()
+			.prop('icon');
+
+		expect(icon).toBeDefined();
 	});
 });
