@@ -10,40 +10,21 @@ function getTabUI(props: any) {
 export const Tab = (props: any) => {
 	const { icon, ...rest } = props;
 	const Wrapper: any = getTabUI;
-	const Styled = withStyles(props.styles)(Wrapper);
+	const Styled = withStyles(props.styles || {})(Wrapper);
 
-	// const CustomIcon: React.ElementType = () => {
-	// 	if (!icon) {
-	// 		return null;
-	// 	}
-	// 	const size = icon.size || 24;
+	let iconNode;
 
-	// 	const iconProps = {
-	// 		size,
-	// 		style: {
-	// 			lineHeight: size,
-	// 			...icon.style,
-	// 		},
-	// 		...icon,
-	// 	};
+	if (React.isValidElement(icon)) {
+		iconNode = icon;
+	} else if (!!icon) {
+		iconNode = (
+			<DynamicIcon
+				size={icon.size || 24}
+				style={{ lineHeight: icon.size || 24, ...icon.style }}
+				{...icon}
+			/>
+		);
+	}
 
-	// 	return <DynamicIcon {...iconProps} />;
-	// };
-	return (
-		<Styled
-			{...rest}
-			icon={
-				// <CustomIcon />
-				icon ? (
-					<DynamicIcon
-						size={icon.size || 24}
-						style={{ lineHeight: icon.size || 24, ...icon.style }}
-						{...icon}
-					/>
-				) : (
-					undefined
-				)
-			}
-		/>
-	);
+	return <Styled {...rest} icon={iconNode} />;
 };
