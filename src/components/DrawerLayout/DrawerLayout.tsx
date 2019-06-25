@@ -43,7 +43,7 @@ export class DrawerLayoutComponent extends React.Component<
 			anchor: drawerPosition,
 			children: renderNavigationView && renderNavigationView(),
 			className: classes.drawer,
-			classes: { paper: classes.drawerPaper },
+			classes: variant === 'persistent' ? { paper: classes.drawerPaper } : {},
 			onClose: onDrawerClose,
 			// onRendered: onDrawerOpen,
 			open: this.state.open,
