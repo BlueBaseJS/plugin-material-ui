@@ -58,7 +58,9 @@
     "screenshot": "storybook-chrome-screenshot -p 9001 -c ./bluebase/storybook/configs",
     "build-storybook": "build-storybook",
     "web:start": "bluebase web:start",
-    "expo:start": "bluebase expo:start"
+    "expo:start": "bluebase expo:start",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "scripts-info": {
     "info": "Display information about the package scripts",
@@ -82,8 +84,9 @@
     "deepmerge": "^3.2.0",
     "jss-rtl": "^0.2.3",
     "react-jss": "^8.6.1",
-    "react-native": "^0.57.8",
-    "tslib": "^1.9.3"
+    "react-native": "^0.60.0",
+    "tslib": "^1.9.3",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -158,5 +161,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "snyk": true
 }
