@@ -25,19 +25,19 @@ stories.add('Simple Avatar ', () => (
 stories.add('Simple Avatar with text prop ', () => (
 	<Avatar
 		type="text"
-		text="N"
+		text="New"
 	/>
 ));
 
 
 
-stories.add('Simple Avatar with icon prop and size', () => (
+stories.add('Simple Avatar with icon and size', () => (
 	<Avatar
 		type="icon"
 		icon="check"
 		size={200}
 		color={'white'}
-		avatarColor="green"
+		backgroundColor="green"
 	/>
 ));
 
@@ -45,7 +45,6 @@ stories.add('Simple Avatar local images ', () => (
 	<Avatar
 		type="image"
 		image={require('./image/download.png')}
-		// style={{ width: 100, height: 100 }}
 		size={200}
 	/>
 
