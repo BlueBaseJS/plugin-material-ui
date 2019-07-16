@@ -8,6 +8,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import OutlinedInput from '@material-ui/core/OutlinedInput';
 import React from 'react';
 import Select from '@material-ui/core/Select';
+import { StyleSheet } from 'react-native';
 import { objectMapper } from '@bluebase/component-mapper';
 
 const fieldMap = {
@@ -38,6 +39,7 @@ const fieldMap = {
 	placeholder: 'placeholder',
 	readOnly: 'readOnly',
 	required: 'required',
+	style: ({ style }: PickerProps) => StyleSheet.flatten(style),
 	variant: 'variant',
 };
 
