@@ -1,13 +1,19 @@
 import { Icon, IconButtonDefaultProps, IconButtonProps } from '@bluebase/components';
+
 import MUIIconButton from '@material-ui/core/IconButton';
 import React from 'react';
 import { componentMapper } from '@bluebase/component-mapper';
 
 export const IconButton = componentMapper<IconButtonProps>(MUIIconButton, {
-	accessibilityLabel: ({ accessibilityLabel }: IconButtonProps) => accessibilityLabel,
 	children: ({ name, size, color }) => <Icon name={name} size={size} color={color} />,
-	disabled: ({ disabled }: IconButtonProps) => disabled,
+
+	accessibilityLabel: 'accessibilityLabel',
+	disabled: 'disbaled',
+	fullWidth: 'fullWidth',
+	name: 'name',
 	onClick: 'onPress',
-}, { rest: true, ignore: ['color'] });
+	size: 'size',
+	variant: 'variant',
+});
 
 IconButton.defaultProps = IconButtonDefaultProps;
