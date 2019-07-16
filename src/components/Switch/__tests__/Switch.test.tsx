@@ -8,7 +8,6 @@ import { styles } from '../styles';
 import { waitForElement } from 'enzyme-async-helpers';
 
 describe('Switch', () => {
-
 	it('should set the checked to true when checked is true', async () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
@@ -18,11 +17,15 @@ describe('Switch', () => {
 		await waitForElement(component, Switch);
 
 		// expect(component).toMatchSnapshot();
-		expect(component.find('Switch').first().prop('checked')).toEqual(true);
+		expect(
+			component
+				.find('Switch')
+				.first()
+				.prop('checked')
+		).toEqual(true);
 	});
 
 	it('should have different colors in dark mode', () => {
-
 		const theme = createMuiTheme({ palette: { type: 'dark' } });
 
 		const classes = styles({ color: 'red' }, theme);
@@ -38,7 +41,12 @@ describe('Switch', () => {
 		);
 		await waitForElement(component, Switch);
 
-		expect(component.find('Switch').first().prop('checked')).toEqual(false);
+		expect(
+			component
+				.find('Switch')
+				.first()
+				.prop('checked')
+		).toEqual(false);
 	});
 
 	it('should pass the color as is when set to "primary"', async () => {
@@ -49,7 +57,12 @@ describe('Switch', () => {
 		);
 		await waitForElement(component, Switch);
 
-		expect(component.find('Switch').first().prop('color')).toEqual('primary');
+		expect(
+			component
+				.find('Switch')
+				.first()
+				.prop('color')
+		).toEqual('primary');
 	});
 
 	it('should pass the color as is when set to "secondary"', async () => {
@@ -60,7 +73,12 @@ describe('Switch', () => {
 		);
 		await waitForElement(component, Switch);
 
-		expect(component.find('Switch').first().prop('color')).toEqual('secondary');
+		expect(
+			component
+				.find('Switch')
+				.first()
+				.prop('color')
+		).toEqual('secondary');
 	});
 
 	it('should pass the color as is when set to "default"', async () => {
@@ -71,7 +89,12 @@ describe('Switch', () => {
 		);
 		await waitForElement(component, Switch);
 
-		expect(component.find('Switch').first().prop('color')).toEqual('default');
+		expect(
+			component
+				.find('Switch')
+				.first()
+				.prop('color')
+		).toEqual('default');
 	});
 
 	it('should set the color prop to undefined and create classes for custom colors', async () => {
@@ -81,9 +104,13 @@ describe('Switch', () => {
 			</BlueBaseApp>
 		);
 		await waitForElement(component, Switch);
-		// expect(component).toMatchSnapshot();
-		expect(component.find('WithStyles(Switch)').first().prop('classes')).toBeTruthy();
-		expect(component.find('WithStyles(Switch)').first().prop('color')).toEqual('red');
+
+		expect(
+			component
+				.find('WithStyles(Component)')
+				.first()
+				.prop('color')
+		).toEqual('red');
 	});
 
 	it('should set the label component', async () => {
@@ -95,15 +122,18 @@ describe('Switch', () => {
 		await waitForElement(component, Switch);
 		// expect(component).toMatchSnapshot();
 		expect(component.find('FormControlLabel').length).toBeGreaterThan(0);
-		expect(component.find('FormControlLabel').first().prop('label')).toEqual('Foo');
+		expect(
+			component
+				.find('FormControlLabel')
+				.first()
+				.prop('label')
+		).toEqual('Foo');
 	});
 
 	it('should map onValueChange fn to onChange fn', async () => {
-
 		const cb = jest.fn();
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
-
 				<Switch label="Foo" onValueChange={cb} />
 			</BlueBaseApp>
 		);
@@ -119,11 +149,9 @@ describe('Switch', () => {
 	});
 
 	it('should map onValueChange fn to onChange fn with value', async () => {
-
 		const cb = jest.fn();
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
-
 				<Switch label="Foo" value="foo" onValueChange={cb} />
 			</BlueBaseApp>
 		);
@@ -140,19 +168,20 @@ describe('Switch', () => {
 	});
 
 	it('should pass onChange as is if available', async () => {
-
 		const cb = jest.fn();
 
 		const SWITCH = Switch as any;
 
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
-
 				<SWITCH label="Foo" onChange={cb} />
 			</BlueBaseApp>
 		);
 		await waitForElement(component, SWITCH);
-		const onChange = component.find('Switch').first().prop('onChange') as any;
+		const onChange = component
+			.find('Switch')
+			.first()
+			.prop('onChange') as any;
 
 		onChange('foo', true);
 
@@ -160,7 +189,4 @@ describe('Switch', () => {
 		expect(cb).toBeCalledTimes(1);
 		expect(cb).toBeCalledWith('foo', true);
 	});
-
 });
-
-

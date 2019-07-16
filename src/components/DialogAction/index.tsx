@@ -1,4 +1,0 @@
-import DialogActions from '@material-ui/core/DialogActions';
-
-export { DialogActions };
-
