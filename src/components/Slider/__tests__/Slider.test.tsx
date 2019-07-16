@@ -92,8 +92,8 @@ describe('Slider', () => {
 		const component = mount(<Slider label="FooBar" showValue value={25} />);
 
 		// expect(component).toMatchSnapshot();
-		const label = component.find('[data-testId="value-on-top"] [data-testId="label"]').last();
-		const value = component.find('[data-testId="value-on-top"] [data-testId="value"]').last();
+		const label = component.find('[data-testid="value-on-top"] [data-testid="label"]').last();
+		const value = component.find('[data-testid="value-on-top"] [data-testid="value"]').last();
 
 		expect(label.text()).toBe('FooBar');
 		expect(value.text()).toBe('25');
@@ -103,7 +103,7 @@ describe('Slider', () => {
 		const component = mount(<Slider showValue value={25} />);
 
 		// expect(component).toMatchSnapshot();
-		const value = component.find('[data-testId="value-on-right"] [data-testId="value"]').last();
+		const value = component.find('[data-testid="value-on-right"] [data-testid="value"]').last();
 
 		expect(value.text()).toBe('25');
 	});
