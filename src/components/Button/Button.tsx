@@ -7,6 +7,7 @@ import {
 
 import MUIButton from '@material-ui/core/Button';
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { componentMapper } from '@bluebase/component-mapper';
 import { styles } from './styles';
 import { withPropsStyles } from '../../withPropsStyles';
@@ -45,10 +46,12 @@ export const Button = withPropsStyles(styles)(
 			);
 		},
 
+		classes: 'classes',
 		disabled: 'disbaled',
 		fullWidth: 'fullWidth',
 		onClick: 'onPress',
 		size: 'size',
+		style: ({ style }: any) => StyleSheet.flatten(style),
 		variant: 'variant',
 	})
 ) as React.ComponentType<ButtonProps>;
