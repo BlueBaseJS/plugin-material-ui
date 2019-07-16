@@ -1,6 +1,7 @@
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import MUISwitch from '@material-ui/core/Switch';
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { SwitchProps } from '@bluebase/components';
 import { objectMapper } from '@bluebase/component-mapper';
 import { styles } from './styles';
@@ -33,6 +34,7 @@ const map = {
 	label: 'label',
 	labelPlacement: 'labelPlacement',
 	name: 'name',
+	style: ({ style }: SwitchProps) => StyleSheet.flatten(style),
 	value: 'value',
 };
 
