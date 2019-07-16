@@ -6,6 +6,7 @@ import FormLabel from '@material-ui/core/FormLabel';
 import MUISlider from '@material-ui/lab/Slider';
 import React from 'react';
 import { SliderProps } from '@bluebase/components';
+import { StyleSheet } from 'react-native';
 import { componentMapper } from '@bluebase/component-mapper';
 
 const styles = (theme: Theme): any => ({
@@ -64,6 +65,7 @@ export const Slider = withStyles(styles)(
 			required: 'required',
 			showValue: 'showValue',
 			step: 'step',
+			style: ({ style }: SliderProps) => StyleSheet.flatten(style),
 			value: 'value',
 		},
 		{
