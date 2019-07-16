@@ -8,6 +8,6 @@ function getTabsUI(props: any) {
 
 export const Tabs = (props: any) => {
 	const Wrapper: any = getTabsUI;
-	const Styled = withStyles(props.styles)(Wrapper);
+	const Styled = withStyles(props.styles || {})(Wrapper);
 	return <Styled {...props} />;
 };
