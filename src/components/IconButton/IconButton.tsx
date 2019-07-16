@@ -2,6 +2,7 @@ import { Icon, IconButtonDefaultProps, IconButtonProps } from '@bluebase/compone
 
 import MUIIconButton from '@material-ui/core/IconButton';
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { componentMapper } from '@bluebase/component-mapper';
 
 export const IconButton = componentMapper<IconButtonProps>(MUIIconButton, {
@@ -13,6 +14,7 @@ export const IconButton = componentMapper<IconButtonProps>(MUIIconButton, {
 	name: 'name',
 	onClick: 'onPress',
 	size: 'size',
+	style: ({ style }: IconButtonProps) => StyleSheet.flatten(style),
 	variant: 'variant',
 });
 
