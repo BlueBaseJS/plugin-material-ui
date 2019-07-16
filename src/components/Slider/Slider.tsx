@@ -91,11 +91,13 @@ export const Slider = withStyles(styles)(
 				// If we have label and show value, then we show value in line with the label
 				else if (label && showValue) {
 					labelNode = (
-						<div className={classes.labelWrapper}>
-							<FormLabel className={classes.label} htmlFor={id}>
+						<div className={classes.labelWrapper} data-testId="value-on-top">
+							<FormLabel className={classes.label} htmlFor={id} data-testId="label">
 								{label}
 							</FormLabel>
-							<FormLabel className={classes.value}>{props.value}</FormLabel>
+							<FormLabel className={classes.value} data-testId="value">
+								{props.value}
+							</FormLabel>
 						</div>
 					);
 				}
@@ -105,9 +107,11 @@ export const Slider = withStyles(styles)(
 				// If theres no label then we show value in line with the slider
 				if (!label && showValue) {
 					sliderNode = (
-						<div className={classes.sliderWrapper}>
+						<div className={classes.sliderWrapper} data-testId="value-on-right">
 							<div className={classes.inlineSlider}>{sliderNode}</div>
-							<FormLabel className={classes.inlineValue}>{props.value}</FormLabel>
+							<FormLabel className={classes.inlineValue} data-testId="value">
+								{props.value}
+							</FormLabel>
 						</div>
 					);
 				}
