@@ -1,4 +1,5 @@
-import { PickerDefaultProps, PickerItem as BBPickerItem, PickerProps } from '@bluebase/components';
+import { PickerDefaultProps, PickerItem as PickerItemBB, PickerProps } from '@bluebase/components';
+
 import FilledInput from '@material-ui/core/FilledInput';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
@@ -11,10 +12,10 @@ import { objectMapper } from '@bluebase/component-mapper';
 
 const fieldMap = {
 	displayEmpty: ({ placeholder }: PickerProps) => !!placeholder,
-	native: ({ mode }: PickerProps) => mode !== 'default' ? false : true,
+	native: ({ mode }: PickerProps) => (mode !== 'default' ? false : true),
 	value: 'selectedValue',
 
-	onChange: ({ onChange, onValueChange }: any) => (event: any, value: number)  => {
+	onChange: ({ onChange, onValueChange }: any) => (event: any, value: number) => {
 		if (onChange) {
 			onChange(event, value);
 		}
@@ -22,16 +23,26 @@ const fieldMap = {
 		if (onValueChange) {
 			onValueChange(event.target.value, event.target.selectedIndex);
 		}
-	}
+	},
 
+	PickerItem: 'PickerItem',
+	children: 'children',
+	classes: 'classes',
+	disabled: 'disabled',
+	error: 'error',
+	helperText: 'helperText',
+	id: 'id',
+	label: 'label',
+	mode: 'mode',
+	name: 'name',
+	placeholder: 'placeholder',
+	readOnly: 'readOnly',
+	required: 'required',
+	variant: 'variant',
 };
 
-export const Picker = (props: PickerProps & { PickerItem?: typeof BBPickerItem }) => {
-
-	const newProps = objectMapper(props, fieldMap, {
-		ignore: ['onValueChange', 'selectedValue'],
-		rest: true,
-	});
+export const Picker = (props: PickerProps & { PickerItem?: typeof PickerItemBB }) => {
+	const newProps = objectMapper(props, fieldMap);
 
 	const {
 		children,
@@ -67,12 +78,12 @@ export const Picker = (props: PickerProps & { PickerItem?: typeof BBPickerItem }
 		error,
 		required,
 		variant,
-		...rest
+		...rest,
 	};
 
 	const selectProps = {
 		displayEmpty,
-		input: <InputComponent {...{ id, name, }} />,
+		input: <InputComponent {...{ id, name }} />,
 		// inputProps: { id, name, },
 		native,
 		onChange,
@@ -83,16 +94,16 @@ export const Picker = (props: PickerProps & { PickerItem?: typeof BBPickerItem }
 	return (
 		<FormControl {...formControlProps}>
 			{label ? <InputLabel htmlFor={id}>{label}</InputLabel> : null}
-			<Select {...selectProps} >
+			<Select {...selectProps}>
 				{placeholder ? <PickerItem value="" label={placeholder} disabled /> : null}
 				{children}
 			</Select>
-      {helperText ? <FormHelperText>{helperText}</FormHelperText> : null}
+			{helperText ? <FormHelperText>{helperText}</FormHelperText> : null}
 		</FormControl>
 	);
 };
 
 Picker.defaultProps = {
 	...PickerDefaultProps,
-	PickerItem: BBPickerItem,
+	PickerItem: PickerItemBB,
 };
