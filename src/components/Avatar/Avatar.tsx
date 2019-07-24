@@ -14,7 +14,7 @@ export const Avatar = (props: AvatarProps) => {
 	}
 	if (type === 'image') {
 		return (
-			<MuiAvatar style={{ height: size, width: size }}>
+			<MuiAvatar style={{ height: size, width: size }}  {...rest}>
 				<BlueBaseImage source={image} style={[{ height: size, width: size }, props.style]} />
 			</MuiAvatar>
 		);
