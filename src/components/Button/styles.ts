@@ -78,7 +78,7 @@ export function getButtonColors(
 		return colors;
 	}
 
-	if (!color) {
+	if (!color || (color === 'default' && !disabled)) {
 		return colors;
 	}
 
