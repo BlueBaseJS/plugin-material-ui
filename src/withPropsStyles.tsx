@@ -1,24 +1,22 @@
 import { Theme, withStyles } from '@material-ui/core/styles';
+
 import React from 'react';
 import { ThemeConsumer } from '@bluebase/core';
 
 const { createElement, forwardRef } = React;
 
 // Docs: https://github.com/mui-org/material-ui/issues/7633#issuecomment-418211698
-export const withPropsStyles = ( style: any ) => {
-
-	const withPropsStylesInternal = ( component: React.ComponentType<any> ) => {
-
-		return forwardRef( (props, ref) => (
+export const withPropsStyles = (style: any) => {
+	const withPropsStylesInternal = (component: React.ComponentType<any>) => {
+		return forwardRef((props, ref) => (
 			<ThemeConsumer>
-			{({ theme: bluebaseTheme }) => {
+				{({ theme: bluebaseTheme }) => {
+					const proxy = (theme: Theme) => style(props, theme, bluebaseTheme);
 
-				const proxy = (theme: Theme) => style(props, theme, bluebaseTheme);
+					const hoc = withStyles(proxy)(component);
 
-				const hoc = withStyles(proxy)(component);
-
-				return createElement(hoc, { ...props, ref }, props.children);
-			}}
+					return createElement(hoc, { ...props, ref, bluebaseTheme }, props.children);
+				}}
 			</ThemeConsumer>
 		));
 	};

@@ -1,39 +1,17 @@
 import { ButtonProps } from '@bluebase/components';
 import { Theme } from '@bluebase/core';
-import { Theme as MuiTheme } from '@material-ui/core';
+import { Theme as ThemeMui } from '@material-ui/core';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
-export const styles = ({ color, disabled }: ButtonProps, muiTheme: MuiTheme, theme: Theme) => {
-	if (!color || (color === 'default' && !disabled)) {
+export const styles = (props: ButtonProps, muiTheme: ThemeMui, theme: Theme) => {
+	const { color, disabled } = props;
+	// debugger;
+
+	if (!color || (color === 'default' && !disabled) || disabled) {
 		return;
 	}
 
-	const colors: {
-		hover?: string;
-		main?: string;
-		text?: string;
-	} = {};
-
-	if (disabled) {
-		return;
-	}
-	// If color is NOT primary, secondary or default then create custom styles
-	if (
-		(color === 'primary' ||
-			color === 'secondary' ||
-			color === 'success' ||
-			color === 'error' ||
-			color === 'warning') &&
-		!disabled
-	) {
-		colors.hover = (theme.palette as any)[color].dark;
-		colors.main = (theme.palette as any)[color].main;
-		colors.text = (theme.palette as any)[color].contrastText;
-	} else {
-		colors.hover = color;
-		colors.main = color;
-		colors.text = muiTheme.palette.getContrastText(color);
-	}
+	const colors = getButtonColors(props, muiTheme, theme);
 
 	return {
 		contained: {},
@@ -55,25 +33,77 @@ export const styles = ({ color, disabled }: ButtonProps, muiTheme: MuiTheme, the
 					'@media (hover: none)': {
 						backgroundColor: 'transparent',
 					},
-					backgroundColor: fade(colors.main as string, theme.palette.action.hoverOpacity),
-					border: `1px solid ${colors.main as string}`,
+					backgroundColor: fade(colors.text as string, theme.palette.action.hoverOpacity),
+					border: `1px solid ${colors.text as string}`,
 					// Reset on touch devices, it doesn't add specificity
 				},
-				border: `1px solid ${fade(colors.main as string, 0.5)}`,
-				color: colors.main,
+				border: `1px solid ${fade(colors.text as string, 0.5)}`,
+				color: colors.text,
 			},
 			'&$text': {
 				'&:hover': {
 					'@media (hover: none)': {
 						backgroundColor: 'transparent',
 					},
-					backgroundColor: fade(colors.main as string, theme.palette.action.hoverOpacity),
+					backgroundColor: fade(colors.text as string, theme.palette.action.hoverOpacity),
 					// Reset on touch devices, it doesn't add specificity
 				},
-				color: colors.main,
+				color: colors.text,
 			},
 		},
 		/* Styles applied to the root element if `variant="text"` */
 		text: {},
 	};
 };
+
+export function getButtonColors(
+	{ color, disabled, variant }: ButtonProps,
+	muiTheme: ThemeMui,
+	theme: Theme
+) {
+	const colors: {
+		hover?: string;
+		main?: string;
+		text?: string;
+	} = {
+		// hover: theme.palette.primary.main,
+		// main: theme.palette.primary.main,
+		// text: theme.palette.text.primary,
+	};
+
+	if (disabled) {
+		colors.hover = theme.palette.action.disabledBackground;
+		colors.main = theme.palette.action.disabledBackground;
+		colors.text = theme.palette.action.disabled;
+		return colors;
+	}
+
+	if (!color) {
+		return colors;
+	}
+
+	// If color is NOT primary, secondary or default then create custom styles
+	if (
+		color === 'primary' ||
+		color === 'secondary' ||
+		color === 'success' ||
+		color === 'error' ||
+		color === 'warning'
+	) {
+		if (variant === 'contained') {
+			colors.hover = theme.palette[color].dark;
+			colors.main = theme.palette[color].main;
+			colors.text = theme.palette[color].contrastText;
+		} else {
+			// colors.hover = 'transparent';
+			// colors.main = 'transparent';
+			colors.text = theme.palette[color].main;
+		}
+	} else {
+		colors.hover = color;
+		colors.main = color;
+		colors.text = muiTheme.palette.getContrastText(color);
+	}
+
+	return colors;
+}
