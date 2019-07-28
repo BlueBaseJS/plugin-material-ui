@@ -7,6 +7,7 @@ import {
 	Text,
 	View,
 } from '@bluebase/components';
+
 import React from 'react';
 import storiesOf from '@bluebase/storybook-addon';
 import { withInfo } from '@storybook/addon-info';
@@ -22,7 +23,7 @@ const DrawerContent = () => (
 		<Text style={{ margin: 10, fontSize: 15, textAlign: 'right' }}>Hello</Text>
 		<Text style={{ margin: 10, fontSize: 15, textAlign: 'right' }}>World!</Text>
 		<DrawerActions>
-			{(navigation) => (
+			{navigation => (
 				<React.Fragment>
 					<Button title="Open" onPress={navigation.openDrawer} />
 					<Button title="Close" onPress={navigation.closeDrawer} />
@@ -44,76 +45,77 @@ const navigationView = () => (
 );
 stories
 
-.add('Default props', () => (
-	<DrawerLayout
-		// open
-		drawerWidth={200}
-		// drawerPosition="left"
-		renderNavigationView={navigationView}
-	>
-		<DrawerContent />
-	</DrawerLayout>
-))
+	.add('Default props', () => (
+		<DrawerLayout
+			// open
+			drawerWidth={200}
+			// drawerPosition="left"
+			renderNavigationView={navigationView}
+		>
+			<DrawerContent />
+		</DrawerLayout>
+	))
 
-.add('Type: slide', () => (
-	<DrawerLayout
-		renderNavigationView={navigationView}
-		drawerType="slide"
-		drawerWidth={200}
-		open
-	>
-		<DrawerContent />
-	</DrawerLayout>
-))
+	.add('Right Positioned', () => (
+		<DrawerLayout
+			// open
+			drawerWidth={200}
+			drawerPosition="right"
+			renderNavigationView={navigationView}
+		>
+			<DrawerContent />
+		</DrawerLayout>
+	))
 
-.add('Type: slide, Nested', () => (
-	<View style={{ flex: 1 }}>
-		<View style={{ backgroundColor: 'red', minHeight: 30 }}>
-			<Text>Top</Text>
-		</View>
-		<View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'red' }}>
-			<View style={{ width: 150, backgroundColor: 'yellow' }}>
-				<Text>Left</Text>
-			</View>
-			<View style={{ flex: 1, backgroundColor: 'green' }}>
-				<DrawerLayout
-					renderNavigationView={navigationView}
-					drawerType="slide"
-					drawerWidth={200}
-					open
-				>
-					<DrawerContent />
-				</DrawerLayout>
-			</View>
-			<View style={{ width: 150, backgroundColor: 'blue' }}>
-				<Text>Left</Text>
-			</View>
-		</View>
-	</View>
-))
+	.add('Type: slide', () => (
+		<DrawerLayout renderNavigationView={navigationView} drawerType="slide" drawerWidth={200} open>
+			<DrawerContent />
+		</DrawerLayout>
+	))
 
-.add('Type: front, Nested', () => (
-	<View style={{ flex: 1 }}>
-		<View style={{ backgroundColor: 'red', minHeight: 30 }}>
-			<Text>Top</Text>
+	.add('Type: slide, Nested', () => (
+		<View style={{ flex: 1 }}>
+			<View style={{ backgroundColor: 'red', minHeight: 30 }}>
+				<Text>Top</Text>
+			</View>
+			<View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'red' }}>
+				<View style={{ width: 150, backgroundColor: 'yellow' }}>
+					<Text>Left</Text>
+				</View>
+				<View style={{ flex: 1, backgroundColor: 'green' }}>
+					<DrawerLayout
+						renderNavigationView={navigationView}
+						drawerType="slide"
+						drawerWidth={200}
+						open
+					>
+						<DrawerContent />
+					</DrawerLayout>
+				</View>
+				<View style={{ width: 150, backgroundColor: 'blue' }}>
+					<Text>Left</Text>
+				</View>
+			</View>
 		</View>
-		<View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'red' }}>
-			<View style={{ width: 150, backgroundColor: 'yellow' }}>
-				<Text>Left</Text>
+	))
+
+	.add('Type: front, Nested', () => (
+		<View style={{ flex: 1 }}>
+			<View style={{ backgroundColor: 'red', minHeight: 30 }}>
+				<Text>Top</Text>
 			</View>
-			<View style={{ flex: 1, backgroundColor: 'green' }}>
-				<DrawerLayout
-					renderNavigationView={navigationView}
-					drawerType="front"
-					open
-				>
-					<DrawerContent />
-				</DrawerLayout>
-			</View>
-			<View style={{ width: 150, backgroundColor: 'blue' }}>
-				<Text>Left</Text>
+			<View style={{ flex: 1, flexDirection: 'row', backgroundColor: 'red' }}>
+				<View style={{ width: 150, backgroundColor: 'yellow' }}>
+					<Text>Left</Text>
+				</View>
+				<View style={{ flex: 1, backgroundColor: 'green' }}>
+					<DrawerLayout renderNavigationView={navigationView} drawerType="front" open>
+						<DrawerContent />
+					</DrawerLayout>
+				</View>
+				<View style={{ width: 150, backgroundColor: 'blue' }}>
+					<Text>Left</Text>
+				</View>
 			</View>
 		</View>
-	</View>
-))
-;
+	));

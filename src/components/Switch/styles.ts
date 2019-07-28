@@ -5,6 +5,8 @@ export const styles = ({ color }: SwitchProps, theme: Theme) => {
 	const common = {
 		label: {},
 		labelPlacementStart: {
+			marginLeft: 0,
+
 			'& $label': {
 				flex: 1,
 			},
@@ -43,13 +45,14 @@ export const styles = ({ color }: SwitchProps, theme: Theme) => {
 			'& + $bar': {
 				opacity: theme.palette.type === 'light' ? 0.12 : 0.1,
 			},
-			// tslint:disable-next-line: object-literal-sort-keys
+
 			'& $icon': {
 				boxShadow: theme.shadows[1],
 			},
+
 			'&$switchBase': {
 				color: theme.palette.type === 'light' ? theme.palette.grey[400] : theme.palette.grey[800],
-				// tslint:disable-next-line: object-literal-sort-keys
+
 				'& + $bar': {
 					backgroundColor:
 						theme.palette.type === 'light'
