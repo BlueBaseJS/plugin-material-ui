@@ -52,7 +52,7 @@ export default createPlugin({
 	description: 'Material UI (web) comes to BlueBase!',
 	key: 'material-ui',
 	name: 'Material UI',
-	version: '0.0.1',
+	version: '2.0.0',
 
 	components: {
 		Avatar,
