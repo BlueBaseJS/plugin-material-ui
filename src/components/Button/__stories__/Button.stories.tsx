@@ -152,8 +152,11 @@ stories
 			>
 				Disabled
 			</Button>
-			<Button loading variant="contained" onPress={action('button-press')}>
-				Link
+			<Button loading variant="outlined" color="secondary" onPress={action('button-press')}>
+				Outlined
+			</Button>
+			<Button loading variant="text" color="secondary" onPress={action('button-press')}>
+				Text
 			</Button>
 		</React.Fragment>
 	))
@@ -195,10 +198,19 @@ stories
 			</Button>
 			<Button
 				icon={{ type: 'icon', name: 'favorite' }}
-				variant="contained"
+				color="secondary"
+				variant="outlined"
 				onPress={action('button-press')}
 			>
-				Link
+				Outlined
+			</Button>
+			<Button
+				icon={{ type: 'icon', name: 'favorite' }}
+				variant="outlined"
+				onPress={action('button-press')}
+				disabled
+			>
+				Outlined & Disabled
 			</Button>
 		</React.Fragment>
 	))

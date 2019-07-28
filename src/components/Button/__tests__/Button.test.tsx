@@ -3,6 +3,7 @@ import { Button } from '@bluebase/components';
 import Plugin from '../../../index';
 import React from 'react';
 import { Text } from 'react-native';
+import { getButtonColors } from '../styles';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
@@ -159,5 +160,21 @@ describe('Button', () => {
 				.first()
 				.prop('icon')
 		).toBeDefined();
+	});
+
+	describe('getButtonColors', () => {
+		it('should return only text color if variant is not contained and color is primary', () => {
+			const result = getButtonColors(
+				{ variant: 'text', color: 'primary' },
+				{} as any,
+				{ palette: { primary: { main: 'blue' } } } as any
+			);
+
+			expect(result).toMatchObject({
+				hover: undefined,
+				main: undefined,
+				text: 'blue',
+			});
+		});
 	});
 });
