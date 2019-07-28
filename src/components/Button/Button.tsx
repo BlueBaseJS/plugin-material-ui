@@ -14,7 +14,7 @@ import { withPropsStyles } from '../../withPropsStyles';
 import { withTheme } from '@material-ui/core/styles';
 
 export const Button = withPropsStyles(styles)(
-	withTheme()(
+	withTheme(
 		componentMapper<ButtonProps>(MUIButton, {
 			children: (props: ButtonProps) => {
 				const { title, children, loading, icon, bluebaseTheme } = props;

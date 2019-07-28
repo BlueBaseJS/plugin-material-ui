@@ -3,7 +3,7 @@ import { Theme, withStyles } from '@material-ui/core';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormLabel from '@material-ui/core/FormLabel';
-import MUISlider from '@material-ui/lab/Slider';
+import MUISlider from '@material-ui/core/Slider';
 import React from 'react';
 import { SliderProps } from '@bluebase/components';
 import { StyleSheet } from 'react-native';
@@ -11,18 +11,18 @@ import { componentMapper } from '@bluebase/component-mapper';
 
 const styles = (theme: Theme): any => ({
 	helperText: {
-		marginTop: theme.spacing.unit * 2,
+		marginTop: theme.spacing(2),
 	},
 	inlineSlider: {
 		display: 'flex',
 		flex: 1,
 	},
 	inlineValue: {
-		marginLeft: theme.spacing.unit * 2,
+		marginLeft: theme.spacing(2),
 	},
 	label: {
 		flex: 1,
-		marginBottom: theme.spacing.unit * 2,
+		marginBottom: theme.spacing(2),
 	},
 	labelWrapper: {
 		display: 'flex',
@@ -34,7 +34,7 @@ const styles = (theme: Theme): any => ({
 		flex: 1,
 	},
 	value: {
-		marginBottom: theme.spacing.unit * 2,
+		marginBottom: theme.spacing(2),
 	},
 });
 
