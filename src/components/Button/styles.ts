@@ -95,8 +95,8 @@ export function getButtonColors(
 			colors.main = theme.palette[color].main;
 			colors.text = theme.palette[color].contrastText;
 		} else {
-			// colors.hover = 'transparent';
-			// colors.main = 'transparent';
+			colors.hover = undefined;
+			colors.main = undefined;
 			colors.text = theme.palette[color].main;
 		}
 	} else {
