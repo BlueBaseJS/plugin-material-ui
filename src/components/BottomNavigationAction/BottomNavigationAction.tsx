@@ -32,5 +32,6 @@ export const BottomNavigationAction = componentMapper<BottomNavigationActionProp
 		label: 'label',
 		showLabel: 'showLabel',
 		value: 'value',
+		onChange: 'onChange'
 	}
 );
