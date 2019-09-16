@@ -2251,10 +2251,10 @@
     "@types/react" "*"
     "@types/webpack" "*"
 
-"@types/react-native@^0.57.7":
-  version "0.57.52"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.57.52.tgz#64f80498fbbe07884a08f77fd6fc387f489128e9"
-  integrity sha512-hbNlGvXZRHtz6eXBIzJXmUv7yTRNGsmuJ8DsYIgFkXRbth+AvoLsayPv0tPZr82/QTc4Q0WeCGpUb5Kovoof9A==
+"@types/react-native@^0.60.14":
+  version "0.60.14"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.60.14.tgz#76b07b97127a563ec0c996848925f81fcee1320b"
+  integrity sha512-8P00PR0TjAZij5VXLYL5pj1ZBYZxY9+Jh2R4iC1daCLaLFkLJ2ceP7WwNhl4PKZyifx0ENJGrt7yClRZGd9Pcw==
   dependencies:
     "@types/prop-types" "*"
     "@types/react" "*"
