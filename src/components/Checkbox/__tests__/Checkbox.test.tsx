@@ -1,74 +1,102 @@
+import { BlueBaseApp } from '@bluebase/core';
 import { Checkbox } from '../Checkbox';
+import Plugin from '../../../index';
 import React from 'react';
 import { mount } from 'enzyme';
+import { waitForElement } from 'enzyme-async-helpers';
 
 describe('Checkbox', () => {
 
-	it('should set the checked to true when checked is true', () => {
+	it('should set the checked to true when checked is true', async () => {
 		const component = mount(
-			<Checkbox checked />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Checkbox checked />
+			</BlueBaseApp>
 		);
-
+		await waitForElement(component, Checkbox);
 		// expect(component).toMatchSnapshot();
 		expect(component.find('Checkbox').first().prop('checked')).toEqual(true);
 	});
 
-	it('should set the checked to false when checked is false', () => {
+	it('should set the checked to false when checked is false', async () => {
 		const component = mount(
-			<Checkbox checked={false} />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Checkbox checked={false} />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Checkbox);
 
 		expect(component.find('Checkbox').first().prop('checked')).toEqual(false);
 	});
 
-	it('should pass the color as is when set to "primary"', () => {
+	it('should pass the color as is when set to "primary"', async () => {
 		const component = mount(
-			<Checkbox color="primary" />
+			<BlueBaseApp plugins={[Plugin]}>
+
+				<Checkbox color="primary" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Checkbox);
 
 		expect(component.find('Checkbox').first().prop('color')).toEqual('primary');
 	});
 
-	it('should pass the color as is when set to "secondary"', () => {
+	it('should pass the color as is when set to "secondary"', async () => {
 		const component = mount(
-			<Checkbox color="secondary" />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Checkbox color="secondary" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Checkbox);
 
 		expect(component.find('Checkbox').first().prop('color')).toEqual('secondary');
 	});
 
-	it('should pass the color as is when set to "default"', () => {
+	it('should pass the color as is when set to "default"', async () => {
 		const component = mount(
-			<Checkbox color="default" />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Checkbox color="default" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Checkbox);
 
 		expect(component.find('Checkbox').first().prop('color')).toEqual('default');
 	});
 
-	it('should set the color prop to undefined and create classed for custom colors', () => {
+	it('should set the color prop to undefined and create classed for custom colors', async () => {
 		const component = mount(
-			<Checkbox color="red" />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Checkbox color="red" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Checkbox);
 		// expect(component).toMatchSnapshot();
 		expect(component.find('WithStyles(Checkbox)').first().prop('classes')).toBeTruthy();
 		expect(component.find('WithStyles(Checkbox)').first().prop('color')).toEqual(undefined);
 	});
 
-	it('should set the label component', () => {
+	it('should set the label component', async () => {
 		const component = mount(
-			<Checkbox label="Foo" />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Checkbox label="Foo" />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Checkbox);
+
 		// expect(component).toMatchSnapshot();
 		expect(component.find('FormControlLabel').length).toBeGreaterThan(0);
 		expect(component.find('FormControlLabel').first().prop('label')).toEqual('Foo');
 	});
 
-	it('should map onValueChange fn to onChange fn', () => {
+	it('should map onValueChange fn to onChange fn', async () => {
 
 		const cb = jest.fn();
 		const component = mount(
-			<Checkbox label="Foo" onValueChange={cb} />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Checkbox label="Foo" onValueChange={cb} />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Checkbox);
 
 		const checkbox = component.find('Checkbox').first();
 		const onChange = checkbox.prop('onChange') as any;
@@ -80,12 +108,15 @@ describe('Checkbox', () => {
 		expect(cb).toBeCalledWith(undefined, true);
 	});
 
-	it('should map onValueChange fn to onChange fn with value', () => {
+	it('should map onValueChange fn to onChange fn with value', async () => {
 
 		const cb = jest.fn();
 		const component = mount(
-			<Checkbox label="Foo" value="foo" onValueChange={cb} />
+			<BlueBaseApp plugins={[Plugin]}>
+				<Checkbox label="Foo" value="foo" onValueChange={cb} />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, Checkbox);
 
 		const checkbox = component.find('Checkbox').first();
 		const onChange = checkbox.prop('onChange') as any;
@@ -97,14 +128,17 @@ describe('Checkbox', () => {
 		expect(cb).toBeCalledWith('foo', true);
 	});
 
-	it('should pass onChange as is if available', () => {
+	it('should pass onChange as is if available', async () => {
 
 		const cb = jest.fn();
 
 		const CHECKBOX = Checkbox as any;
 		const component = mount(
-			<CHECKBOX label="Foo" onChange={cb} />
+			<BlueBaseApp plugins={[Plugin]}>
+				<CHECKBOX label="Foo" onChange={cb} />
+			</BlueBaseApp>
 		);
+		await waitForElement(component, CHECKBOX);
 
 		const onChange = component.find('Checkbox').first().prop('onChange') as any;
 

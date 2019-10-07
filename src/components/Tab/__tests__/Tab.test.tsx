@@ -1,30 +1,29 @@
 import { BlueBaseApp } from '@bluebase/core';
+import { DynamicIcon } from '@bluebase/core/dist/components';
 import React from 'react';
 import { Tab } from '../Tab';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
 describe('Tab', () => {
-
-	it('should render a DynamicIcon when icon prop is given', async () => {
+	it('should render an Icon when icon prop is given', async () => {
 		const component = mount(
 			<BlueBaseApp>
-				<Tab icon={{ type: 'image', size: 20, source: { uri: 'https://placeimg.com/100/100/any' } }} />
+				<Tab icon={{ name: 'delete' }} />
 			</BlueBaseApp>
 		);
 
 		await waitForElement(component as any, Tab);
 
-		// expect(component).toMatchSnapshot();
-		expect(component.find('Tab DynamicIcon').first().prop('type')).toBe('image');
-		expect(component.find('Tab DynamicIcon').first().prop('size')).toEqual(20);
-		expect(component.find('Tab DynamicIcon').first().prop('source')).toMatchObject({
-			uri: 'https://placeimg.com/100/100/any'
-		});
-
+		expect(
+			component
+				.find('Tab DynamicIcon')
+				.first()
+				.prop('name')
+		).toBe('delete');
 	});
 
-	it('should not render a DynamicIcon when icon prop is not given', async () => {
+	it('should not render an Icon when icon prop is not given', async () => {
 		const component = mount(
 			<BlueBaseApp>
 				<Tab label="Item" />
@@ -33,11 +32,28 @@ describe('Tab', () => {
 
 		await waitForElement(component as any, Tab);
 
-		// expect(component).toMatchSnapshot();
-		expect(component.find('Tab DynamicIcon')).toHaveLength(0);
-
+		expect(
+			component
+				.find('Tab')
+				.last()
+				.prop('label')
+		).toBe('Item');
+		expect(component.find('Tab Icon')).toHaveLength(0);
 	});
 
+	it('should render an Icon when icon element is given', async () => {
+		const component: any = mount(
+			<BlueBaseApp>
+				<Tab label="Item" icon={<DynamicIcon type="icon" name="delete" />} />
+			</BlueBaseApp>
+		);
+
+		await waitForElement(component as any, Tab);
+		const icon = component
+			.find('Tab')
+			.last()
+			.prop('icon');
+
+		expect(icon).toBeDefined();
+	});
 });
-
-

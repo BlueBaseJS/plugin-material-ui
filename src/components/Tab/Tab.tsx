@@ -1,32 +1,30 @@
-import { DynamicIcon, TabProps } from '@bluebase/components';
+import { DynamicIcon } from '@bluebase/components';
 import MuiTab from '@material-ui/core/Tab';
 import React from 'react';
-import { componentMapper } from '@bluebase/component-mapper';
+import { withStyles } from '@material-ui/core/styles';
 
-export const Tab = componentMapper<TabProps>(MuiTab, {
-	icon: ({ icon }) => {
+function getTabUI(props: any) {
+	return <MuiTab {...props} />;
+}
 
-		if (icon && typeof icon.type === 'string') {
-			const size = icon.size || 24;
+export const Tab = (props: any) => {
+	const { icon, ...rest } = props;
+	const Wrapper: any = getTabUI;
+	const Styled = withStyles(props.styles || {})(Wrapper);
 
-			const props = {
-				size,
-				style: {
-					lineHeight: size,
-					...icon.style,
-				},
-				...icon,
-			};
+	let iconNode;
 
-			return React.createElement(DynamicIcon, props);
-		}
-		else if (React.isValidElement(icon)){
-			return icon;
-		}
-
-		return null;
+	if (React.isValidElement(icon)) {
+		iconNode = icon;
+	} else if (!!icon) {
+		iconNode = (
+			<DynamicIcon
+				size={icon.size || 24}
+				style={{ lineHeight: icon.size || 24, ...icon.style }}
+				{...icon}
+			/>
+		);
 	}
-}, {
-	rest: true
-});
 
+	return <Styled {...rest} icon={iconNode} />;
+};
