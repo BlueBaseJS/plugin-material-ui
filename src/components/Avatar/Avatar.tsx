@@ -4,10 +4,10 @@ import MuiAvatar from '@material-ui/core/Avatar';
 import React from 'react';
 
 export const Avatar = (props: AvatarProps) => {
-	const { type, icon, color, backgroundColor, size, image, text, ...rest } = props;
+	const { type, icon, color, size, image, text, ...rest } = props;
 	if (type === 'icon') {
 		return (
-			<MuiAvatar style={{ height: size, width: size, backgroundColor: backgroundColor }} {...rest}>
+			<MuiAvatar style={{ height: size, width: size }} {...rest}>
 				<Icon name={icon} size={size} color={color} />
 			</MuiAvatar>
 		);
