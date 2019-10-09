@@ -1,5 +1,4 @@
 import { BottomNavigationActionProps, DynamicIcon } from '@bluebase/components';
-
 import MuiBottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import React from 'react';
 import { componentMapper } from '@bluebase/component-mapper';
@@ -11,10 +10,8 @@ export const BottomNavigationAction = componentMapper<BottomNavigationActionProp
 			if (!icon) {
 				return;
 			}
-
 			if (icon && typeof icon.type === 'string') {
 				const size = icon.size || 24;
-
 				const props = {
 					size,
 					style: {
