@@ -75,6 +75,7 @@ export class DrawerLayoutComponent extends React.Component<
 
 const styles = (props: DrawerLayoutProps, theme: Theme) => ({
 	content: {
+		display: 'flex',
 		flexGrow: 1,
 		marginLeft: 0,
 		overflowY: 'auto',

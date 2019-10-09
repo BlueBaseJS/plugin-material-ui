@@ -27,7 +27,6 @@ export const BottomNavigationAction = componentMapper<BottomNavigationActionProp
 			return React.createElement(DynamicIcon, props);
 		},
 
-		onChange: 'onChange',
 		style: ({ style }: any) => StyleSheet.flatten(style),
 
 		label: 'label',
