@@ -1,6 +1,8 @@
 import { BottomNavigationActionProps, DynamicIcon } from '@bluebase/components';
+
 import MuiBottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { componentMapper } from '@bluebase/component-mapper';
 
 export const BottomNavigationAction = componentMapper<BottomNavigationActionProps>(
@@ -10,26 +12,25 @@ export const BottomNavigationAction = componentMapper<BottomNavigationActionProp
 			if (!icon) {
 				return;
 			}
-			if (icon && typeof icon.type === 'string') {
-				const size = icon.size || 24;
-				const props = {
-					size,
-					style: {
-						lineHeight: size,
-						...icon.style,
-					},
-					...icon,
-				};
 
-				return React.createElement(DynamicIcon, props);
-			} else if (React.isValidElement(icon)) {
-				return icon;
-			}
+			const size = icon.size || 24;
 
-			return null;
+			const props = {
+				size,
+				style: {
+					// lineHeight: size,
+					...icon.style,
+				},
+				...icon,
+			};
+
+			return React.createElement(DynamicIcon, props);
 		},
-	},
-	{
-		rest: true,
+
+		style: ({ style }: any) => StyleSheet.flatten(style),
+
+		label: 'label',
+		showLabel: 'showLabel',
+		value: 'value',
 	}
 );
