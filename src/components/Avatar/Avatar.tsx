@@ -1,11 +1,11 @@
-
 import { AvatarDefaultProps, AvatarProps, BlueBaseImage, Icon } from '@bluebase/components';
 
 import MuiAvatar from '@material-ui/core/Avatar';
 import React from 'react';
+import { styles } from './styles';
+import { withPropsStyles } from '../../withPropsStyles';
 
-export const Avatar = (props: AvatarProps) => {
-
+export const Avatar: any = withPropsStyles(styles)((props: AvatarProps) => {
 	const { type, icon, color, size, image, text, ...rest } = props;
 	if (type === 'icon') {
 		return (
@@ -16,18 +16,13 @@ export const Avatar = (props: AvatarProps) => {
 	}
 	if (type === 'image') {
 		return (
-			<MuiAvatar>
+			<MuiAvatar {...rest}>
 				<BlueBaseImage source={image} style={[{ height: size, width: size }, props.style]} />
 			</MuiAvatar>
 		);
 	}
 
-	return (
-		<MuiAvatar {...rest}>
-			{text}
-		</MuiAvatar>
-	);
-
-};
+	return <MuiAvatar {...rest}>{text}</MuiAvatar>;
+});
 
 Avatar.defaultProps = AvatarDefaultProps;
