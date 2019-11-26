@@ -9,7 +9,7 @@ export const IconButton = componentMapper<IconButtonProps>(MUIIconButton, {
 	children: ({ name, size, color }) => <Icon name={name} size={size} color={color} />,
 
 	accessibilityLabel: 'accessibilityLabel',
-	disabled: 'disbaled',
+	disabled: 'disabled',
 	fullWidth: 'fullWidth',
 	name: 'name',
 	onClick: 'onPress',
