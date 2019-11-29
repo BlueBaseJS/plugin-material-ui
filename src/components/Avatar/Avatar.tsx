@@ -7,22 +7,28 @@ import { withPropsStyles } from '../../withPropsStyles';
 
 export const Avatar: any = withPropsStyles(styles)((props: AvatarProps) => {
 	const { type, icon, color, size, image, text, ...rest } = props;
+	const style: any = props.style;
+
 	if (type === 'icon') {
 		return (
-			<MuiAvatar {...rest}>
-				<Icon name={icon} color={color} />
+			<MuiAvatar {...rest} style={style}>
+				<Icon name={icon} color={color} size={size && size * 0.6} />
 			</MuiAvatar>
 		);
 	}
 	if (type === 'image') {
 		return (
-			<MuiAvatar {...rest}>
-				<BlueBaseImage source={image} style={[{ height: size, width: size }, props.style]} />
+			<MuiAvatar {...rest} style={style}>
+				<BlueBaseImage source={image} style={[{ height: size, width: size }, style]} />
 			</MuiAvatar>
 		);
 	}
 
-	return <MuiAvatar {...rest}>{text}</MuiAvatar>;
+	return (
+		<MuiAvatar {...rest} style={style}>
+			{text}
+		</MuiAvatar>
+	);
 });
 
 Avatar.defaultProps = AvatarDefaultProps;
