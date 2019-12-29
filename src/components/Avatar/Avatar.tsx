@@ -6,7 +6,7 @@ import { styles } from './styles';
 import { withPropsStyles } from '../../withPropsStyles';
 
 export const Avatar: any = withPropsStyles(styles)((props: AvatarProps) => {
-	const { type, icon, color, size, image, text, ...rest } = props;
+	const { type, icon, color, size, image, text, bluebaseTheme, ...rest } = props as any;
 	const style: any = props.style;
 
 	if (type === 'icon') {
