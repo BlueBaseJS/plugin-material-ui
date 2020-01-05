@@ -1,5 +1,7 @@
-import { ButtonProps, MenuItemProps, MenuProps, Text } from '@bluebase/components';
-import React from 'react';
+import { ButtonProps, Divider, MenuItemProps, MenuProps } from '@bluebase/components';
+import React, { useState } from 'react';
+
+import { View } from 'react-native';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 import { withInfo } from '@storybook/addon-info';
@@ -14,86 +16,34 @@ const stories = storiesOf('Menu', module);
 stories.addDecorator(withInfo);
 stories.addDecorator(withKnobs);
 
-stories
+stories.add('Basic Example', () => (
+	<React.Fragment>
+		<MenuDemo />
+	</React.Fragment>
+));
 
-	.add('Menu complete story', () => (
-		<React.Fragment>
-			<SimpleMenu />
-		</React.Fragment>
-	))
-
-
-	.add('Menu text story', () => (
-		<React.Fragment>
-			<MenuText />
-		</React.Fragment>
-	));
-
-
-
-
-
-function SimpleMenu() {
-	const [anchorEl, setAnchorEl] = React.useState(null);
-
-	function handleClick(event: any) {
-		setAnchorEl(event.currentTarget);
-	}
-
-	function handleClose() {
-		setAnchorEl(null);
-	}
+const MenuDemo = () => {
+	const [visible, setVisible] = useState(false);
+	const toggle = () => setVisible(!visible);
 
 	return (
-		<div>
-			<Button
-				aria-owns={anchorEl ? 'simple-menu' : undefined}
-				aria-haspopup="true"
-				onClick={handleClick}
+		<View
+			style={{
+				paddingTop: 50,
+				// flexDirection: 'row',
+				// justifyContent: 'center',
+			}}
+		>
+			<Menu
+				visible={visible}
+				onDismiss={toggle}
+				anchor={<Button onPress={toggle}>Show menu</Button>}
 			>
-				Open Menu
-</Button>
-			<Menu style={{}} anchor={anchorEl} visible={Boolean(anchorEl)} onDismiss={handleClose}>
-				<MenuItem title={'Profile'} onPress={handleClose} />
-				<MenuItem title={'My account'} onPress={handleClose} />
-				<MenuItem title={'Logout'} onPress={handleClose} />
+				<MenuItem onPress={toggle} title="Item 1" />
+				<MenuItem onPress={toggle} title="Item 2" />
+				<Divider />
+				<MenuItem onPress={toggle} title="Item 3" />
 			</Menu>
-		</div>
+		</View>
 	);
-}
-
-
-
-
-
-
-function MenuText() {
-	const [anchorEl, setAnchorEl] = React.useState(null);
-
-	function handleClick(event: any) {
-		setAnchorEl(event.currentTarget);
-	}
-
-	function handleClose() {
-		setAnchorEl(null);
-	}
-
-	return (
-		<div>
-			<Button
-				aria-owns={anchorEl ? 'simple-menu' : undefined}
-				aria-haspopup="true"
-				onClick={handleClick}
-			>
-				Open Menu
-</Button>
-			<Menu style={{}} anchor={anchorEl} visible={Boolean(anchorEl)} onDismiss={handleClose}>
-				<MenuItem title={<Text>profile</Text> as any} onPress={handleClose} />
-				<MenuItem title={<Text>my Account</Text> as any} onPress={handleClose} />
-				<MenuItem title={<Text>Logout</Text> as any} onPress={handleClose} />
-			</Menu>
-		</div>
-	);
-}
-
-export default SimpleMenu;
+};
