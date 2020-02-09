@@ -8,11 +8,12 @@ export const Dialog = componentMapper<DialogProps>(
 	MuiDialog,
 	{
 		children: 'children',
+		disableBackdropClick: ({ dismissable }) => !dismissable,
 		onClose: 'onDismiss',
 		open: 'visible',
 		style: ({ style }: any) => StyleSheet.flatten(style),
 	},
-	{ rest: true }
+	{ rest: true, ignore: ['dismissable'] }
 );
 
 Dialog.defaultProps = { fullWidth: true, ...DialogDefaultProps } as any;
