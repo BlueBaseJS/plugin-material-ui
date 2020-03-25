@@ -11,6 +11,14 @@ export const withTheme = (Component: React.ComponentType<any>) => {
 		render() {
 			const { theme }: ThemeContextData = this.context;
 
+			// Strip color from typography.
+			const typography: { [key: string]: any } = {};
+
+			Object.keys(theme.typography).map(key => {
+				const { color, ...values } = (theme.typography as any)[key];
+				typography[key] = values;
+			});
+
 			return (
 				<IntlConsumer>
 					{({ rtl }) => {
@@ -27,10 +35,7 @@ export const withTheme = (Component: React.ComponentType<any>) => {
 							},
 							shape: theme.shape,
 							spacing: theme.spacing.unit,
-							typography: {
-								useNextVariants: true,
-								...(theme.typography as any),
-							},
+							typography,
 						});
 
 						return (
