@@ -3,12 +3,13 @@ import { BottomNavigationActionProps, DynamicIcon } from '@bluebase/components';
 import MuiBottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import React from 'react';
 import { StyleSheet } from 'react-native';
+import { Theme } from '@bluebase/core';
 import { componentMapper } from '@bluebase/component-mapper';
 
 export const BottomNavigationAction = componentMapper<BottomNavigationActionProps>(
 	MuiBottomNavigationAction,
 	{
-		icon: ({ icon }) => {
+		icon: ({ icon, styles }: any) => {
 			if (!icon) {
 				return;
 			}
@@ -22,6 +23,7 @@ export const BottomNavigationAction = componentMapper<BottomNavigationActionProp
 			const props = {
 				size,
 				style: {
+					...styles.icon,
 					// lineHeight: size,
 					...icon.style,
 				},
@@ -39,3 +41,9 @@ export const BottomNavigationAction = componentMapper<BottomNavigationActionProp
 	},
 	{ rest: true }
 );
+
+(BottomNavigationAction as any).defaultStyles = (theme: Theme, { selected }: any) => ({
+	icon: {
+		color: !selected ? theme.palette.text.secondary : theme.palette.primary.main,
+	},
+});
