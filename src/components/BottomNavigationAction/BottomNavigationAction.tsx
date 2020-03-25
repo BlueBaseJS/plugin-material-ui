@@ -13,6 +13,10 @@ export const BottomNavigationAction = componentMapper<BottomNavigationActionProp
 				return;
 			}
 
+			if (React.isValidElement(icon)) {
+				return icon;
+			}
+
 			const size = icon.size || 24;
 
 			const props = {
@@ -32,5 +36,6 @@ export const BottomNavigationAction = componentMapper<BottomNavigationActionProp
 		label: 'label',
 		showLabel: 'showLabel',
 		value: 'value',
-	}
+	},
+	{ rest: true }
 );

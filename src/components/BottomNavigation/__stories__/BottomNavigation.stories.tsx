@@ -33,6 +33,10 @@ stories
 			label="Item Three"
 			icon={{ type: 'icon', name: 'help' }}
 		/>
+		<BottomNavigationAction
+			label="Item Four"
+			icon={{ type: 'icon', name: 'delete' }}
+		/>
 	</BottomNavigation>
 ))
 ;

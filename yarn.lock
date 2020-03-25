@@ -1076,10 +1076,10 @@
     deepmerge "^3.2.0"
     tslib "^1.9.3"
 
-"@bluebase/components@^5.15.0":
-  version "5.15.0"
-  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-5.15.0.tgz#46a4e711862baf497a88a31a7b969f6819868fa1"
-  integrity sha512-SiVvmCsksyCOfKXDckUVVsPdtO2aopNRmmRpQL/96//PPfbRrMCXVnA90KH7K3i/SuaubpxpEexf975/1/XX+g==
+"@bluebase/components@^5.22.0":
+  version "5.22.0"
+  resolved "https://registry.yarnpkg.com/@bluebase/components/-/components-5.22.0.tgz#2f62e15f6b60dbc0d9de7a4e103526dff34db700"
+  integrity sha512-ZrofOoOfeCE5AHLWfmBH3qXDVFCPP+zsAEFCtvqJlNJHdvkXzKJ7CryByu+RYl2LKv8R9sjtAMKZ8HOEQpujHA==
   dependencies:
     deepmerge "^3.2.0"
     tslib "^1.9.3"
@@ -9247,9 +9247,9 @@ lodash.memoize@^4.1.2:
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
 
 lodash.mergewith@^4.6.1:
-  version "4.6.1"
-  resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.1.tgz#639057e726c3afbdb3e7d42741caa8d6e4335927"
-  integrity sha512-eWw5r+PYICtEBgrBE5hhlT6aAa75f411bgDz/ZL2KZqYV03USvucsxcHUIlGTDTECs1eunpI7HOV7U+WLDvNdQ==
+  version "4.6.2"
+  resolved "https://registry.yarnpkg.com/lodash.mergewith/-/lodash.mergewith-4.6.2.tgz#617121f89ac55f59047c7aec1ccd6654c6590f55"
+  integrity sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==
 
 lodash.pad@^4.1.0:
   version "4.5.1"

@@ -51,7 +51,7 @@
     "reset": "git clean -dfx && git reset --hard && npm i",
     "all": "run-s reset test cov:check doc:html",
     "size": "size-limit",
-    "prepublishOnly": "npm uninstall react-native --save",
+    "prepublishOnly": "yarn remove react-native",
     "storybook:start": "bluebase storybook:start",
     "storybook-native": "bluebase storybook-native:start",
     "storybook": "start-storybook -p 6006 --config-dir ./bluebase/storybook/configs",
@@ -76,7 +76,7 @@
   },
   "dependencies": {
     "@bluebase/component-mapper": "^1.4.0",
-    "@bluebase/components": "^5.15.0",
+    "@bluebase/components": "^5.22.0",
     "@material-ui/core": "^4.3.0",
     "@material-ui/styles": "^4.3.0",
     "deepmerge": "^3.2.0",
