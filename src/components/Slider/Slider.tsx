@@ -11,7 +11,7 @@ import { componentMapper } from '@bluebase/component-mapper';
 
 const styles = (theme: Theme): any => ({
 	helperText: {
-		marginTop: theme.spacing(2),
+		marginTop: 0,
 	},
 	inlineSlider: {
 		display: 'flex',
@@ -22,7 +22,7 @@ const styles = (theme: Theme): any => ({
 	},
 	label: {
 		flex: 1,
-		marginBottom: theme.spacing(2),
+		marginBottom: 0,
 	},
 	labelWrapper: {
 		display: 'flex',
@@ -34,7 +34,7 @@ const styles = (theme: Theme): any => ({
 		flex: 1,
 	},
 	value: {
-		marginBottom: theme.spacing(2),
+		marginBottom: 0,
 	},
 });
 
