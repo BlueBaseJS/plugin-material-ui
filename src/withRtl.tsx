@@ -1,23 +1,17 @@
-import { createGenerateClassName, jssPreset } from '@material-ui/styles';
+import { StylesProvider, jssPreset } from '@material-ui/core/styles';
 
-import JssProvider from 'react-jss/lib/JssProvider';
 import React from 'react';
 import { create } from 'jss';
 import rtl from 'jss-rtl';
 
 // Configure JSS
-const jss = create({
-	plugins: [...jssPreset().plugins, rtl() as any],
-});
-
-// Custom Material-UI class name generator.
-const generateClassName = createGenerateClassName();
+const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
 
 const withRTL = (Component: React.ComponentType<any>) => (props: any) => {
 	return (
-		<JssProvider jss={jss} generateClassName={generateClassName as any}>
+		<StylesProvider jss={jss}>
 			<Component {...props} />
-		</JssProvider>
+		</StylesProvider>
 	);
 };
 
