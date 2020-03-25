@@ -1,12 +1,9 @@
 import { PickerDefaultProps, PickerItem as PickerItemBB, PickerProps } from '@bluebase/components';
+import React, { isValidElement } from 'react';
 
-import FilledInput from '@material-ui/core/FilledInput';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
-import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
-import OutlinedInput from '@material-ui/core/OutlinedInput';
-import React from 'react';
 import Select from '@material-ui/core/Select';
 import { StyleSheet } from 'react-native';
 import { objectMapper } from '@bluebase/component-mapper';
@@ -66,39 +63,43 @@ export const Picker = (props: PickerProps & { PickerItem?: typeof PickerItemBB }
 		...rest
 	} = newProps;
 
-	let InputComponent = Input;
+	const items = React.Children.map(children, child => {
+		if (!isValidElement(child)) {
+			return null;
+		}
 
-	if (variant === 'filled') {
-		InputComponent = FilledInput;
-	}
-	if (variant === 'outlined') {
-		InputComponent = OutlinedInput as any;
-	}
+		const childProps: any = child.props;
 
-	const formControlProps = {
-		disabled,
-		error,
-		required,
-		variant,
-		...rest,
-	};
-
-	const selectProps = {
-		displayEmpty,
-		input: <InputComponent {...{ id, name }} />,
-		// inputProps: { id, name, },
-		native,
-		onChange,
-		readOnly,
-		value,
-	};
+		return React.cloneElement(child, {
+			...childProps,
+			children: childProps.children || childProps.label,
+		});
+	});
 
 	return (
-		<FormControl {...formControlProps}>
-			{label ? <InputLabel htmlFor={id}>{label}</InputLabel> : null}
-			<Select {...selectProps}>
-				{placeholder ? <PickerItem value="" label={placeholder} disabled /> : null}
-				{children}
+		<FormControl
+			{...{
+				disabled,
+				error,
+				required,
+				variant,
+				...rest,
+			}}
+		>
+			<InputLabel id={`${id}-label`}>{label}</InputLabel>
+			<Select
+				{...{
+					displayEmpty: false,
+					id,
+					labelId: `${id}-label`,
+					name,
+					onChange,
+					readOnly,
+					value,
+				}}
+			>
+				{placeholder ? <PickerItem value="" label={<em>{placeholder}</em>} disabled /> : null}
+				{items}
 			</Select>
 			{helperText ? <FormHelperText>{helperText}</FormHelperText> : null}
 		</FormControl>
