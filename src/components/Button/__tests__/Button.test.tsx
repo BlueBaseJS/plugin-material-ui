@@ -34,12 +34,7 @@ describe('Button', () => {
 		);
 		await waitForElement(component, Button);
 
-		expect(
-			component
-				.find('Text')
-				.last()
-				.text()
-		).toEqual('Bar');
+		expect(component.find('Text').last().text()).toEqual('Bar');
 	});
 
 	it('should disable the button when disabled is true ', async () => {
@@ -49,12 +44,7 @@ describe('Button', () => {
 			</BlueBaseApp>
 		);
 		await waitForElement(component, Button);
-		expect(
-			component
-				.find('Button')
-				.first()
-				.prop('disabled')
-		).toEqual(true);
+		expect(component.find('Button').first().prop('disabled')).toEqual(true);
 	});
 
 	it('should pass the color as is when set to "primary"', async () => {
@@ -65,12 +55,8 @@ describe('Button', () => {
 		);
 		await waitForElement(component, Button);
 
-		expect(
-			component
-				.find('Button')
-				.last()
-				.prop('color')
-		).toEqual('default');
+		// expect(component.find(Button)).toMatchSnapshot();
+		expect(component.find('Button').last().prop('color')).toEqual('primary');
 	});
 
 	it('should pass the color as is when set to "secondary"', async () => {
@@ -81,12 +67,7 @@ describe('Button', () => {
 		);
 		await waitForElement(component, Button);
 
-		expect(
-			component
-				.find('Button')
-				.first()
-				.prop('color')
-		).toBe('secondary');
+		expect(component.find('Button').first().prop('color')).toBe('secondary');
 	});
 
 	it('should pass the color as is when set to "default"', async () => {
@@ -97,15 +78,11 @@ describe('Button', () => {
 		);
 		await waitForElement(component, Button);
 
-		expect(
-			component
-				.find('Button')
-				.last()
-				.prop('color')
-		).toEqual('default');
+		// expect(component.find(Button)).toMatchSnapshot();
+		expect(component.find('Button').last().prop('color')).toEqual('default');
 	});
 
-	it('should pass the color as "default" when no color is given', async () => {
+	it('should pass the color as "primary" when no color is given', async () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
 				<Button />
@@ -113,12 +90,8 @@ describe('Button', () => {
 		);
 		await waitForElement(component, Button);
 
-		expect(
-			component
-				.find('Button')
-				.last()
-				.prop('color')
-		).toEqual('default');
+		// expect(component.find(Button)).toMatchSnapshot();
+		expect(component.find('Button').last().prop('color')).toEqual('primary');
 	});
 
 	it('should pass the color as given', async () => {
@@ -128,12 +101,7 @@ describe('Button', () => {
 			</BlueBaseApp>
 		);
 		await waitForElement(component, Button);
-		expect(
-			component
-				.find('Button')
-				.last()
-				.prop('color')
-		).toBeDefined();
+		expect(component.find('Button').last().prop('color')).toBeDefined();
 	});
 
 	it('should loading the button when loading is true ', async () => {
@@ -154,12 +122,7 @@ describe('Button', () => {
 			</BlueBaseApp>
 		);
 		await waitForElement(component, Button);
-		expect(
-			component
-				.find('Button')
-				.first()
-				.prop('icon')
-		).toBeDefined();
+		expect(component.find('Button').first().prop('icon')).toBeDefined();
 	});
 
 	describe('getButtonColors', () => {

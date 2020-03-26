@@ -6,7 +6,6 @@ import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
 
 describe('Checkbox', () => {
-
 	it('should set the checked to true when checked is true', async () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
@@ -32,7 +31,6 @@ describe('Checkbox', () => {
 	it('should pass the color as is when set to "primary"', async () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
-
 				<Checkbox color="primary" />
 			</BlueBaseApp>
 		);
@@ -70,9 +68,9 @@ describe('Checkbox', () => {
 			</BlueBaseApp>
 		);
 		await waitForElement(component, Checkbox);
-		// expect(component).toMatchSnapshot();
-		expect(component.find('WithStyles(Checkbox)').first().prop('classes')).toBeTruthy();
-		expect(component.find('WithStyles(Checkbox)').first().prop('color')).toEqual(undefined);
+		// expect(component.find(Checkbox)).toMatchSnapshot();
+		expect(component.find('Checkbox').first().prop('classes')).toBeTruthy();
+		expect(component.find('Checkbox').first().prop('color')).toEqual(undefined);
 	});
 
 	it('should set the label component', async () => {
@@ -89,7 +87,6 @@ describe('Checkbox', () => {
 	});
 
 	it('should map onValueChange fn to onChange fn', async () => {
-
 		const cb = jest.fn();
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
@@ -109,7 +106,6 @@ describe('Checkbox', () => {
 	});
 
 	it('should map onValueChange fn to onChange fn with value', async () => {
-
 		const cb = jest.fn();
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
@@ -129,7 +125,6 @@ describe('Checkbox', () => {
 	});
 
 	it('should pass onChange as is if available', async () => {
-
 		const cb = jest.fn();
 
 		const CHECKBOX = Checkbox as any;
@@ -148,7 +143,4 @@ describe('Checkbox', () => {
 		expect(cb).toBeCalledTimes(1);
 		expect(cb).toBeCalledWith('foo', true);
 	});
-
 });
-
-

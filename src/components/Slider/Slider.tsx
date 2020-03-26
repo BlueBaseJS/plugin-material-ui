@@ -9,6 +9,10 @@ import { SliderProps } from '@bluebase/components';
 import { StyleSheet } from 'react-native';
 import { componentMapper } from '@bluebase/component-mapper';
 
+(MUISlider as any).displayName = 'Slider';
+(FormLabel as any).displayName = 'FormLabel';
+(FormHelperText as any).displayName = 'FormHelperText';
+
 const styles = (theme: Theme): any => ({
 	helperText: {
 		marginTop: 0,

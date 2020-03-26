@@ -4,6 +4,8 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import React from 'react';
 
+(MuiThemeProvider as any).displayName = 'MuiThemeProvider';
+
 export const withTheme = (Component: React.ComponentType<any>) => {
 	return class ReactNativePaperProvider extends React.Component {
 		static contextType = ThemeContext;
@@ -14,7 +16,7 @@ export const withTheme = (Component: React.ComponentType<any>) => {
 			// Strip color from typography.
 			const typography: { [key: string]: any } = {};
 
-			Object.keys(theme.typography).map(key => {
+			Object.keys(theme.typography).map((key) => {
 				const { color, ...values } = (theme.typography as any)[key];
 				typography[key] = values;
 			});

@@ -8,6 +8,11 @@ import Select from '@material-ui/core/Select';
 import { StyleSheet } from 'react-native';
 import { objectMapper } from '@bluebase/component-mapper';
 
+Select.displayName = 'Select';
+(FormControl as any).displayName = 'FormControl';
+(FormHelperText as any).displayName = 'FormHelperText';
+(InputLabel as any).displayName = 'InputLabel';
+
 const fieldMap = {
 	displayEmpty: ({ placeholder }: PickerProps) => !!placeholder,
 	native: ({ mode }: PickerProps) => (mode !== 'default' ? false : true),
@@ -63,7 +68,7 @@ export const Picker = (props: PickerProps & { PickerItem?: typeof PickerItemBB }
 		...rest
 	} = newProps;
 
-	const items = React.Children.map(children, child => {
+	const items = React.Children.map(children, (child) => {
 		if (!isValidElement(child)) {
 			return null;
 		}

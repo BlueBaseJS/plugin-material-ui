@@ -23,7 +23,7 @@ export const BottomNavigationAction = componentMapper<BottomNavigationActionProp
 			const props = {
 				size,
 				style: {
-					...styles.icon,
+					...(styles && styles.icon),
 					// lineHeight: size,
 					...icon.style,
 				},

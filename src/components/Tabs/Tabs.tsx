@@ -1,6 +1,9 @@
 import MuiTabs from '@material-ui/core/Tabs';
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
+
+(MuiTabs as any).displayName = 'Tabs';
+
 function getTabsUI(props: any) {
 	const { children, ...other } = props;
 	return <MuiTabs {...other}>{children}</MuiTabs>;

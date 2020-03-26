@@ -7,6 +7,9 @@ import { objectMapper } from '@bluebase/component-mapper';
 import { styles } from './styles';
 import { withPropsStyles } from '../../withPropsStyles';
 
+MUISwitch.displayName = 'Switch';
+FormControlLabel.displayName = 'FormControlLabel';
+
 const map = {
 	// If color is primary, secondary or default set as is
 	color: ({ color }: SwitchProps) => {

@@ -1,10 +1,10 @@
 import { BlueBaseApp } from '@bluebase/core';
 import { BottomNavigationAction } from '../BottomNavigationAction';
-import React from 'react';
 import { Icon } from '@bluebase/components';
-
+import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+
 describe('BottomNavigationAction', () => {
 	it('should render a DynamicIcon when icon prop is given', async () => {
 		const component = mount(
@@ -16,24 +16,11 @@ describe('BottomNavigationAction', () => {
 		);
 
 		await waitForElement(component as any, BottomNavigationAction);
-		expect(
-			component
-				.find('BottomNavigationAction DynamicIcon')
-				.first()
-				.prop('type')
-		).toBe('image');
-		expect(
-			component
-				.find('BottomNavigationAction DynamicIcon')
-				.first()
-				.prop('size')
-		).toEqual(20);
-		expect(
-			component
-				.find('BottomNavigationAction DynamicIcon')
-				.first()
-				.prop('source')
-		).toMatchObject({
+
+		// expect(component.find(BottomNavigationAction)).toMatchSnapshot();
+		expect(component.find('DynamicIcon').first().prop('type')).toBe('image');
+		expect(component.find('DynamicIcon').first().prop('size')).toEqual(20);
+		expect(component.find('DynamicIcon').first().prop('source')).toMatchObject({
 			uri: 'https://placeimg.com/100/100/any',
 		});
 	});

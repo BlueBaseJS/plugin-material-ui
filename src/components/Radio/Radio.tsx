@@ -6,7 +6,6 @@ import { objectMapper } from '@bluebase/component-mapper';
 import { withPropsStyles } from '../../withPropsStyles';
 
 const styles = ({ color }: RadioProps, theme: any) => {
-
 	// If color is NOT primary, secondary or default then create custom styles
 	if (color === 'primary' || color === 'secondary' || color === 'default') {
 		return {};
@@ -44,20 +43,21 @@ const map = {
 		return;
 	},
 
-	onChange: ({ onChange, onValueChange }: any) => (event: any, checked: boolean)  => {
+	onChange: ({ onChange, onValueChange }: any) => (event: any, checked: boolean) => {
 		if (onChange) {
 			onChange(event, checked);
 		}
 
+		debugger;
+
 		if (onValueChange) {
+			debugger;
 			onValueChange(event.target.value, checked);
 		}
-	}
-
+	},
 };
 
 export const Radio = withPropsStyles(styles)((props: RadioProps) => {
-
 	const newProps = objectMapper(props, map, { rest: true, ignore: ['onValueChange'] });
 
 	const { label, labelPlacement, classes, ...common } = newProps;
@@ -66,23 +66,13 @@ export const Radio = withPropsStyles(styles)((props: RadioProps) => {
 		delete common.color;
 	}
 
-	const node = (
-		<MUIRadio
-			classes={classes}
-			{...common}
-		/>
-	);
+	const node = <MUIRadio classes={classes} {...common} />;
 
 	if (!label) {
 		return node;
 	}
 
 	return (
-		<FormControlLabel
-			{...common}
-			label={label}
-			labelPlacement={labelPlacement}
-			control={node}
-		/>
+		<FormControlLabel {...common} label={label} labelPlacement={labelPlacement} control={node} />
 	);
 }) as React.ComponentType<RadioProps>;
