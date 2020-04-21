@@ -20,13 +20,11 @@ describe('RadioGroup', () => {
 		);
 		await waitForElement(component, RadioGroup);
 
-		const radio = component.find('ForwardRef(Radio)').first();
+		const radio = component.find('RadioGroup').first();
 
 		// expect(component.find(RadioGroup)).toMatchSnapshot();
 		const onChange = radio.prop('onChange') as any;
-
-		debugger;
-		onChange({ target: { value: radio.prop('value') } }, true);
+		onChange({ target: { value: radio.prop('value') } }, 'option-a');
 
 		expect(cb).toBeCalledTimes(1);
 		expect(cb).toBeCalledWith('option-a');

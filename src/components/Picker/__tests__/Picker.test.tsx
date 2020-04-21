@@ -173,7 +173,7 @@ describe('Picker', () => {
 				helperText="description"
 				name="language"
 				id="language-simple"
-				// mode="default"
+			// mode="default"
 			>
 				<Picker.Item label="Java" value="java" />
 				<Picker.Item label="JavaScript" value="js" />
@@ -202,7 +202,7 @@ describe('Picker', () => {
 				// helperText="description"
 				name="language"
 				id="language-simple"
-				// mode="default"
+			// mode="default"
 			>
 				<Picker.Item label="Java" value="java" />
 				<Picker.Item label="JavaScript" value="js" />

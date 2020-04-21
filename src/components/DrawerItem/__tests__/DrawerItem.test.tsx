@@ -10,6 +10,11 @@ describe('DrawerItem', () => {
 		expect(component.find('ListItem').first().prop('title')).toEqual('Item 1');
 	});
 
+	test('should forward title and icon prop', () => {
+		const component = shallow(<DrawerItem title="Item 1" icon={{ name: 'red' }} />);
+		expect(component.find('ListItem').first().prop('title')).toEqual('Item 1');
+	});
+
 	// test('should forward left and right as children, set inset to true', () => {
 	// 	const component = shallow(
 	// 		<DrawerItem title="Item 1" icon={{ name: 'rocket' }} right={<Text>R</Text>} />
