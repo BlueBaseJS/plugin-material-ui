@@ -37,7 +37,7 @@
     "fix:tslint": "tslint --fix --project .",
     "fix:md": "remark . -o",
     "test": "run-s build test:*",
-    "test:only": "jest --coverage",
+    "test:only": "jest --coverage --forceExit --detectOpenHandles --maxWorkers=10",
     "test:lint": "npm run lint",
     "test:prettier": "prettier \"src/**/*.ts\" --list-different",
     "test:md": "remark . -f",
