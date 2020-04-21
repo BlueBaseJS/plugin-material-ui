@@ -22,7 +22,6 @@ describe('RadioGroup', () => {
 
 		const radio = component.find('RadioGroup').first();
 
-		// expect(component.find(RadioGroup)).toMatchSnapshot();
 		const onChange = radio.prop('onChange') as any;
 		onChange({ target: { value: radio.prop('value') } }, 'option-a');
 
@@ -50,7 +49,6 @@ describe('RadioGroup', () => {
 
 		onChange('foo', true);
 
-		// expect(component).toMatchSnapshot();
 		expect(cb).toBeCalledTimes(1);
 		expect(cb).toBeCalledWith('foo', true);
 	});
@@ -67,7 +65,6 @@ describe('RadioGroup', () => {
 		);
 		await waitForElement(component, RadioGroup);
 
-		// expect(component).toMatchSnapshot();
 		const label = component.find('FormLabel');
 		const helperText = component.find('FormHelperText');
 
@@ -90,7 +87,6 @@ describe('RadioGroup', () => {
 		);
 		await waitForElement(component, RadioGroup);
 
-		// expect(component).toMatchSnapshot();
 		const label = component.find('FormLabel');
 		const helperText = component.find('FormHelperText');
 

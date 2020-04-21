@@ -6,7 +6,6 @@ describe('Slider', () => {
 	it('should map min and max props', () => {
 		const component = mount(<Slider minimumValue={10} maximumValue={50} value={25} />);
 
-		expect(component).toMatchSnapshot();
 		expect(component.find('Slider').first().prop('min')).toEqual(10);
 		expect(component.find('Slider').first().prop('max')).toEqual(50);
 		expect(component.find('Slider').first().prop('value')).toEqual(25);
