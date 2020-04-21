@@ -5,8 +5,9 @@ import React from 'react';
 import { objectMapper } from '@bluebase/component-mapper';
 import { withPropsStyles } from '../../withPropsStyles';
 
-const styles = ({ color }: CheckboxProps, theme: any) => {
+MUICheckbox.displayName = 'Checkbox';
 
+const styles = ({ color }: CheckboxProps, theme: any) => {
 	// If color is NOT primary, secondary or default then create custom styles
 	if (color === 'primary' || color === 'secondary' || color === 'default') {
 		return {};
@@ -44,7 +45,7 @@ const map = {
 		return;
 	},
 
-	onChange: ({ onChange, onValueChange }: any) => (event: any, checked: boolean)  => {
+	onChange: ({ onChange, onValueChange }: any) => (event: any, checked: boolean) => {
 		if (onChange) {
 			onChange(event, checked);
 		}
@@ -52,12 +53,10 @@ const map = {
 		if (onValueChange) {
 			onValueChange(event.target.value, checked);
 		}
-	}
-
+	},
 };
 
 export const Checkbox = withPropsStyles(styles)((props: CheckboxProps) => {
-
 	const newProps = objectMapper(props, map, { rest: true, ignore: ['onValueChange'] });
 
 	const { label, labelPlacement, classes, indeterminate, ...common } = newProps;
@@ -66,24 +65,13 @@ export const Checkbox = withPropsStyles(styles)((props: CheckboxProps) => {
 		delete common.color;
 	}
 
-	const node = (
-		<MUICheckbox
-			classes={classes}
-			indeterminate={indeterminate}
-			{...common}
-		/>
-	);
+	const node = <MUICheckbox classes={classes} indeterminate={indeterminate} {...common} />;
 
 	if (!label) {
 		return node;
 	}
 
 	return (
-		<FormControlLabel
-			{...common}
-			label={label}
-			labelPlacement={labelPlacement}
-			control={node}
-		/>
+		<FormControlLabel {...common} label={label} labelPlacement={labelPlacement} control={node} />
 	);
 }) as React.ComponentType<CheckboxProps>;

@@ -6,30 +6,37 @@ import { RadioGroupProps } from '@bluebase/components';
 import React from 'react';
 import { componentMapper } from '@bluebase/component-mapper';
 
-export const RadioGroup = componentMapper<RadioGroupProps>(MuiRadioGroup, {
-	onChange: ({ onChange, onValueChange }: any) => (event: any, value: string | number | boolean)  => {
-		if (onChange) {
-			onChange(event, value);
-		}
+MuiRadioGroup.displayName = 'RadioGroup';
 
-		if (onValueChange) {
-			onValueChange(value);
-		}
+export const RadioGroup = componentMapper<RadioGroupProps>(
+	MuiRadioGroup,
+	{
+		onChange: ({ onChange, onValueChange }: any) => (
+			event: any,
+			value: string | number | boolean
+		) => {
+			if (onChange) {
+				onChange(event, value);
+			}
+
+			if (onValueChange) {
+				onValueChange(value);
+			}
+		},
+	},
+	{
+		ignore: ['onValueChange'],
+		rest: true,
+		render(props: any, Component: any) {
+			const { helperText, label, ...rest } = props;
+
+			return (
+				<FormControl component="fieldset">
+					{label ? <FormLabel component="legend">{label}</FormLabel> : null}
+					<Component {...rest} />
+					{helperText ? <FormHelperText>{helperText}</FormHelperText> : null}
+				</FormControl>
+			);
+		},
 	}
-}, {
-	ignore: ['onValueChange'],
-	rest: true,
-	render(props: any, Component: any) {
-
-		const { helperText, label, ...rest } = props;
-
-		return (
-			<FormControl component="fieldset">
-				{label ? <FormLabel component="legend">{label}</FormLabel> : null}
-				<Component {...rest} />
-				{helperText ? <FormHelperText>{helperText}</FormHelperText> : null}
-			</FormControl>
-		);
-	}
-});
-
+);

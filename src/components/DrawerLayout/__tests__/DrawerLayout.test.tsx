@@ -27,18 +27,7 @@ describe('DrawerLayout', () => {
 		await waitForElement(component as any, DrawerLayout);
 
 		// expect(component).toMatchSnapshot();
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('anchor')
-		).toBe('left');
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('open')
-		).toBe(false);
+		expect(component.find('Drawer').first().prop('open')).toBe(false);
 
 		expect(component.find('Drawer Text[testID="navigation-view"]')).toHaveLength(0);
 		expect(
@@ -63,12 +52,7 @@ describe('DrawerLayout', () => {
 		await waitForElement(component as any, DrawerLayout);
 
 		// expect(component).toMatchSnapshot();
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('open')
-		).toBe(true);
+		expect(component.find('Drawer').first().prop('open')).toBe(true);
 	});
 
 	it('should render a drawer positioned on the right', async () => {
@@ -88,12 +72,7 @@ describe('DrawerLayout', () => {
 		await waitForElement(component as any, DrawerLayout);
 
 		// expect(component).toMatchSnapshot();
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('anchor')
-		).toBe('right');
+		expect(component.find('Drawer').first().prop('anchor')).toBe('right');
 	});
 
 	it('should render a "slide" type drawer', async () => {
@@ -112,12 +91,7 @@ describe('DrawerLayout', () => {
 		await waitForElement(component as any, DrawerLayout);
 
 		// expect(component).toMatchSnapshot();
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('variant')
-		).toBe('persistent');
+		expect(component.find('Drawer').first().prop('variant')).toBe('persistent');
 	});
 
 	it('should render a "slide" type drawer with open prop', async () => {
@@ -137,18 +111,8 @@ describe('DrawerLayout', () => {
 		await waitForElement(component as any, DrawerLayout);
 
 		// expect(component).toMatchSnapshot();
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('variant')
-		).toBe('persistent');
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('open')
-		).toBe(true);
+		expect(component.find('Drawer').first().prop('variant')).toBe('persistent');
+		expect(component.find('Drawer').first().prop('open')).toBe(true);
 	});
 
 	it('should be controllable through DrawerActions', async () => {
@@ -160,7 +124,7 @@ describe('DrawerLayout', () => {
 					renderNavigationView={() => <Text testID="navigation-view">I'm inside drawer</Text>}
 				>
 					<DrawerActions>
-						{_navigation => (
+						{(_navigation) => (
 							<Text testID="drawer-layout-children">I'm DrawerLayout's children</Text>
 						)}
 					</DrawerActions>
@@ -170,81 +134,40 @@ describe('DrawerLayout', () => {
 
 		await waitForElement(component as any, DrawerLayout);
 
-		const state: DrawerLayoutState = component
-			.find('DrawerLayout')
-			.first()
-			.state();
+		const state: DrawerLayoutState = component.find('DrawerLayout').first().state();
 
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('open')
-		).toBe(false);
+		expect(component.find('Drawer').first().prop('open')).toBe(false);
 
 		state.openDrawer();
 		component.update();
 
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('open')
-		).toBe(true);
+		expect(component.find('Drawer').first().prop('open')).toBe(true);
 
 		state.closeDrawer();
 		component.update();
 
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('open')
-		).toBe(false);
+		expect(component.find('Drawer').first().prop('open')).toBe(false);
 
 		state.toggleDrawer();
 		component.update();
 
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('open')
-		).toBe(true);
+		expect(component.find('Drawer').first().prop('open')).toBe(true);
 
 		state.toggleDrawer();
 		component.update();
 
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('open')
-		).toBe(false);
+		expect(component.find('Drawer').first().prop('open')).toBe(false);
 
-		const onBackdropClick = component
-			.find('Drawer')
-			.first()
-			.prop('onBackdropClick') as any;
+		const onBackdropClick = component.find('Drawer').first().prop('onBackdropClick') as any;
 
 		onBackdropClick();
 		component.update();
 
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('open')
-		).toBe(true);
+		expect(component.find('Drawer').first().prop('open')).toBe(true);
 
 		onBackdropClick();
 		component.update();
 
-		expect(
-			component
-				.find('Drawer')
-				.first()
-				.prop('open')
-		).toBe(false);
+		expect(component.find('Drawer').first().prop('open')).toBe(false);
 	});
 });

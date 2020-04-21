@@ -16,10 +16,7 @@ test('avatar component should return source Image', async () => {
 
 	await waitForElement(wrapper, Avatar);
 
-	const sourceProp: any = wrapper
-		.find('Avatar BlueBaseImage')
-		.first()
-		.prop('source');
+	const sourceProp: any = wrapper.find(Avatar).find('BlueBaseImage').first().prop('source');
 	expect(sourceProp.uri).toBe(path);
 });
 
@@ -32,10 +29,7 @@ test('avatar component should return source Image', async () => {
 
 	await waitForElement(wrapper, Avatar);
 
-	const sourceProp: any = wrapper
-		.find('Avatar BlueBaseImage')
-		.first()
-		.prop('source');
+	const sourceProp: any = wrapper.find(Avatar).find('BlueBaseImage').first().prop('source');
 	expect(sourceProp).toBe(path);
 });
 
@@ -48,10 +42,7 @@ test('avatar component should return type=icon', async () => {
 
 	await waitForElement(wrapper, Avatar);
 
-	const sourceProp: any = wrapper
-		.find('Avatar Icon')
-		.last()
-		.prop('name');
+	const sourceProp: any = wrapper.find(Avatar).find('Icon').last().prop('name');
 	expect(sourceProp).toBe('inbox');
 });
 
@@ -64,9 +55,6 @@ test('avatar component should return source Image', async () => {
 
 	await waitForElement(wrapper, Avatar);
 
-	const sourceProp: any = wrapper
-		.find('Avatar')
-		.first()
-		.text();
+	const sourceProp: any = wrapper.find(Avatar).first().text();
 	expect(sourceProp).toBe('N');
 });

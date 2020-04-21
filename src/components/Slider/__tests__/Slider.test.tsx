@@ -6,25 +6,9 @@ describe('Slider', () => {
 	it('should map min and max props', () => {
 		const component = mount(<Slider minimumValue={10} maximumValue={50} value={25} />);
 
-		// expect(component).toMatchSnapshot();
-		expect(
-			component
-				.find('Slider')
-				.first()
-				.prop('min')
-		).toEqual(10);
-		expect(
-			component
-				.find('Slider')
-				.first()
-				.prop('max')
-		).toEqual(50);
-		expect(
-			component
-				.find('Slider')
-				.first()
-				.prop('value')
-		).toEqual(25);
+		expect(component.find('Slider').first().prop('min')).toEqual(10);
+		expect(component.find('Slider').first().prop('max')).toEqual(50);
+		expect(component.find('Slider').first().prop('value')).toEqual(25);
 	});
 
 	it('should map onValueChange fn to onChange fn', () => {
@@ -62,10 +46,7 @@ describe('Slider', () => {
 
 		const component = mount(<SLIDER onChange={cb} />);
 
-		const onChange = component
-			.find('Slider')
-			.first()
-			.prop('onChange') as any;
+		const onChange = component.find('Slider').first().prop('onChange') as any;
 
 		onChange('foo', 54);
 

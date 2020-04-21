@@ -1,7 +1,7 @@
-import { BootOptions } from '@bluebase/core';
+import { BootOptions, merge } from '@bluebase/core';
+
 import { MaterialIcons } from '@bluebase/plugin-vector-icons';
 import commonBootOptions from '../common/bluebase';
-import deepmerge from 'deepmerge';
 
 /**
  * Add your platform specific configs here.
@@ -9,9 +9,7 @@ import deepmerge from 'deepmerge';
  * the common folder, and extend them here.
  */
 const bootOptions: Partial<BootOptions> = {
-	plugins: [
-		MaterialIcons
-	],
+	plugins: [MaterialIcons],
 };
 
-export default deepmerge(commonBootOptions, bootOptions);
+export default merge(commonBootOptions, bootOptions);

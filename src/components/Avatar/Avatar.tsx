@@ -6,8 +6,10 @@ import { styles } from './styles';
 import { withPropsStyles } from '../../withPropsStyles';
 
 export const Avatar: any = withPropsStyles(styles)((props: AvatarProps) => {
-	const { type, icon, color, size, image, text, bluebaseTheme, ...rest } = props as any;
+	const { type, icon, size, image, text, bluebaseTheme, ...rest } = props as any;
 	const style: any = props.style;
+
+	const color = props.color || bluebaseTheme.palette.background.default;
 
 	if (type === 'icon') {
 		return (
@@ -25,7 +27,7 @@ export const Avatar: any = withPropsStyles(styles)((props: AvatarProps) => {
 	}
 
 	return (
-		<MuiAvatar {...rest} style={style}>
+		<MuiAvatar {...rest} style={{ ...style, color }}>
 			{text}
 		</MuiAvatar>
 	);

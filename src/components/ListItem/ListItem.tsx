@@ -8,7 +8,7 @@ export const ListItem = (props: ListItemProps) => {
 
 	return (
 		<MUIListItem
-			button={!!onPress}
+			button={!!onPress as any}
 			disabled={disabled}
 			selected={selected}
 			onClick={onPress}

@@ -1,23 +1,29 @@
 import { IntlConsumer, ThemeContext, ThemeContextData } from '@bluebase/core';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+
 import CssBaseline from '@material-ui/core/CssBaseline';
-
-
 import React from 'react';
 
-export const withTheme = (Component: React.ComponentType<any>) => {
+(MuiThemeProvider as any).displayName = 'MuiThemeProvider';
 
+export const withTheme = (Component: React.ComponentType<any>) => {
 	return class ReactNativePaperProvider extends React.Component {
 		static contextType = ThemeContext;
 
 		render() {
-
 			const { theme }: ThemeContextData = this.context;
+
+			// Strip color from typography.
+			const typography: { [key: string]: any } = {};
+
+			Object.keys(theme.typography).map((key) => {
+				const { color, ...values } = (theme.typography as any)[key];
+				typography[key] = values;
+			});
 
 			return (
 				<IntlConsumer>
 					{({ rtl }) => {
-
 						const rnpTheme = createMuiTheme({
 							direction: rtl ? 'rtl' : 'ltr',
 							palette: {
@@ -25,16 +31,13 @@ export const withTheme = (Component: React.ComponentType<any>) => {
 								action: theme.palette.action,
 								background: {
 									...theme.palette.background,
-									paper: theme.palette.background.card
+									paper: theme.palette.background.card,
 								},
-								type: theme.mode
+								type: theme.mode,
 							},
 							shape: theme.shape,
-							spacing: theme.spacing,
-							typography: {
-								useNextVariants: true,
-								...theme.typography as any
-							},
+							spacing: theme.spacing.unit,
+							typography,
 						});
 
 						return (

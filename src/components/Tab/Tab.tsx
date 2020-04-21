@@ -3,6 +3,8 @@ import MuiTab from '@material-ui/core/Tab';
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 
+(MuiTab as any).displayName = 'Tab';
+
 function getTabUI(props: any) {
 	return <MuiTab {...props} />;
 }
