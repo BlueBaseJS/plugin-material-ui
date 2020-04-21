@@ -105,6 +105,5 @@ export function getButtonColors(
 		colors.text = muiTheme.palette.getContrastText(color);
 	}
 
-	debugger;
 	return colors;
 }

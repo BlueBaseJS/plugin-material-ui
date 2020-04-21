@@ -48,10 +48,8 @@ const map = {
 			onChange(event, checked);
 		}
 
-		debugger;
 
 		if (onValueChange) {
-			debugger;
 			onValueChange(event.target.value, checked);
 		}
 	},
