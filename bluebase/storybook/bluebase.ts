@@ -1,6 +1,6 @@
 import { BootOptions, merge } from '@bluebase/core';
 
-import { MaterialIcons } from '@bluebase/plugin-vector-icons';
+import { MaterialCommunityIcons } from '@bluebase/plugin-vector-icons';
 import commonBootOptions from '../common/bluebase';
 
 /**
@@ -9,7 +9,7 @@ import commonBootOptions from '../common/bluebase';
  * the common folder, and extend them here.
  */
 const bootOptions: Partial<BootOptions> = {
-	plugins: [MaterialIcons],
+	plugins: [MaterialCommunityIcons],
 };
 
 export default merge(commonBootOptions, bootOptions);
