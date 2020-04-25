@@ -51,10 +51,8 @@ export const Searchbar = (props: SearchbarProps) => {
 		clearIcon,
 		icon,
 		iconColor = theme.palette.text.secondary,
-		// iconColor: customIconColor,
 		inputStyle,
 		onIconPress,
-		placeholder,
 		searchAccessibilityLabel,
 		style,
 		value,
@@ -70,10 +68,9 @@ export const Searchbar = (props: SearchbarProps) => {
 	}
 
 	return (
-		<View style={[styles.root, style]}>
+		<View style={[styles.root, style]} testID="searchbar-root">
 			<TextInput
 				style={[styles.input, inputStyle]}
-				placeholder={placeholder || ''}
 				returnKeyType="search"
 				// keyboardAppearance={dark ? 'dark' : 'light'}
 				accessibilityTraits="search"
@@ -90,6 +87,7 @@ export const Searchbar = (props: SearchbarProps) => {
 						name="close"
 						size={20}
 						style={styles.clearIcon}
+						{...clearIcon}
 					/>
 				)}
 				<IconButton
@@ -99,6 +97,7 @@ export const Searchbar = (props: SearchbarProps) => {
 					size={20}
 					style={styles.searchIcon}
 					// accessibilityLabel={searchAccessibilityLabel}
+					{...icon}
 				/>
 			</View>
 		</View>
