@@ -6,6 +6,5 @@ export const ListAvatar = (props)=>{
         <ListItemAvatar>
             <Avatar  {...props} />
         </ListItemAvatar>
-
     );
 }
