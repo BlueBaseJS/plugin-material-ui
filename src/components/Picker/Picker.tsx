@@ -8,7 +8,7 @@ import Select from '@material-ui/core/Select';
 import { StyleSheet } from 'react-native';
 import { objectMapper } from '@bluebase/component-mapper';
 
-Select.displayName = 'Select';
+(Select as React.ComponentType).displayName = 'Select';
 (FormControl as any).displayName = 'FormControl';
 (FormHelperText as any).displayName = 'FormHelperText';
 (InputLabel as any).displayName = 'InputLabel';

@@ -27,6 +27,7 @@ import { ListItem } from './components/ListItem';
 import { ListSubheader } from './components/ListSubheader';
 import { Menu } from './components/Menu/Menu';
 import { MenuItem } from './components/Menu/MenuItem';
+import { Pagination } from './components/Pagination';
 import { Picker } from './components/Picker';
 import { PickerItem } from './components/PickerItem';
 import { Radio } from './components/Radio';
@@ -84,6 +85,7 @@ export default createPlugin({
 		ListSubheader,
 		Menu,
 		MenuItem,
+		Pagination,
 		Picker,
 		PickerItem,
 		Radio,

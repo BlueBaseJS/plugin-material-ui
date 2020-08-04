@@ -6,7 +6,7 @@ import { RadioGroupProps } from '@bluebase/components';
 import React from 'react';
 import { componentMapper } from '@bluebase/component-mapper';
 
-MuiRadioGroup.displayName = 'RadioGroup';
+(MuiRadioGroup as React.ComponentType).displayName = 'RadioGroup';
 
 export const RadioGroup = componentMapper<RadioGroupProps>(
 	MuiRadioGroup,

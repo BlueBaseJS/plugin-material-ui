@@ -5,7 +5,7 @@ import React from 'react';
 import { objectMapper } from '@bluebase/component-mapper';
 import { withPropsStyles } from '../../withPropsStyles';
 
-MUICheckbox.displayName = 'Checkbox';
+(MUICheckbox as React.ComponentType).displayName = 'Checkbox';
 
 const styles = ({ color }: CheckboxProps, theme: any) => {
 	// If color is NOT primary, secondary or default then create custom styles

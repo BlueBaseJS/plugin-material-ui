@@ -6,7 +6,7 @@ import React from 'react';
 import { Theme } from '@material-ui/core/styles';
 import { withPropsStyles } from '../../withPropsStyles';
 
-Drawer.displayName = 'Drawer';
+(Drawer as React.ComponentType).displayName = 'Drawer';
 
 export interface DrawerLayoutState extends DrawerActionsObject {
 	open: boolean;
