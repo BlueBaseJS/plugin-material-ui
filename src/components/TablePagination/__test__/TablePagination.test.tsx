@@ -1,20 +1,44 @@
-import { TablePagination } from '../index';
-import React from 'react';
 import { BlueBaseApp } from '@bluebase/core';
-
-import { Text } from 'react-native';
+import Plugin from '../../../index';
+import React from 'react';
+import { TablePagination } from '../index';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
-import Plugin from '../../../index';
 
-test('TablePagination component with children text', async () => {
-	const wrapper = mount(
-		<BlueBaseApp plugins={[Plugin]}>
-			<TablePagination count={1} page={2} numberOfPages={2} onPageChange={() => null}>
-				<Text>TablePagination test</Text>
-			</TablePagination>
-		</BlueBaseApp>
-	);
-	await waitForElement(wrapper, TablePagination);
-	expect(wrapper.props().children).toBeDefined();
+describe('TablePagination', () => {
+	it('should show table pagination component', async () => {
+		const onPageChange = jest.fn();
+		const onChangeRowsPerPage = jest.fn();
+
+		const wrapper = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<TablePagination
+					page={0}
+					count={25}
+					rowsPerPage={10}
+					onPageChange={onPageChange}
+					onChangeRowsPerPage={onChangeRowsPerPage}
+				/>
+			</BlueBaseApp>
+		);
+		await waitForElement(wrapper, TablePagination);
+
+		const onNextClick: any = wrapper
+			.find('ForwardRef(IconButton)[title="Next page"]')
+			.prop('onClick');
+		onNextClick();
+
+		expect(onPageChange).toHaveBeenCalledTimes(1);
+		expect(onPageChange).toHaveBeenLastCalledWith(1);
+
+		const onChange: any = wrapper.find('Select').prop('onChange');
+		onChange({
+			target: {
+				value: 50,
+			},
+		});
+
+		expect(onChangeRowsPerPage).toHaveBeenCalledTimes(1);
+		expect(onChangeRowsPerPage).toHaveBeenLastCalledWith(50);
+	});
 });

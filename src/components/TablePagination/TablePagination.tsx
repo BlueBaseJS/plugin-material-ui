@@ -1,20 +1,39 @@
 import { TablePaginationDefaultProps, TablePaginationProps } from '@bluebase/components';
+
 import MuiTablePagination from '@material-ui/core/TablePagination';
 import React from 'react';
 
 export const TablePagination = (props: TablePaginationProps) => {
-	const RowsPerPage = () => props.count / props.numberOfPages;
+	const {
+		count,
+		onPageChange,
+		page,
+		rowsPerPage,
+		onChangeRowsPerPage,
+		rowsPerPageOptions,
+		style,
+		...rest
+	} = props;
+
+	const onChangePage = (_event: any, pageNum: number) => onPageChange(pageNum);
+
+	const onChangeRowsPerPageCustom = (event: any) => {
+		if (onChangeRowsPerPage) {
+			onChangeRowsPerPage(event.target.value);
+		}
+	};
 
 	return (
 		<MuiTablePagination
-			rowsPerPage={RowsPerPage()}
-			onChangePage={props.onPageChange as any}
-			count={props.count as any}
-			style={props.style as any}
-			{...props}
-		>
-			{props.children}
-		</MuiTablePagination>
+			count={count}
+			onChangePage={onChangePage}
+			page={page}
+			rowsPerPage={rowsPerPage}
+			rowsPerPageOptions={rowsPerPageOptions}
+			onChangeRowsPerPage={onChangeRowsPerPageCustom}
+			style={style as any}
+			{...rest}
+		/>
 	);
 };
 
