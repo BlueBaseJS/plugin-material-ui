@@ -1,9 +1,53 @@
-import MuiPagination from '@material-ui/lab/Pagination';
+import { BlueBaseApp } from '@bluebase/core';
 import { Pagination } from '../Pagination';
+import Plugin from '../../../index';
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
+import { waitForElement } from 'enzyme-async-helpers';
 
-test('Menu component should use children prop to show content', () => {
-	const component = shallow(<Pagination count={10} />);
-	expect(component.find(MuiPagination).prop('count')).toBe(10);
+describe('TablePagination', () => {
+	it('should show pagination component', async () => {
+		const onChange = jest.fn();
+
+		const wrapper = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Pagination page={2} count={10} onChange={onChange} />
+			</BlueBaseApp>
+		);
+		await waitForElement(wrapper, Pagination);
+
+		const onNextClick: any = wrapper
+			.find('ForwardRef(PaginationItem)[type="next"]')
+			.prop('onClick');
+
+		onNextClick({
+			target: {
+				value: 3,
+			},
+		});
+		expect(onChange).toHaveBeenCalledTimes(1);
+		expect(onChange).toHaveBeenLastCalledWith(3);
+	});
+
+	it('should not call onChange', async () => {
+		const onChange = jest.fn();
+
+		const wrapper = mount(
+			<BlueBaseApp plugins={[Plugin]}>
+				<Pagination page={2} count={10} />
+			</BlueBaseApp>
+		);
+		await waitForElement(wrapper, Pagination);
+
+		const onNextClick: any = wrapper
+			.find('ForwardRef(PaginationItem)[type="next"]')
+			.prop('onClick');
+
+		onNextClick({
+			target: {
+				value: 3,
+			},
+		});
+		expect(onChange).toHaveBeenCalledTimes(0);
+	});
 });
