@@ -20,11 +20,7 @@ describe('TablePagination', () => {
 			.find('ForwardRef(PaginationItem)[type="next"]')
 			.prop('onClick');
 
-		onNextClick({
-			target: {
-				value: 3,
-			},
-		});
+		onNextClick({}, 3);
 		expect(onChange).toHaveBeenCalledTimes(1);
 		expect(onChange).toHaveBeenLastCalledWith(3);
 	});
@@ -43,11 +39,7 @@ describe('TablePagination', () => {
 			.find('ForwardRef(PaginationItem)[type="next"]')
 			.prop('onClick');
 
-		onNextClick({
-			target: {
-				value: 3,
-			},
-		});
+		onNextClick({}, 3);
 		expect(onChange).toHaveBeenCalledTimes(0);
 	});
 });
