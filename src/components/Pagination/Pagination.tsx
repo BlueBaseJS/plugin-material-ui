@@ -7,9 +7,9 @@ import { StyleSheet } from 'react-native';
 export const Pagination = (props: PaginationProps) => {
 	const { count, disabled, onChange, page, testID, style, ...rest } = props;
 
-	const onChangeCustom = (event: any) => {
+	const onChangeCustom = (_event: React.ChangeEvent<unknown>, pageNum: number) => {
 		if (onChange) {
-			onChange(event.target.value);
+			onChange(pageNum);
 		}
 	};
 
