@@ -13,7 +13,7 @@ export const IconButton = componentMapper<IconButtonProps>(MUIIconButton, {
 	fullWidth: 'fullWidth',
 	name: 'name',
 	onClick: 'onPress',
-	size: 'size',
+	// size: 'size', // Disabled due to format mismatch
 	style: ({ style }: IconButtonProps) => StyleSheet.flatten(style),
 	variant: 'variant',
 });
