@@ -6,7 +6,11 @@ import { withStyles } from '@material-ui/core/styles';
 
 function getTabsUI(props: any) {
 	const { children, ...other } = props;
-	return <MuiTabs {...other}>{children}</MuiTabs>;
+	return (
+		<MuiTabs variant="scrollable" {...other}>
+			{children}
+		</MuiTabs>
+	);
 }
 
 export const Tabs = (props: any) => {
