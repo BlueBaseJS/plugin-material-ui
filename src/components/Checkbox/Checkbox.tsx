@@ -1,49 +1,53 @@
+import { Theme, useTheme } from '@bluebase/core';
+
 import { CheckboxProps } from '@bluebase/components';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import MUICheckbox from '@material-ui/core/Checkbox';
 import React from 'react';
+import { makeStyles } from '@material-ui/core';
 import { objectMapper } from '@bluebase/component-mapper';
-import { withPropsStyles } from '../../withPropsStyles';
 
 (MUICheckbox as React.ComponentType).displayName = 'Checkbox';
 
-const styles = ({ color }: CheckboxProps, theme: any) => {
-	// If color is NOT primary, secondary or default then create custom styles
-	if (color === 'primary' || color === 'secondary' || color === 'default') {
-		return {};
-	}
+interface CheckboxPropsWithTheme extends CheckboxProps {
+	theme: Theme
+}
 
-	// If color is undefined, then use defaults
-	if (color === undefined) {
-		return {};
-	}
-
-	return {
-		root: {
-			// color,
-			// tslint:disable-next-line: object-literal-sort-keys
-			'&$checked': {
-				color,
-			},
-			'&$disabled': {
-				color: theme.palette.action.disabled,
-			},
-		},
-		// tslint:disable-next-line: object-literal-sort-keys
-		checked: {},
-		disabled: {},
-	};
-};
-
-const map = {
-	// If color is primary, secondary or default set as is
-	color: ({ color }: CheckboxProps) => {
-		if (color === 'primary' || color === 'secondary' || color === 'default') {
-			return color;
+const useStyles = makeStyles({
+	checked: ({ color, theme }: CheckboxPropsWithTheme) => {
+		// If color is undefined, then use defaults
+		if (color === 'default') {
+			return {};
+		}
+		// If color is undefined, then use defaults
+		if (color === undefined) {
+			color = theme.palette.secondary.main;
 		}
 
-		return;
+		// If color is NOT primary, secondary or default then create custom styles
+		if (color === 'primary' || color === 'secondary') {
+			color = theme.palette[color].main;
+		}
+
+		return {
+			color
+		};
 	},
+
+	disabled: ({ theme }: CheckboxPropsWithTheme) => ({
+		color: theme.palette.action.disabled,
+	}),
+});
+
+const map = {
+	// // If color is primary, secondary or default set as is
+	// color: ({ color }: CheckboxProps) => {
+	// 	if (color === 'primary' || color === 'secondary' || color === 'default') {
+	// 		return color;
+	// 	}
+
+	// 	return;
+	// },
 
 	onChange: ({ onChange, onValueChange }: any) => (event: any, checked: boolean) => {
 		if (onChange) {
@@ -56,16 +60,14 @@ const map = {
 	},
 };
 
-export const Checkbox = withPropsStyles(styles)((props: CheckboxProps) => {
+export const Checkbox = (props: CheckboxProps) => {
 	const newProps = objectMapper(props, map, { rest: true, ignore: ['onValueChange'] });
+	const { label, labelPlacement, indeterminate, ...common } = newProps;
 
-	const { label, labelPlacement, classes, indeterminate, ...common } = newProps;
+	const { theme } = useTheme();
+	const classes = useStyles({...props, theme});
 
-	if (Object.keys(classes).length > 0) {
-		delete common.color;
-	}
-
-	const node = <MUICheckbox classes={classes} indeterminate={indeterminate} {...common} />;
+	const node = <MUICheckbox classes={classes} indeterminate={indeterminate} {...common} color="default" />;
 
 	if (!label) {
 		return node;
@@ -74,4 +76,4 @@ export const Checkbox = withPropsStyles(styles)((props: CheckboxProps) => {
 	return (
 		<FormControlLabel {...common} label={label} labelPlacement={labelPlacement} control={node} />
 	);
-}) as React.ComponentType<CheckboxProps>;
+}
