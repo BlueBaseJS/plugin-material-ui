@@ -14,7 +14,7 @@ import { useTheme } from '@bluebase/core';
 
 export const Button = (props: ButtonProps) => {
 
-	const { title, children, loading, icon, disabled, fullWidth, onPress,size,variant } = props;
+	const { title, children, loading, icon, disabled, fullWidth, onPress,size,variant} = props;
 
 	const { theme } = useTheme();
 	const muiTheme = useMuiTheme();
