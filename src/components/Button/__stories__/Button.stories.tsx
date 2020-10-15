@@ -164,7 +164,7 @@ stories
 	.add('Icon Buttons', () => (
 		<React.Fragment>
 			<Button
-				icon={{ type: 'icon', name: 'favorite' }}
+				icon={{ type: 'icon', name: 'delete' }}
 				variant="contained"
 				color="primary"
 				onPress={action('button-press')}
@@ -172,7 +172,7 @@ stories
 				Default
 			</Button>
 			<Button
-				icon={{ type: 'icon', name: 'favorite' }}
+				icon={{ type: 'icon', name: 'delete' }}
 				variant="contained"
 				color="primary"
 				onPress={action('button-press')}
@@ -180,7 +180,7 @@ stories
 				Primary
 			</Button>
 			<Button
-				icon={{ type: 'icon', name: 'favorite' }}
+				icon={{ type: 'icon', name: 'delete' }}
 				variant="contained"
 				color="secondary"
 				onPress={action('button-press')}
@@ -188,7 +188,7 @@ stories
 				Secondary
 			</Button>
 			<Button
-				icon={{ type: 'icon', name: 'favorite' }}
+				icon={{ type: 'icon', name: 'delete' }}
 				variant="contained"
 				color="secondary"
 				disabled
@@ -197,7 +197,7 @@ stories
 				Disabled
 			</Button>
 			<Button
-				icon={{ type: 'icon', name: 'favorite' }}
+				icon={{ type: 'icon', name: 'delete' }}
 				color="secondary"
 				variant="outlined"
 				onPress={action('button-press')}
@@ -205,7 +205,7 @@ stories
 				Outlined
 			</Button>
 			<Button
-				icon={{ type: 'icon', name: 'favorite' }}
+				icon={{ type: 'icon', name: 'delete' }}
 				variant="outlined"
 				onPress={action('button-press')}
 				disabled
@@ -229,7 +229,7 @@ stories
 				Disabled Loading
 			</Button>
 			<Button
-				icon={{ type: 'icon', name: 'favorite' }}
+				icon={{ type: 'icon', name: 'delete' }}
 				variant="contained"
 				color="secondary"
 				disabled
