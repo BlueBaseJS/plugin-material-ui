@@ -1,11 +1,16 @@
 import { BlueBase } from '@bluebase/core';
 import Plugin from '../index';
+import { components } from '../components';
 
 test('Plugin should be correctly registered', async () => {
 	const BB = new BlueBase();
 	await BB.Plugins.register(Plugin);
 
 	expect(BB.Plugins.has('material-ui')).toBeTruthy();
+});
+
+test('Plugin should be correctly registered', async () => {
+	expect(components.Avatar).toBeTruthy();
 });
 
 // test('plugin should map bluebase theme to material ui theme', async () => {

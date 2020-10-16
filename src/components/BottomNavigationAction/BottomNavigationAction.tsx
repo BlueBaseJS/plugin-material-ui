@@ -5,6 +5,7 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Theme } from '@bluebase/core';
 import { componentMapper } from '@bluebase/component-mapper';
+import get from 'lodash.get';
 
 export const BottomNavigationAction = componentMapper<BottomNavigationActionProps>(
 	MuiBottomNavigationAction,
@@ -18,7 +19,7 @@ export const BottomNavigationAction = componentMapper<BottomNavigationActionProp
 				return icon;
 			}
 
-			const size = icon.size || 24;
+			const size = get(icon, 'size', 24);
 
 			const props = {
 				size,

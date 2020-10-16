@@ -36,11 +36,6 @@ export const Switch = withStyles(styles)((props: SwitchProps) => {
 	const newProps = objectMapper(props, map);
 
 	const { label, labelPlacement, classes, color, ...common } = newProps;
-
-	if (classes.color) {
-		delete common.color;
-	}
-
 	const { label: labelClass, labelPlacementStart, ...switchClasses } = classes;
 
 	const node = <MUISwitch classes={switchClasses} {...common} color="default" />;

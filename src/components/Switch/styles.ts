@@ -37,14 +37,11 @@ export const styles = (theme: Theme) => ({
 	},
 
 	track: ({ color, checked }: SwitchProps) => {
-		if (!checked) {
+		// If color is undefined, then use defaults
+		if (!checked || color === 'default') {
 			return {};
 		}
 
-		// If color is undefined, then use defaults
-		if (color === 'default') {
-			return {};
-		}
 		// If color is undefined, then use defaults
 		if (color === undefined) {
 			color = theme.palette.secondary.main;
@@ -54,6 +51,7 @@ export const styles = (theme: Theme) => ({
 		if (color === 'primary' || color === 'secondary') {
 			color = theme.palette[color].main;
 		}
+
 		return {
 			backgroundColor: color,
 		};
