@@ -26,23 +26,22 @@ export const styles = ({ color }: SwitchProps, theme: Theme) => {
 	return {
 		...common,
 
-		bar: {},
 		checked: {},
-		icon: {},
+		track: {},
+
 		switchBase: {
-			// color,
-			// tslint:disable-next-line: object-literal-sort-keys
+			color: color,
+
 			'&$checked': {
-				color,
-				// tslint:disable-next-line: object-literal-sort-keys
-				'& + $bar': {
-					backgroundColor: color,
-				},
+				color: color,
+			},
+			'&$checked + $track': {
+				backgroundColor: color,
 			},
 		},
 
 		disabled: {
-			'& + $bar': {
+			'& + $track': {
 				opacity: theme.palette.type === 'light' ? 0.12 : 0.1,
 			},
 
@@ -53,7 +52,7 @@ export const styles = ({ color }: SwitchProps, theme: Theme) => {
 			'&$switchBase': {
 				color: theme.palette.type === 'light' ? theme.palette.grey[400] : theme.palette.grey[800],
 
-				'& + $bar': {
+				'& + $track': {
 					backgroundColor:
 						theme.palette.type === 'light'
 							? theme.palette.common.black
