@@ -1,60 +1,80 @@
+import { Theme as ThemeMui, makeStyles } from '@material-ui/core';
+
 import { ButtonProps } from '@bluebase/components';
 import { Theme } from '@bluebase/core';
-import { Theme as ThemeMui } from '@material-ui/core';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
-export const styles = (props: ButtonProps, muiTheme: ThemeMui, theme: Theme) => {
-	const { color, disabled } = props;
-	// debugger;
+export interface ButtonPropsWithThemes extends ButtonProps {
+	muiTheme: ThemeMui;
+	theme: Theme;
+}
 
-	if (!color || (color === 'default' && !disabled) || disabled) {
-		return;
-	}
+export const useStyles = makeStyles({
+	contained: (props: ButtonPropsWithThemes) => {
+		const { color, disabled, muiTheme, theme } = props;
 
-	const colors = getButtonColors(props, muiTheme, theme);
+		if (!color || (color === 'default' && !disabled) || disabled) {
+			return {};
+		}
 
-	return {
-		contained: {},
-		outlined: {},
-		// text: {},
+		const colors = getButtonColors(props, muiTheme, theme);
 
-		root: {
-			'&$contained': {
-				backgroundColor: colors.main,
-				color: colors.text,
+		return {
+			backgroundColor: colors.main,
+			color: colors.text,
 
-				'&:hover': {
-					backgroundColor: colors.hover,
-				},
+			'&:hover': {
+				backgroundColor: colors.hover,
 			},
-			/* Styles applied to the root element if `variant="outlined"` and `color="primary"`. */
-			'&$outlined': {
-				'&:hover': {
-					'@media (hover: none)': {
-						backgroundColor: 'transparent',
-					},
-					backgroundColor: fade(colors.text as string, theme.palette.action.hoverOpacity),
-					border: `1px solid ${colors.text as string}`,
-					// Reset on touch devices, it doesn't add specificity
+		};
+	},
+
+	outlined: (props: ButtonPropsWithThemes) => {
+		const { color, disabled, muiTheme, theme } = props;
+
+		if (!color || (color === 'default' && !disabled) || disabled) {
+			return {};
+		}
+
+		const colors = getButtonColors(props, muiTheme, theme);
+
+		return {
+			border: `1px solid ${fade(colors.text as string, 0.5)}`,
+			color: colors.text,
+
+			'&:hover': {
+				'@media (hover: none)': {
+					backgroundColor: 'transparent',
 				},
-				border: `1px solid ${fade(colors.text as string, 0.5)}`,
-				color: colors.text,
+				backgroundColor: fade(colors.text as string, theme.palette.action.hoverOpacity),
+				border: `1px solid ${colors.text as string}`,
+				// Reset on touch devices, it doesn't add specificity
 			},
-			'&$text': {
-				'&:hover': {
-					'@media (hover: none)': {
-						backgroundColor: 'transparent',
-					},
-					backgroundColor: fade(colors.text as string, theme.palette.action.hoverOpacity),
-					// Reset on touch devices, it doesn't add specificity
+		};
+	},
+
+	text: (props: ButtonPropsWithThemes) => {
+		const { color, disabled, muiTheme, theme } = props;
+
+		if (!color || (color === 'default' && !disabled) || disabled) {
+			return {};
+		}
+
+		const colors = getButtonColors(props, muiTheme, theme);
+
+		return {
+			color: colors.text,
+
+			'&:hover': {
+				'@media (hover: none)': {
+					backgroundColor: 'transparent',
 				},
-				color: colors.text,
+				backgroundColor: fade(colors.text as string, theme.palette.action.hoverOpacity),
+				// Reset on touch devices, it doesn't add specificity
 			},
-		},
-		/* Styles applied to the root element if `variant="text"` */
-		text: {},
-	};
-};
+		};
+	},
+});
 
 export function getButtonColors(
 	{ color, disabled, variant }: ButtonProps,

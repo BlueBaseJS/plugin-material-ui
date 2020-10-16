@@ -5,21 +5,12 @@ import { StyleSheet } from 'react-native';
 import { SwitchProps } from '@bluebase/components';
 import { objectMapper } from '@bluebase/component-mapper';
 import { styles } from './styles';
-import { withPropsStyles } from '../../withPropsStyles';
+import { withStyles } from '@material-ui/core/styles';
 
 (MUISwitch as React.ComponentType).displayName = 'Switch';
 (FormControlLabel as React.ComponentType).displayName = 'FormControlLabel';
 
 const map = {
-	// If color is primary, secondary or default set as is
-	color: ({ color }: SwitchProps) => {
-		if (color === 'primary' || color === 'secondary' || color === 'default') {
-			return color;
-		}
-
-		return;
-	},
-
 	onChange: ({ onChange, onValueChange }: any) => (event: any, checked: boolean) => {
 		if (onChange) {
 			onChange(event, checked);
@@ -41,18 +32,13 @@ const map = {
 	value: 'value',
 };
 
-export const Switch = withPropsStyles(styles)((props: SwitchProps) => {
+export const Switch = withStyles(styles)((props: SwitchProps) => {
 	const newProps = objectMapper(props, map);
 
-	const { label, labelPlacement, classes, ...common } = newProps;
-
-	if (classes.color) {
-		delete common.color;
-	}
-
+	const { label, labelPlacement, classes, color, ...common } = newProps;
 	const { label: labelClass, labelPlacementStart, ...switchClasses } = classes;
 
-	const node = <MUISwitch classes={switchClasses} {...common} />;
+	const node = <MUISwitch classes={switchClasses} {...common} color="default" />;
 
 	if (!label) {
 		return node;
@@ -68,4 +54,4 @@ export const Switch = withPropsStyles(styles)((props: SwitchProps) => {
 			classes={{ label: labelClass, labelPlacementStart }}
 		/>
 	);
-}) as React.ComponentType<SwitchProps>;
+});

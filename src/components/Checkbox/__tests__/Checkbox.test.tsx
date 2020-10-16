@@ -36,7 +36,7 @@ describe('Checkbox', () => {
 		);
 		await waitForElement(component, Checkbox);
 
-		expect(component.find('Checkbox').first().prop('color')).toEqual('primary');
+		expect(component.find('Checkbox').first().prop('color')).toEqual('default');
 	});
 
 	it('should pass the color as is when set to "secondary"', async () => {
@@ -47,7 +47,7 @@ describe('Checkbox', () => {
 		);
 		await waitForElement(component, Checkbox);
 
-		expect(component.find('Checkbox').first().prop('color')).toEqual('secondary');
+		expect(component.find('Checkbox').first().prop('color')).toEqual('default');
 	});
 
 	it('should pass the color as is when set to "default"', async () => {
@@ -70,7 +70,7 @@ describe('Checkbox', () => {
 		await waitForElement(component, Checkbox);
 		// expect(component.find(Checkbox)).toMatchSnapshot();
 		expect(component.find('Checkbox').first().prop('classes')).toBeTruthy();
-		expect(component.find('Checkbox').first().prop('color')).toEqual(undefined);
+		expect(component.find('Checkbox').first().prop('color')).toEqual('default');
 	});
 
 	it('should set the label component', async () => {

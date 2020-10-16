@@ -72,7 +72,7 @@ describe('Radio', () => {
 
 		expect(component.find('WithStyles(ForwardRef(Radio))').first().prop('classes')).toBeTruthy();
 		expect(component.find('WithStyles(ForwardRef(Radio))').first().prop('color')).toEqual(
-			undefined
+			'default'
 		);
 	});
 
