@@ -11,7 +11,6 @@ export interface ButtonPropsWithThemes extends ButtonProps {
 
 export const useStyles = makeStyles({
 	contained: (props: ButtonPropsWithThemes) => {
-
 		const { color, disabled, muiTheme, theme } = props;
 
 		if (!color || (color === 'default' && !disabled) || disabled) {
@@ -26,13 +25,11 @@ export const useStyles = makeStyles({
 
 			'&:hover': {
 				backgroundColor: colors.hover,
-			}
+			},
 		};
 	},
 
-
 	outlined: (props: ButtonPropsWithThemes) => {
-
 		const { color, disabled, muiTheme, theme } = props;
 
 		if (!color || (color === 'default' && !disabled) || disabled) {
@@ -57,7 +54,6 @@ export const useStyles = makeStyles({
 	},
 
 	text: (props: ButtonPropsWithThemes) => {
-
 		const { color, disabled, muiTheme, theme } = props;
 
 		if (!color || (color === 'default' && !disabled) || disabled) {

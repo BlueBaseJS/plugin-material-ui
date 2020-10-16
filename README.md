@@ -15,7 +15,7 @@
 [![Build Status](https://travis-ci.com/BlueBaseJS/plugin-material-ui.svg?branch=master)](https://travis-ci.com/BlueBaseJS/plugin-material-ui)
 [![codecov](https://codecov.io/gh/BlueBaseJS/plugin-material-ui/branch/master/graph/badge.svg)](https://codecov.io/gh/BlueBaseJS/plugin-material-ui)
 [![Greenkeeper badge](https://badges.greenkeeper.io/BlueBaseJS/plugin-material-ui.svg)](https://greenkeeper.io/) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/BlueBaseJS/plugin-material-ui/blob/master/CONTRIBUTING.md)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3c79162871414b6aa7c15d1a423adeca)](https://www.codacy.com/app/BlueBaseJS/plugin-material-ui?utm_source=github.com&utm_medium=referral&utm_content=BlueBaseJS/plugin-material-ui&utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/3c79162871414b6aa7c15d1a423adeca)](https://www.codacy.com/app/BlueBaseJS/plugin-material-ui?utm_source=github.com\&utm_medium=referral\&utm_content=BlueBaseJS/plugin-material-ui\&utm_campaign=Badge_Grade)
 [![Known Vulnerabilities](https://snyk.io/test/github/BlueBaseJS/plugin-material-ui/badge.svg)](https://snyk.io/test/github/BlueBaseJS/plugin-material-ui)
 
 ## 🤝 Compatibility
@@ -26,5 +26,5 @@
 
 ## Docs
 
--   [Storybook](https://bluebasejs.github.io/plugin-material-ui/storybook/)
--   [API Docs](https://bluebasejs.github.io/plugin-material-ui/)
+*   [Storybook](https://bluebasejs.github.io/plugin-material-ui/storybook/)
+*   [API Docs](https://bluebasejs.github.io/plugin-material-ui/)

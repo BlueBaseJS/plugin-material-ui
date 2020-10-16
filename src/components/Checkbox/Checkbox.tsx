@@ -67,4 +67,4 @@ export const Checkbox = (props: CheckboxProps) => {
 	return (
 		<FormControlLabel {...common} label={label} labelPlacement={labelPlacement} control={node} />
 	);
-}
+};
