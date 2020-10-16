@@ -40,15 +40,6 @@ const useStyles = makeStyles({
 });
 
 const map = {
-	// // If color is primary, secondary or default set as is
-	// color: ({ color }: CheckboxProps) => {
-	// 	if (color === 'primary' || color === 'secondary' || color === 'default') {
-	// 		return color;
-	// 	}
-
-	// 	return;
-	// },
-
 	onChange: ({ onChange, onValueChange }: any) => (event: any, checked: boolean) => {
 		if (onChange) {
 			onChange(event, checked);
