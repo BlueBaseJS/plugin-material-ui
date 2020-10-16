@@ -6,7 +6,7 @@ import React from 'react';
 
 (MuiThemeProvider as any).displayName = 'MuiThemeProvider';
 
-export const withTheme = (Component: React.ComponentType<any>) => {
+export const withTheme: any = (Component: React.ComponentType<any>) => {
 	return class ReactNativePaperProvider extends React.Component {
 		static contextType = ThemeContext;
 

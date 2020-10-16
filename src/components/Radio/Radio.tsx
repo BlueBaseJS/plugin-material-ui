@@ -4,7 +4,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import MUIRadio from '@material-ui/core/Radio';
 import { RadioProps } from '@bluebase/components';
 import React from 'react';
+import get from 'lodash.get';
 import { makeStyles } from '@material-ui/core';
+import { noop } from '../../helpers';
 import { objectMapper } from '@bluebase/component-mapper';
 
 interface RadioPropsWithTheme extends RadioProps {
@@ -38,15 +40,12 @@ const useStyles = makeStyles({
 });
 
 const map = {
-	onChange: ({ onChange, onValueChange }: any) => (event: any, checked: boolean) => {
-		if (onChange) {
-			onChange(event, checked);
-		}
+	onChange: (props: any) => (event: any, checked: boolean) => {
+		const onChange = get(props, 'onChange', noop);
+		const onValueChange = get(props, 'onValueChange', noop);
 
-
-		if (onValueChange) {
-			onValueChange(event.target.value, checked);
-		}
+		onChange(event, checked);
+		onValueChange(event.target.value, checked);
 	},
 };
 

@@ -6,11 +6,13 @@ import { StyleSheet } from 'react-native';
 import { Theme } from '@bluebase/core';
 import { componentMapper } from '@bluebase/component-mapper';
 import get from 'lodash.get';
+import { or } from '../../helpers';
 
 export const BottomNavigationAction = componentMapper<BottomNavigationActionProps>(
 	MuiBottomNavigationAction,
 	{
-		icon: ({ icon, styles }: any) => {
+		icon: (p: any) => {
+			const { icon } = p;
 			if (!icon) {
 				return;
 			}
@@ -24,7 +26,7 @@ export const BottomNavigationAction = componentMapper<BottomNavigationActionProp
 			const props = {
 				size,
 				style: {
-					...(styles && styles.icon),
+					...get(p, 'styles.icon', {}),
 					// lineHeight: size,
 					...icon.style,
 				},
@@ -45,6 +47,6 @@ export const BottomNavigationAction = componentMapper<BottomNavigationActionProp
 
 (BottomNavigationAction as any).defaultStyles = (theme: Theme, { selected }: any) => ({
 	icon: {
-		color: !selected ? theme.palette.text.secondary : theme.palette.primary.main,
+		color: or(!selected, theme.palette.text.secondary, theme.palette.primary.main),
 	},
 });

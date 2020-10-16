@@ -50,7 +50,7 @@ describe('Switch', () => {
 	it('should pass the color as is when set to "primary"', async () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
-				<Switch color="primary" />
+				<Switch checked color="primary" />
 			</BlueBaseApp>
 		);
 		await waitForElement(component, Switch);
@@ -66,7 +66,7 @@ describe('Switch', () => {
 	it('should pass the color as is when set to "secondary"', async () => {
 		const component = mount(
 			<BlueBaseApp plugins={[Plugin]}>
-				<Switch color="secondary" />
+				<Switch checked color="secondary" />
 			</BlueBaseApp>
 		);
 		await waitForElement(component, Switch);
