@@ -8,7 +8,7 @@ test('IconButton component with name Prop', () => {
 	expect(component.props().name).toEqual('star');
 });
 
-test('Button component with Size Prop', () => {
-	const component = shallow(<IconButton onPress={() => {}} name="star" size={20} />);
-	expect(component.props().size).toEqual(20);
-});
+// test('Button component with Size Prop', () => {
+// 	const component = shallow(<IconButton onPress={() => {}} name="star" size={20} />);
+// 	expect(component.props().size).toEqual(20);
+// });

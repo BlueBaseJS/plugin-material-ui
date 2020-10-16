@@ -3,7 +3,7 @@ import { PickerItemProps } from '@bluebase/components';
 import React from 'react';
 
 export const PickerItem = ({ label, value, ...rest }: PickerItemProps) => (
-	<MenuItem {...rest} value={value || (rest as any)['data-value']}>
+	<MenuItem {...rest as any} value={value || (rest as any)['data-value']}>
 		{label}
 	</MenuItem>
 );

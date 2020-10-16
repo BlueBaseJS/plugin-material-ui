@@ -4,7 +4,7 @@ import Drawer from '@material-ui/core/Drawer';
 import { DrawerContext } from './DrawerContext';
 import React from 'react';
 import { Theme } from '@material-ui/core/styles';
-import { withPropsStyles } from '../../withPropsStyles';
+import { withStyles } from '@material-ui/styles';
 
 (Drawer as React.ComponentType).displayName = 'Drawer';
 
@@ -75,7 +75,7 @@ export class DrawerLayoutComponent extends React.Component<
 	}
 }
 
-const styles = (props: DrawerLayoutProps, theme: Theme) => ({
+const styles = (theme: Theme) => ({
 	content: {
 		display: 'flex',
 		flexGrow: 1,
@@ -86,23 +86,23 @@ const styles = (props: DrawerLayoutProps, theme: Theme) => ({
 			easing: theme.transitions.easing.sharp,
 		}),
 	},
-	contentShift: {
+	contentShift: (props: DrawerLayoutProps) => ({
 		marginLeft: props.drawerWidth,
 		transition: theme.transitions.create('margin', {
 			duration: theme.transitions.duration.enteringScreen,
 			easing: theme.transitions.easing.easeOut,
 		}),
-	},
-	drawer: {
+	}),
+	drawer: (props: DrawerLayoutProps) => ({
 		flexShrink: 0,
 		width: props.drawerWidth,
-	},
-	drawerPaper: {
+	}),
+	drawerPaper: (props: DrawerLayoutProps) => ({
 		position: 'absolute',
 		width: props.drawerWidth,
-	},
+	}),
 });
 
-export const DrawerLayout = withPropsStyles(styles)(DrawerLayoutComponent) as React.ComponentType<
+export const DrawerLayout = withStyles(styles as any)(DrawerLayoutComponent) as React.ComponentType<
 	DrawerLayoutProps
 >;

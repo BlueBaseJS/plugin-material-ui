@@ -1,6 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { withPropsStyles } from '../../../withPropsStyles';
+import React from 'react';
 import { Table } from '..';
 import { TableBody } from '../../TableBody';
 import { TableCell } from '../../TableCell';
@@ -65,4 +64,4 @@ SimpleTable.propTypes = {
 	classes: PropTypes.object.isRequired,
 };
 
-export default withPropsStyles(styles)(SimpleTable);
+export default SimpleTable;
