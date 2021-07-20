@@ -82,7 +82,7 @@
     "@material-ui/styles": "^4.10.0",
     "jss-rtl": "^0.3.0",
     "lodash.get": "^4.4.2",
-    "react-native": "^0.63.3",
+    "react-native": "^0.64.1",
     "tslib": "^2.0.3"
   },
   "devDependencies": {
