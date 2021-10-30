@@ -51,7 +51,7 @@
     "reset": "git clean -dfx && git reset --hard && npm i",
     "all": "run-s reset test cov:check doc:html",
     "size": "size-limit",
-    "prepublishOnly": "yarn remove react-native",
+    "prepublishOnly": "yarn remove react-native --unsafe-perm",
     "storybook:start": "bluebase storybook:start",
     "storybook-native": "bluebase storybook-native:start",
     "storybook": "start-storybook -p 6006 --config-dir ./bluebase/storybook/configs",
