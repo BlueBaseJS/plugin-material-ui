@@ -5,7 +5,7 @@ import { create } from 'jss';
 import rtl from 'jss-rtl';
 
 // Configure JSS
-const jss = create({ plugins: [...jssPreset().plugins, rtl()] });
+const jss = create({ plugins: [...jssPreset().plugins, rtl()] as any });
 
 const withRTL = (Component: React.ComponentType<any>) => (props: any) => {
 	return (

@@ -17,5 +17,13 @@ const modules = [
 module.exports = Object.assign(configs, {
 	preset: 'jest-expo',
 	transformIgnorePatterns: [`/node_modules/(?!${modules})`],
-  setupFilesAfterEnv: ["<rootDir>/tests/setup.ts"]
+  setupFilesAfterEnv: ["<rootDir>/tests/setup.ts"],
+	coverageThreshold: {
+		global: {
+			branches: 90,
+			functions: 90,
+			lines: 90,
+			statements: 90
+		}
+	},
 });

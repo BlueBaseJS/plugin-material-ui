@@ -1,0 +1,39 @@
+# Used on master and staging branches
+name: Development CI
+
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:
+      - '*' # Push events on all branchs
+      - '*/*'
+      - '!master' # Exclude master
+      - '!next' # Exclude next
+      - '!alpha' # Exclude alpha
+      - '!beta' # Exclude beta
+
+jobs:
+  test:
+    name: Test, Build & Release
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    container:
+      image: bluebasejs/github-actions-image
+      options: --privileged
+
+    strategy:
+      matrix:
+        node-version: [12]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Tests
+        run: yarn test
+
+      - name: Build
+        run: yarn build

@@ -174,6 +174,7 @@ describe('Picker', () => {
 				name="language"
 				id="language-simple"
 			// mode="default"
+				value="java"
 			>
 				<Picker.Item label="Java" value="java" />
 				<Picker.Item label="JavaScript" value="js" />

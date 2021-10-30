@@ -2,7 +2,7 @@ import { Theme as ThemeMui, makeStyles } from '@material-ui/core';
 
 import { ButtonProps } from '@bluebase/components';
 import { Theme } from '@bluebase/core';
-import { fade } from '@material-ui/core/styles/colorManipulator';
+import { alpha } from '@material-ui/core/styles';
 
 export interface ButtonPropsWithThemes extends ButtonProps {
 	muiTheme: ThemeMui;
@@ -39,14 +39,14 @@ export const useStyles = makeStyles({
 		const colors = getButtonColors(props, muiTheme, theme);
 
 		return {
-			border: `1px solid ${fade(colors.text as string, 0.5)}`,
+			border: `1px solid ${alpha(colors.text as string, 0.5)}`,
 			color: colors.text,
 
 			'&:hover': {
 				'@media (hover: none)': {
 					backgroundColor: 'transparent',
 				},
-				backgroundColor: fade(colors.text as string, theme.palette.action.hoverOpacity),
+				backgroundColor: alpha(colors.text as string, theme.palette.action.hoverOpacity),
 				border: `1px solid ${colors.text as string}`,
 				// Reset on touch devices, it doesn't add specificity
 			},
@@ -69,7 +69,7 @@ export const useStyles = makeStyles({
 				'@media (hover: none)': {
 					backgroundColor: 'transparent',
 				},
-				backgroundColor: fade(colors.text as string, theme.palette.action.hoverOpacity),
+				backgroundColor: alpha(colors.text as string, theme.palette.action.hoverOpacity),
 				// Reset on touch devices, it doesn't add specificity
 			},
 		};

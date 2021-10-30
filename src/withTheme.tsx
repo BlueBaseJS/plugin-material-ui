@@ -1,5 +1,6 @@
 import { IntlConsumer, ThemeContext, ThemeContextData } from '@bluebase/core';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import { MuiThemeProvider } from '@material-ui/core';
+import { createTheme } from '@material-ui/core/styles';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
 import React from 'react';
@@ -24,7 +25,7 @@ export const withTheme: any = (Component: React.ComponentType<any>) => {
 			return (
 				<IntlConsumer>
 					{({ rtl }) => {
-						const rnpTheme = createMuiTheme({
+						const rnpTheme = createTheme({
 							direction: rtl ? 'rtl' : 'ltr',
 							palette: {
 								...theme.palette,

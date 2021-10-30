@@ -62,9 +62,9 @@ export const styles = (theme: Theme) => ({
 			opacity: theme.palette.type === 'light' ? 0.12 : 0.1,
 		},
 
-		'& $icon': {
-			boxShadow: theme.shadows[1],
-		},
+		// '& $icon': {
+		// 	boxShadow: theme.shadows[1],
+		// },
 
 		'&$switchBase': {
 			color: theme.palette.type === 'light' ? theme.palette.grey[400] : theme.palette.grey[800],

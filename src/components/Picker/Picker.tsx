@@ -100,7 +100,7 @@ export const Picker = (props: PickerProps & { PickerItem?: typeof PickerItemBB }
 					name,
 					onChange,
 					readOnly,
-					value,
+					value: value !== undefined ? value : '',
 				}}
 			>
 				{placeholder ? <PickerItem value="" label={<em>{placeholder}</em>} disabled /> : null}

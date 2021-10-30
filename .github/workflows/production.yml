@@ -1,0 +1,43 @@
+# Used on master and staging branches
+name: Production CI
+
+on:
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:
+      - 'master' # Push events on master branch
+      - 'next' # Push events on staging branch
+      - 'alpha' # Push events on alpha branch
+      - 'beta' # Push events on beta branch
+
+jobs:
+  test:
+    name: Test, Build & Release
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    container:
+      image: bluebasejs/github-actions-image
+      options: --privileged
+
+    strategy:
+      matrix:
+        node-version: [12]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Install Dependencies
+        run: yarn install
+
+      - name: Tests
+        run: yarn test
+
+      - name: Build
+        run: yarn build
+
+      - name: Semantic Release
+        run: npx semantic-release@16
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
