@@ -51,7 +51,6 @@
     "reset": "git clean -dfx && git reset --hard && npm i",
     "all": "run-s reset test cov:check doc:html",
     "size": "size-limit",
-    "prepublishOnly": "yarn remove react-native --unsafe-perm",
     "storybook:start": "bluebase storybook:start",
     "storybook-native": "bluebase storybook-native:start",
     "storybook": "start-storybook -p 6006 --config-dir ./bluebase/storybook/configs",
@@ -82,7 +81,6 @@
     "@material-ui/styles": "^4.11.4",
     "jss-rtl": "^0.3.0",
     "lodash.get": "^4.4.2",
-    "react-native": "^0.63.3",
     "tslib": "^2.0.3"
   },
   "devDependencies": {
@@ -131,6 +129,7 @@
     "prettier": "^2.1.2",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "react-native": "^0.63.3",
     "react-native-typescript-transformer": "^1.2.13",
     "react-test-renderer": "^16.14.0",
     "remark-cli": "^9.0.0",
