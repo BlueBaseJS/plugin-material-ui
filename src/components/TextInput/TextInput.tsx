@@ -49,7 +49,7 @@ export const TextInput = componentMapper<TextInputProps>(
 			}
 		},
 
-		rows: 'numberOfLines',
+		minRows: 'numberOfLines',
 	},
 	{
 		defaultProps: TextInputDefaultProps,
