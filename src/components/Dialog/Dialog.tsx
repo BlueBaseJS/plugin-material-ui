@@ -8,7 +8,6 @@ export const Dialog = componentMapper<DialogProps>(
 	MuiDialog,
 	{
 		children: 'children',
-		open: 'visible',
 		onClose: ({ dismissable, onDismiss }) => (_event: any, reason: string) => {
 			if (!dismissable && reason === 'backdropClick') {
 				return;
@@ -18,6 +17,7 @@ export const Dialog = componentMapper<DialogProps>(
 				onDismiss();
 			}
 		},
+		open: 'visible',
 		style: ({ style }: any) => StyleSheet.flatten(style),
 	},
 	{ rest: true, ignore: ['dismissable'] }
