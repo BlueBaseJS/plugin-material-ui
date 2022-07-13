@@ -32,26 +32,27 @@ export const Avatar: any = (props: AvatarProps) => {
 	const { theme } = useTheme();
 	const classes = useStyles(props);
 	const style: any = props.style;
+	const variant = props.variant === 'circle' ? 'circular' : props.variant;
 
 	const color = props.color || theme.palette.background.default;
 
 	if (type === 'icon') {
 		return (
-			<MuiAvatar classes={classes}  {...rest} style={style}>
+			<MuiAvatar classes={classes} {...rest} variant={variant} style={style}>
 				<Icon name={icon} color={color} size={size && size * 0.6} />
 			</MuiAvatar>
 		);
 	}
 	if (type === 'image') {
 		return (
-			<MuiAvatar classes={classes} {...rest} style={style}>
+			<MuiAvatar classes={classes} {...rest} variant={variant} style={style}>
 				<BlueBaseImage source={image} style={[{ height: size, width: size }, style]} />
 			</MuiAvatar>
 		);
 	}
 
 	return (
-		<MuiAvatar  classes={classes} {...rest} style={{ ...style, color }}>
+		<MuiAvatar  classes={classes} {...rest} variant={variant} style={{ ...style, color }}>
 			{text}
 		</MuiAvatar>
 	);
