@@ -19,7 +19,7 @@ export const IconButton = (props: IconButtonProps) => {
 				style={StyleSheet.flatten(style)}
 			/>
 		</MUIIconButton>
-	)
+	);
 };
 
 IconButton.defaultProps = IconButtonDefaultProps;
