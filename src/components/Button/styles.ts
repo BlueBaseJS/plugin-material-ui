@@ -39,15 +39,15 @@ export const useStyles = makeStyles({
 		const colors = getButtonColors(props, muiTheme, theme);
 
 		return {
-			border: `1px solid ${alpha(colors.text as string, 0.5)}`,
-			color: colors.text,
+			border: `1px solid ${alpha(colors.main as string, 0.5)}`,
+			color: colors.main,
 
 			'&:hover': {
 				'@media (hover: none)': {
 					backgroundColor: 'transparent',
 				},
-				backgroundColor: alpha(colors.text as string, theme.palette.action.hoverOpacity),
-				border: `1px solid ${colors.text as string}`,
+				backgroundColor: alpha(colors.hover as string, theme.palette.action.hoverOpacity),
+				border: `1px solid ${colors.main as string}`,
 				// Reset on touch devices, it doesn't add specificity
 			},
 		};
@@ -63,13 +63,13 @@ export const useStyles = makeStyles({
 		const colors = getButtonColors(props, muiTheme, theme);
 
 		return {
-			color: colors.text,
+			color: colors.main,
 
 			'&:hover': {
 				'@media (hover: none)': {
 					backgroundColor: 'transparent',
 				},
-				backgroundColor: alpha(colors.text as string, theme.palette.action.hoverOpacity),
+				backgroundColor: alpha(colors.hover as string, theme.palette.action.hoverOpacity),
 				// Reset on touch devices, it doesn't add specificity
 			},
 		};
@@ -115,9 +115,9 @@ export function getButtonColors(
 			colors.main = theme.palette[color].main;
 			colors.text = theme.palette[color].contrastText;
 		} else {
-			colors.hover = undefined;
-			colors.main = undefined;
-			colors.text = theme.palette[color].main;
+			colors.hover = theme.palette[color].dark;
+			colors.main = theme.palette[color].main;
+			colors.text = theme.palette[color].contrastText;
 		}
 	} else {
 		colors.hover = color;

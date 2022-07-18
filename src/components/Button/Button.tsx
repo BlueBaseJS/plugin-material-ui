@@ -31,7 +31,7 @@ export const Button = (props: ButtonProps) => {
 	if (loading) {
 		_icon = (
 			<ActivityIndicator
-				color={colors.text}
+				color={variant === 'contained' ? colors.text : colors.main}
 				style={{
 					height: theme.spacing.unit * 3,
 					marginRight: theme.spacing.unit,
@@ -43,7 +43,7 @@ export const Button = (props: ButtonProps) => {
 		const iconSize = icon.size || 24;
 
 		const iconProps = {
-			color: colors.text,
+			color: variant === 'contained' ? colors.text : colors.main,
 			size: iconSize,
 			style: {
 				lineHeight: iconSize,

@@ -1,4 +1,4 @@
-import { Button } from '@bluebase/components';
+import { Button, View } from '@bluebase/components';
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 // import { getComponent } from '@bluebase/core';
@@ -237,5 +237,55 @@ stories
 			>
 				Disabled Icon
 			</Button>
+		</React.Fragment>
+	))
+
+	.add('Custom Colors', () => (
+		<React.Fragment>
+			<View style={{flexDirection: 'row', padding: 8}}>
+				<Button variant="contained" color="#772174" onPress={action('button-press')}>
+					Contained
+				</Button>
+				<Button variant="outlined" color="#772174" onPress={action('button-press')}>
+					Outlined
+				</Button>
+				<Button variant="text" color="#772174" onPress={action('button-press')}>
+					Text
+				</Button>
+				<Button loading variant="contained" color="#772174" onPress={action('button-press')}>
+					Loading
+				</Button>
+				<Button
+					icon={{ type: 'icon', name: 'delete' }}
+					variant="contained"
+					color="#772174"
+					onPress={action('button-press')}
+				>
+					Icon
+				</Button>
+			</View>
+			<View style={{flexDirection: 'row', padding: 8}}>
+				<Button disabled variant="contained" color="#772174" onPress={action('button-press')}>
+					Disabled Contained
+				</Button>
+				<Button disabled variant="outlined" color="#772174" onPress={action('button-press')}>
+				Disabled Outlined
+				</Button>
+				<Button disabled variant="text" color="#772174" onPress={action('button-press')}>
+				Disabled Text
+				</Button>
+				<Button disabled loading variant="contained" color="#772174" onPress={action('button-press')}>
+				Disabled Loading
+				</Button>
+				<Button
+					disabled
+					icon={{ type: 'icon', name: 'delete' }}
+					variant="contained"
+					color="#772174"
+					onPress={action('button-press')}
+				>
+					Disabled Icon
+				</Button>
+			</View>
 		</React.Fragment>
 	));
