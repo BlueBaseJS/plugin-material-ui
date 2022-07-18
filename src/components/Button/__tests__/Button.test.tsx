@@ -125,8 +125,8 @@ describe('Button', () => {
 
 			expect(result).toMatchObject({
 				hover: undefined,
-				main: undefined,
-				text: 'blue',
+				main: 'blue',
+				text: undefined,
 			});
 		});
 	});
