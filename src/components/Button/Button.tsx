@@ -24,7 +24,7 @@ export const Button = (props: ButtonProps) => {
 	const style = StyleSheet.flatten(props.style);
 	const content = children ? children : title;
 
-	const colors = getButtonColors(props, props.theme, theme);
+	const colors = getButtonColors(props, muiTheme, theme);
 
 	let _icon;
 
