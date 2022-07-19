@@ -1,11 +1,8 @@
-import { TextInputProps } from '@bluebase/components';
-import { getComponent } from '@bluebase/core';
+import { TextInput, View } from '@bluebase/components';
 import storiesOf from '@bluebase/storybook-addon';
 import { action } from '@storybook/addon-actions';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
-
-const TextInput = getComponent<TextInputProps>('TextInput');
 
 const stories = storiesOf('TextInput', module);
 
@@ -64,6 +61,7 @@ stories
 			id="standard-password-input"
 			label="Password"
 			autoComplete="password"
+			right={<TextInput.Icon name="eye" />}
 		/>
 	))
 
@@ -103,11 +101,24 @@ stories
 	))
 
 	.add('Number Field', () => (
-		<TextInput
-			id="standard-number"
-			label="Number"
-			type="number"
-		/>
+		<>
+			<View style={{ width: 300, margin: 20 }}>
+				<TextInput
+					id="standard-number"
+					label="Number"
+					type="number"
+					right={<TextInput.Affix text="kg" />}
+				/>
+			</View>
+			<View style={{ width: 300, margin: 20 }}>
+				<TextInput
+					id="standard-number"
+					label="Number"
+					type="number"
+					left={<TextInput.Affix text="$" />}
+				/>
+			</View>
+		</>
 	))
 
 	.add('Search field', () => (

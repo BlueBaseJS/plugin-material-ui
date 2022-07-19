@@ -27,34 +27,46 @@ export const ListItem = (props: ListItemProps) => {
 					inset={inset}
 					primary={
 						<View>
-							<Body1
-								style={
-									StyleSheet.flatten([
-										{ lineHeight: '1.5' as any },
-										descriptionStyle,
-									])
-								}
-								ellipsizeMode={titleEllipsizeMode}
-								numberOfLines={titleNumberOfLines}
-							>
-								{title}
-							</Body1>
+							{
+								typeof description === 'string' ?
+									(
+										<Body1
+											style={
+												StyleSheet.flatten([
+													{ lineHeight: '1.5' as any },
+													descriptionStyle,
+												])
+											}
+											ellipsizeMode={titleEllipsizeMode}
+											numberOfLines={titleNumberOfLines}
+										>
+											{title}
+										</Body1>
+									)
+									: title
+							}
 						</View>
 					}
 					secondary={
 						<View>
-							<Body2
-								style={
-									StyleSheet.flatten([
-										{ lineHeight: '1.43' as any, color: theme.palette.text.secondary },
-										descriptionStyle,
-									])
-								}
-								ellipsizeMode={descriptionEllipsizeMode}
-								numberOfLines={descriptionNumberOfLines}
-							>
-								{description}
-							</Body2>
+							{
+								typeof description === 'string' ?
+									(
+										<Body2
+											style={
+												StyleSheet.flatten([
+													{ lineHeight: '1.43' as any, color: theme.palette.text.secondary },
+													descriptionStyle,
+												])
+											}
+											ellipsizeMode={descriptionEllipsizeMode}
+											numberOfLines={descriptionNumberOfLines}
+										>
+											{description}
+										</Body2>
+									)
+									: description
+							}
 						</View>
 					}
 					disableTypography

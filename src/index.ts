@@ -46,6 +46,8 @@ import { TableRow } from './components/TableRow';
 import { TableTitle } from './components/TableTitle';
 import { Tabs } from './components/Tabs/Tabs';
 import { TextInput } from './components/TextInput';
+import { TextInputAffix } from './components/TextInputAffix';
+import { TextInputIcon } from './components/TextInputIcon';
 import WithRTL from './withRtl';
 import { withTheme } from './withTheme';
 
@@ -104,6 +106,8 @@ export default createPlugin({
 		TableTitle,
 		Tabs,
 		TextInput,
+		TextInputAffix,
+		TextInputIcon,
 	},
 
 	filters: {
