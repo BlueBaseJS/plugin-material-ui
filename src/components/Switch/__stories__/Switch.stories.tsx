@@ -1,12 +1,12 @@
-import React from 'react';
 import { SwitchProps } from '@bluebase/components';
-// import { View } from 'react-native';
-import { View } from 'react-native';
-import { action } from '@storybook/addon-actions';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
+import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
+import React from 'react';
+// import { View } from 'react-native';
+import { View } from 'react-native';
 
 const Switch = getComponent<SwitchProps>('Switch');
 
@@ -215,4 +215,4 @@ stories
 			/>
 		</View>
 	))
-	;
+;

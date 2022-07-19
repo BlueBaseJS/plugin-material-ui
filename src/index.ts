@@ -1,5 +1,4 @@
 import { BlueBase, BootOptions, createPlugin } from '@bluebase/core';
-import { DrawerActions, DrawerLayout } from './components/DrawerLayout';
 
 import { Avatar } from './components/Avatar';
 import { Badge } from './components/Badge';
@@ -18,6 +17,7 @@ import { DialogContent } from './components/DialogContent';
 import { DialogTitle } from './components/DialogTitle';
 import { Divider } from './components/Divider';
 import { DrawerItem } from './components/DrawerItem';
+import { DrawerActions, DrawerLayout } from './components/DrawerLayout';
 import { DrawerSection } from './components/DrawerSection';
 import { IconButton } from './components/IconButton';
 import { List } from './components/List';

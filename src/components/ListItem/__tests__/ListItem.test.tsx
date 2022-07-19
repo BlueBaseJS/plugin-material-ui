@@ -1,7 +1,8 @@
-import { ListItem } from '../ListItem';
+import { shallow } from 'enzyme';
 import React from 'react';
 import { View } from 'react-native';
-import { shallow } from 'enzyme';
+
+import { ListItem } from '../ListItem';
 
 describe('ListItem', () => {
 

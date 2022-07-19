@@ -1,5 +1,4 @@
 import { PaginationDefaultProps, PaginationProps } from '@bluebase/components';
-
 import MuiPagination from '@material-ui/lab/Pagination';
 import React from 'react';
 import { StyleSheet } from 'react-native';

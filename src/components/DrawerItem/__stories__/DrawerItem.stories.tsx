@@ -1,10 +1,10 @@
 import { DrawerItemProps } from '@bluebase/components';
-import React from 'react';
-import { action } from '@storybook/addon-actions';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
+import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
+import React from 'react';
 
 const DrawerItem = getComponent<DrawerItemProps>('DrawerItem');
 

@@ -1,5 +1,4 @@
 import { TableTitleDefaultProps, TableTitleProps } from '@bluebase/components';
-
 import MuiTableCell from '@material-ui/core/TableCell';
 import MuiTableSortLabel from '@material-ui/core/TableSortLabel';
 import React from 'react';

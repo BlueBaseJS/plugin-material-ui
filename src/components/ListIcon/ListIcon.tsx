@@ -1,8 +1,7 @@
 import { Icon, ListIconDefaultProps, ListIconProps } from '@bluebase/components';
-
+import { Theme } from '@bluebase/core';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import React from 'react';
-import { Theme } from '@bluebase/core';
 
 export interface Props extends ListIconProps {
 	styles?: Partial<{

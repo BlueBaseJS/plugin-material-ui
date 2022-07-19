@@ -1,9 +1,10 @@
 import { BlueBaseApp } from '@bluebase/core';
-import { Checkbox } from '../Checkbox';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { Checkbox } from '../Checkbox';
 
 describe('Checkbox', () => {
 	it('should set the checked to true when checked is true', async () => {

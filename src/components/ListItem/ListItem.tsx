@@ -1,8 +1,8 @@
 import { Body1, Body2, ListItemProps, View } from '@bluebase/components';
-import ListItemText from '@material-ui/core/ListItemText';
-import MUIListItem from '@material-ui/core/ListItem';
-import React from 'react';
 import { useTheme } from '@bluebase/core';
+import MUIListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import React from 'react';
 import { StyleSheet } from 'react-native';
 
 export const ListItem = (props: ListItemProps) => {
@@ -24,40 +24,40 @@ export const ListItem = (props: ListItemProps) => {
 			{left}
 			{title || description ? (
 				<ListItemText
-				inset={inset}
-				primary={
-					<View>
-						<Body1
-						style={
-							StyleSheet.flatten([
-							{lineHeight: '1.5' as any},
-							descriptionStyle,
-							])
-						}
-						ellipsizeMode={titleEllipsizeMode}
-						numberOfLines={titleNumberOfLines}
-						>
-							{title}
+					inset={inset}
+					primary={
+						<View>
+							<Body1
+								style={
+									StyleSheet.flatten([
+										{ lineHeight: '1.5' as any },
+										descriptionStyle,
+									])
+								}
+								ellipsizeMode={titleEllipsizeMode}
+								numberOfLines={titleNumberOfLines}
+							>
+								{title}
 							</Body1>
-					</View>
-				}
-				secondary={
-					<View>
-						<Body2
-						style={
-							StyleSheet.flatten([
-							{lineHeight: '1.43' as any, color: theme.palette.text.secondary},
-							descriptionStyle,
-							])
-						}
-						ellipsizeMode={descriptionEllipsizeMode}
-						numberOfLines={descriptionNumberOfLines}
-						>
-							{description}
+						</View>
+					}
+					secondary={
+						<View>
+							<Body2
+								style={
+									StyleSheet.flatten([
+										{ lineHeight: '1.43' as any, color: theme.palette.text.secondary },
+										descriptionStyle,
+									])
+								}
+								ellipsizeMode={descriptionEllipsizeMode}
+								numberOfLines={descriptionNumberOfLines}
+							>
+								{description}
 							</Body2>
-					</View>
-				}
-				disableTypography
+						</View>
+					}
+					disableTypography
 				/>
 			) : null}
 			{right}

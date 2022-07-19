@@ -1,10 +1,10 @@
 import { IconButton } from '@bluebase/components';
-import React from 'react';
 // import { action } from '@storybook/addon-ac2tions';
 // import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
+import React from 'react';
 // const Button = getComponent<ButtonProps>('Button');
 
 const stories = storiesOf('IconButton', module);

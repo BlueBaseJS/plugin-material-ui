@@ -1,6 +1,7 @@
-import { Badge } from '../Badge';
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
+
+import { Badge } from '../Badge';
 
 test('Badge component with visible Prop', () => {
 	const component = shallow(<Badge visible={false} />);

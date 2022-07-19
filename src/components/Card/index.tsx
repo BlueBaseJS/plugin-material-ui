@@ -1,6 +1,6 @@
 import { CardDefaultProps, CardProps } from '@bluebase/components';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import MuiCard from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import React from 'react';
 
 export const Card = (props: CardProps) => {

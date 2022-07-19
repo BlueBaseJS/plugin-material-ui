@@ -1,10 +1,10 @@
+import { componentMapper } from '@bluebase/component-mapper';
 import { BottomNavigationActionProps, DynamicIcon } from '@bluebase/components';
-
+import { Theme } from '@bluebase/core';
 import MuiBottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Theme } from '@bluebase/core';
-import { componentMapper } from '@bluebase/component-mapper';
+
 import { or } from '../../helpers';
 
 export const BottomNavigationAction = componentMapper<BottomNavigationActionProps>(

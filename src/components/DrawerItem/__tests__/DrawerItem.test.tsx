@@ -1,6 +1,7 @@
-import { DrawerItem } from '../DrawerItem';
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
+
+import { DrawerItem } from '../DrawerItem';
 
 describe('DrawerItem', () => {
 	test('should forward title prop as primary', () => {

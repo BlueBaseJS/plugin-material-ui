@@ -1,8 +1,7 @@
 import { IconButton, SearchbarProps, View } from '@bluebase/components';
-import { TextInput, ViewStyle } from 'react-native';
 import { Theme, useStyles, useTheme } from '@bluebase/core';
-
 import React from 'react';
+import { TextInput, ViewStyle } from 'react-native';
 
 interface SearchbarStyles {
 	root: ViewStyle;

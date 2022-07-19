@@ -1,9 +1,10 @@
 import { BlueBaseApp } from '@bluebase/core';
-import Plugin from '../../../index';
-import { Radio } from '../Radio';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { Radio } from '../Radio';
 
 describe('Radio', () => {
 	it('should set the checked to true when checked is true', async () => {

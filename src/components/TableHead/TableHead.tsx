@@ -1,5 +1,4 @@
 import { TableHeadDefaultProps, TableHeadProps } from '@bluebase/components';
-
 import MuiTableHead from '@material-ui/core/TableHead';
 import MuiTableRow from '@material-ui/core/TableRow';
 import React from 'react';

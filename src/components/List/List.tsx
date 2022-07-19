@@ -1,3 +1,4 @@
+import { componentMapper } from '@bluebase/component-mapper';
 import {
 	List as BEList,
 	ListAvatar,
@@ -7,7 +8,6 @@ import {
 	ListSubheader,
 } from '@bluebase/components';
 import MuiList from '@material-ui/core/List';
-import { componentMapper } from '@bluebase/component-mapper';
 
 export const List = componentMapper<ListProps>(MuiList, {
 	children: 'children',

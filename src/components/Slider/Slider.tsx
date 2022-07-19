@@ -1,13 +1,12 @@
+import { componentMapper } from '@bluebase/component-mapper';
+import { SliderProps } from '@bluebase/components';
 import { Theme, withStyles } from '@material-ui/core';
-
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormLabel from '@material-ui/core/FormLabel';
 import MUISlider from '@material-ui/core/Slider';
 import React from 'react';
-import { SliderProps } from '@bluebase/components';
 import { StyleSheet } from 'react-native';
-import { componentMapper } from '@bluebase/component-mapper';
 
 (MUISlider as any).displayName = 'Slider';
 (FormLabel as any).displayName = 'FormLabel';

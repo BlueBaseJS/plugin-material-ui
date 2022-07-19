@@ -1,6 +1,6 @@
+import { componentMapper } from '@bluebase/component-mapper';
 import { TextInputDefaultProps, TextInputProps } from '@bluebase/components';
 import MUITextInput from '@material-ui/core/TextField';
-import { componentMapper } from '@bluebase/component-mapper';
 
 export const TextInput = componentMapper<TextInputProps>(
 	MUITextInput,

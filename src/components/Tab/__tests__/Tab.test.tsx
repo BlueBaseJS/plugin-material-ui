@@ -1,9 +1,10 @@
 import { BlueBaseApp } from '@bluebase/core';
 import { DynamicIcon } from '@bluebase/core/dist/components';
-import React from 'react';
-import { Tab } from '../Tab';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import { Tab } from '../Tab';
 
 describe('Tab', () => {
 	it('should render an Icon when icon prop is given', async () => {

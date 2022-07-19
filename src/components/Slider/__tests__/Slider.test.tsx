@@ -1,6 +1,7 @@
-import React from 'react';
-import { Slider } from '../Slider';
 import { mount } from 'enzyme';
+import React from 'react';
+
+import { Slider } from '../Slider';
 
 describe('Slider', () => {
 	it('should map min and max props', () => {

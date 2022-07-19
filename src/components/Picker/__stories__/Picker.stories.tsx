@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-
 import { Picker } from '@bluebase/components';
+import storiesOf from '@bluebase/storybook-addon';
 // import { action } from '@storybook/addon-actions';
 import { action } from '@storybook/addon-actions';
-import storiesOf from '@bluebase/storybook-addon';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
+import React, { useState } from 'react';
 
 // class ControlledPicker extends React.Component<PickerProps> {
 // 	state = {

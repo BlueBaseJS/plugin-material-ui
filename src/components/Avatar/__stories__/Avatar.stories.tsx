@@ -1,10 +1,10 @@
 import { AvatarProps } from '@bluebase/components';
-import React from 'react';
-import { View } from 'react-native';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
+import React from 'react';
+import { View } from 'react-native';
 
 const Avatar = getComponent<AvatarProps>('Avatar');
 

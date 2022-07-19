@@ -1,6 +1,7 @@
-import React from 'react';
-import { TextInput } from '../TextInput';
 import { shallow } from 'enzyme';
+import React from 'react';
+
+import { TextInput } from '../TextInput';
 
 describe('TextInput', () => {
 

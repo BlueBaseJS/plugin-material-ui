@@ -1,11 +1,12 @@
+import { objectMapper } from '@bluebase/component-mapper';
+import { SwitchProps } from '@bluebase/components';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import { withStyles } from '@material-ui/core/styles';
 import MUISwitch from '@material-ui/core/Switch';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { SwitchProps } from '@bluebase/components';
-import { objectMapper } from '@bluebase/component-mapper';
+
 import { styles } from './styles';
-import { withStyles } from '@material-ui/core/styles';
 
 (MUISwitch as React.ComponentType).displayName = 'Switch';
 (FormControlLabel as React.ComponentType).displayName = 'FormControlLabel';

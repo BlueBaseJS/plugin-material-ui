@@ -1,9 +1,9 @@
 import { ListItemProps, ListProps, ListSubheaderProps } from '@bluebase/components';
-import { text, withKnobs } from '@storybook/addon-knobs';
-import React from 'react';
-import { action } from '@storybook/addon-actions';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
+import { action } from '@storybook/addon-actions';
+import { text, withKnobs } from '@storybook/addon-knobs';
+import React from 'react';
 
 const ListItem = getComponent<ListItemProps>('ListItem');
 const List = getComponent<ListProps>('List');
@@ -16,7 +16,6 @@ stories.addDecorator(withKnobs);
 stories.add('Default props', () => (
 	<List>Foo</List>
 ));
-
 
 stories.add('With List Items', () => (
 	<List>

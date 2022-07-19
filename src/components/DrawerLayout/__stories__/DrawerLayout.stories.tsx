@@ -7,11 +7,10 @@ import {
 	Text,
 	View,
 } from '@bluebase/components';
-
-import React from 'react';
 import storiesOf from '@bluebase/storybook-addon';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
+import React from 'react';
 
 const stories = storiesOf('DrawerLayout', module);
 

@@ -1,9 +1,10 @@
-import { ListSubheader } from '../ListSubheader';
-import React from 'react';
 import { shallow } from 'enzyme';
+import React from 'react';
+
+import { ListSubheader } from '../ListSubheader';
 
 test('ListSubheader component with inset prop=true', () => {
-	const listSubheader = shallow(<ListSubheader inset={true}>{null}</ListSubheader>);
+	const listSubheader = shallow(<ListSubheader inset>{null}</ListSubheader>);
 	expect(listSubheader.props().inset).toEqual(true);
 });
 

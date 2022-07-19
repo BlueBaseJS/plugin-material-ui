@@ -1,56 +1,46 @@
-import {
-  DialogActionsProps,
-  DialogContentProps,
-  DialogTitleProps,
-} from '@bluebase/components';
-
-import AddIcon from '@material-ui/icons/Add';
+import { DialogActionsProps, DialogContentProps, DialogTitleProps } from '@bluebase/components';
+import { getComponent } from '@bluebase/core';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
-import PersonIcon from '@material-ui/icons/Person';
-import React from 'react';
-import { Dialog } from '../index';
 import Typography from '@material-ui/core/Typography';
-import { getComponent } from '@bluebase/core';
-import { shallow, mount } from 'enzyme';
+import AddIcon from '@material-ui/icons/Add';
+import PersonIcon from '@material-ui/icons/Person';
+import { mount, shallow } from 'enzyme';
+import React from 'react';
 
+import { Dialog } from '../index';
 
 test('DialogContent component should use child pr children', () => {
 
 	const component = shallow(
-    <SimpleDialogDemo />
-  );
+		<SimpleDialogDemo />
+	);
 	expect(component.childAt(0).childAt(0).text()).toBeTruthy();
 
 });
 
-
-
 test('DialogContent component should use child prop to show children', () => {
 
 	const component = mount(
-    <Dialog visible={true}>
+		<Dialog visible>
 
-      <Button color="primary">
+			<Button color="primary">
         Save changes
-      </Button>
-    </Dialog>
-  );
+			</Button>
+		</Dialog>
+	);
    	expect(component.childAt(0).childAt(0).text()).toBeTruthy();
 
 });
-
-
 
 // const Dialog = getComponent<DialogProps>('Dialog');
 const DialogAction = getComponent<DialogActionsProps>('DialogAction');
 const DialogContent = getComponent<DialogContentProps>('DialogContent');
 const DialogTitle = getComponent<DialogTitleProps>('DialogTitle');
-
 
 export interface Ipropsss {
 
@@ -71,34 +61,34 @@ function SimpleDialog(props: Ipropsss) {
 	}
 
 	return (
-    <Dialog visible={true} onDismiss={handleClose} {...other}>
-      <DialogTitle>Set backup account</DialogTitle>
-      <DialogContent>
-        <List>
-          <ListItem button onClick={() => handleListItemClick('addAccount')}>
-            <ListItemAvatar>
-              <Avatar>
-                <AddIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="add account" />
-          </ListItem>
-          <ListItem button onClick={() => handleListItemClick('addAccount')}>
-            <ListItemAvatar>
-              <Avatar>
-                <PersonIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="add account" />
-          </ListItem>
-        </List>
-      </DialogContent>
-      <DialogAction>
-        <Button color="primary">
+		<Dialog visible onDismiss={handleClose} {...other}>
+			<DialogTitle>Set backup account</DialogTitle>
+			<DialogContent>
+				<List>
+					<ListItem button onClick={() => handleListItemClick('addAccount')}>
+						<ListItemAvatar>
+							<Avatar>
+								<AddIcon />
+							</Avatar>
+						</ListItemAvatar>
+						<ListItemText primary="add account" />
+					</ListItem>
+					<ListItem button onClick={() => handleListItemClick('addAccount')}>
+						<ListItemAvatar>
+							<Avatar>
+								<PersonIcon />
+							</Avatar>
+						</ListItemAvatar>
+						<ListItemText primary="add account" />
+					</ListItem>
+				</List>
+			</DialogContent>
+			<DialogAction>
+				<Button color="primary">
           Save changes
-            </Button>
-      </DialogAction>
-    </Dialog>
+				</Button>
+			</DialogAction>
+		</Dialog>
 	);
 }
 
@@ -116,14 +106,14 @@ function SimpleDialogDemo() {
 	};
 
 	return (
-    <div>
-      <Typography variant="subtitle1">Selected: {selectedValue}</Typography>
-      <br />
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+		<div>
+			<Typography variant="subtitle1">Selected: {selectedValue}</Typography>
+			<br />
+			<Button variant="outlined" color="primary" onClick={handleClickOpen}>
         Open simple dialog
-      </Button>
-      <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />
-    </div>
+			</Button>
+			<SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />
+		</div>
 	);
 }
 

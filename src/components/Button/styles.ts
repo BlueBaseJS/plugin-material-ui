@@ -1,7 +1,6 @@
-import { Theme as ThemeMui, makeStyles } from '@material-ui/core';
-
 import { ButtonProps } from '@bluebase/components';
 import { Theme } from '@bluebase/core';
+import { makeStyles, Theme as ThemeMui } from '@material-ui/core';
 import { alpha } from '@material-ui/core/styles';
 
 export interface ButtonPropsWithThemes extends ButtonProps {

@@ -1,9 +1,9 @@
 import { Radio, RadioGroup, RadioGroupProps } from '@bluebase/components';
-import React from 'react';
-import { action } from '@storybook/addon-actions';
 import storiesOf from '@bluebase/storybook-addon';
+import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
+import React from 'react';
 
 class ControlledRadioGroup extends React.PureComponent<RadioGroupProps, { value: RadioGroupProps['value'] }> {
 

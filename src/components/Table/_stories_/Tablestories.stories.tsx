@@ -1,21 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Table } from '..';
+
 import { TableBody } from '../../TableBody';
 import { TableCell } from '../../TableCell';
 import { TableHead } from '../../TableHead';
 import { TableRow } from '../../TableRow';
-
-const styles = (theme: { spacing: { unit: number } }) => ({
-	root: {
-		width: '100%',
-		marginTop: theme.spacing.unit * 3,
-		overflowX: 'auto',
-	},
-	table: {
-		minWidth: 700,
-	},
-});
+import { Table } from '..';
 
 let id = 0;
 function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
@@ -31,8 +21,7 @@ const rows = [
 	createData('Gingerbread', 356, 16.0, 49, 3.9),
 ];
 
-function SimpleTable(props: { classes: any }) {
-	const {} = props;
+function SimpleTable(_props: { classes: any }) {
 
 	return (
 		<Table>

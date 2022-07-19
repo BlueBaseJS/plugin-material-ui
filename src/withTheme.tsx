@@ -1,8 +1,7 @@
 import { IntlConsumer, ThemeContext, ThemeContextData } from '@bluebase/core';
 import { MuiThemeProvider } from '@material-ui/core';
-import { createTheme } from '@material-ui/core/styles';
-
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { createTheme } from '@material-ui/core/styles';
 import React from 'react';
 
 (MuiThemeProvider as any).displayName = 'MuiThemeProvider';

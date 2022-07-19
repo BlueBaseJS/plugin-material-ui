@@ -1,9 +1,10 @@
-import { Avatar } from '../Avatar';
 import { BlueBaseApp } from '@bluebase/core';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { Avatar } from '../Avatar';
 
 const path = 'https://via.placeholder.com/300/09f.png%20C/O%20https://placeholder.com/';
 

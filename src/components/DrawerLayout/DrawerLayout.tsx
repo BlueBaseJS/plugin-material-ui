@@ -1,10 +1,10 @@
 import { DrawerActionsObject, DrawerLayoutProps, View } from '@bluebase/components';
-
 import Drawer from '@material-ui/core/Drawer';
-import { DrawerContext } from './DrawerContext';
-import React from 'react';
 import { Theme } from '@material-ui/core/styles';
 import { withStyles } from '@material-ui/styles';
+import React from 'react';
+
+import { DrawerContext } from './DrawerContext';
 
 (Drawer as React.ComponentType).displayName = 'Drawer';
 

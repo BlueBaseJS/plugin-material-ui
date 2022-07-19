@@ -1,11 +1,12 @@
-import { BlueBaseApp } from '@bluebase/core';
 import { Button } from '@bluebase/components';
-import Plugin from '../../../index';
-import React from 'react';
-import { Text } from 'react-native';
-import { getButtonColors } from '../styles';
+import { BlueBaseApp } from '@bluebase/core';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+import { Text } from 'react-native';
+
+import Plugin from '../../../index';
+import { getButtonColors } from '../styles';
 
 describe('Button', () => {
 	// test('Button component should use title prop to show children', async () => {

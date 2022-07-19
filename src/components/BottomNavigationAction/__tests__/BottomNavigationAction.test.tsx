@@ -1,9 +1,10 @@
-import { BlueBaseApp } from '@bluebase/core';
-import { BottomNavigationAction } from '../BottomNavigationAction';
 import { Icon } from '@bluebase/components';
-import React from 'react';
+import { BlueBaseApp } from '@bluebase/core';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import { BottomNavigationAction } from '../BottomNavigationAction';
 
 describe('BottomNavigationAction', () => {
 	it('should render a DynamicIcon when icon prop is given', async () => {

@@ -1,6 +1,6 @@
-import React from 'react';
 import { Searchbar } from '@bluebase/components';
 import storiesOf from '@bluebase/storybook-addon';
+import React from 'react';
 
 storiesOf('Searchbar', module)
 	.add('Basic Example', () => <Searchbar placeholder="Search" />)

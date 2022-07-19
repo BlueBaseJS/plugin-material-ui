@@ -1,8 +1,8 @@
-import { boolean, text, withKnobs } from '@storybook/addon-knobs';
-import React from 'react';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 import { withInfo } from '@storybook/addon-info';
+import { boolean, text, withKnobs } from '@storybook/addon-knobs';
+import React from 'react';
 
 const ListSubheader = getComponent('ListSubheader');
 

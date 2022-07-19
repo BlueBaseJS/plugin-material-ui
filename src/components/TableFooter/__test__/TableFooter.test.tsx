@@ -1,11 +1,11 @@
-import { TableFooter } from '../index';
-import React from 'react';
 import { BlueBaseApp } from '@bluebase/core';
-
-import { Text } from 'react-native';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+import { Text } from 'react-native';
+
 import Plugin from '../../../index';
+import { TableFooter } from '../index';
 
 test('TableFooter component with children text', async () => {
 	const wrapper = mount(

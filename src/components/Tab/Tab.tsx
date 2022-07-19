@@ -1,7 +1,7 @@
 import { DynamicIcon } from '@bluebase/components';
+import { withStyles } from '@material-ui/core/styles';
 import MuiTab from '@material-ui/core/Tab';
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 
 (MuiTab as any).displayName = 'Tab';
 
@@ -18,7 +18,7 @@ export const Tab = (props: any) => {
 
 	if (React.isValidElement(icon)) {
 		iconNode = icon;
-	} else if (!!icon) {
+	} else if (icon) {
 		iconNode = (
 			<DynamicIcon
 				size={icon.size || 24}

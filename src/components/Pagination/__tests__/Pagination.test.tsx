@@ -1,9 +1,10 @@
 import { BlueBaseApp } from '@bluebase/core';
-import { Pagination } from '../Pagination';
-import Plugin from '../../../index';
-import React from 'react';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
+import Plugin from '../../../index';
+import { Pagination } from '../Pagination';
 
 describe('TablePagination', () => {
 	it('should show pagination component', async () => {

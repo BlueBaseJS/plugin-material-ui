@@ -1,8 +1,7 @@
-import React, { useRef } from 'react';
-import { View, findNodeHandle } from 'react-native';
-
 import { MenuProps } from '@bluebase/components';
 import MuiMenu from '@material-ui/core/Menu';
+import React, { useRef } from 'react';
+import { findNodeHandle, View } from 'react-native';
 
 export const Menu = (props: MenuProps) => {
 	const { children, anchor, onDismiss, visible, style, anchorWrapperStyle, ...rest } = props;

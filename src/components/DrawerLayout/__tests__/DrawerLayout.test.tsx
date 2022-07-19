@@ -1,11 +1,12 @@
-import { DrawerActions, DrawerLayout, DrawerLayoutState } from '../';
-
+/* eslint-disable react/no-unescaped-entities */
 import { BlueBaseApp } from '@bluebase/core';
-import Plugin from '../../../';
-import React from 'react';
-import { Text } from 'react-native';
 import { mount } from 'enzyme';
 import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+import { Text } from 'react-native';
+
+import Plugin from '../../../';
+import { DrawerActions, DrawerLayout, DrawerLayoutState } from '../';
 
 // tslint:disable: jsx-no-lambda
 
@@ -100,7 +101,7 @@ describe('DrawerLayout', () => {
 				<DrawerLayout
 					drawerType="slide"
 					drawerWidth={200}
-					open={true}
+					open
 					renderNavigationView={() => <Text testID="navigation-view">I'm inside drawer</Text>}
 				>
 					<Text testID="drawer-layout-children">I'm DrawerLayout's children</Text>

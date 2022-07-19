@@ -1,9 +1,10 @@
-import React from 'react';
 import { Table } from '@bluebase/components';
+import storiesOf from '@bluebase/storybook-addon';
+import React from 'react';
+
 import { TableBody } from '../../TableBody';
 import { TableCell } from '../../TableCell';
 import { TableRow } from '../../TableRow';
-import storiesOf from '@bluebase/storybook-addon';
 
 const stories = storiesOf('Table', module);
 let id = 0;

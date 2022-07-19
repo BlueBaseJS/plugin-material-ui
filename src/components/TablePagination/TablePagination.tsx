@@ -2,7 +2,6 @@ import { TablePaginationDefaultProps, TablePaginationProps } from '@bluebase/com
 import MuiTablePagination from '@material-ui/core/TablePagination';
 import React from 'react';
 
-
 export const TablePagination = (props: TablePaginationProps) => {
 	const {
 		count,

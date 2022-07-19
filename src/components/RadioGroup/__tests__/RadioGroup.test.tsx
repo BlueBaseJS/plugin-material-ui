@@ -1,10 +1,11 @@
 import { BlueBaseApp } from '@bluebase/core';
+import { mount } from 'enzyme';
+import { waitForElement } from 'enzyme-async-helpers';
+import React from 'react';
+
 import Plugin from '../../../index';
 import { Radio } from '../../Radio';
 import { RadioGroup } from '../RadioGroup';
-import React from 'react';
-import { mount } from 'enzyme';
-import { waitForElement } from 'enzyme-async-helpers';
 
 describe('RadioGroup', () => {
 	it('should map onValueChange fn to onChange fn', async () => {

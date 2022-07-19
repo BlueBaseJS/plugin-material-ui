@@ -1,7 +1,7 @@
 // import { Badge as RNPBadge } from 'react-native-paper';
+import { componentMapper } from '@bluebase/component-mapper';
 import { BadgeDefaultProps, BadgeProps } from '@bluebase/components';
 import MUIBadge from '@material-ui/core/Badge';
-import { componentMapper } from '@bluebase/component-mapper';
 export const Badge = componentMapper<BadgeProps>(
 	MUIBadge,
 	{

@@ -1,8 +1,9 @@
-import { PickerItem } from '../../PickerItem';
-import React from 'react';
 import { Select } from '@material-ui/core';
-import { Picker as _Picker } from '../Picker';
 import { mount } from 'enzyme';
+import React from 'react';
+
+import { PickerItem } from '../../PickerItem';
+import { Picker as _Picker } from '../Picker';
 
 describe('Picker', () => {
 	// it('should create a native select dropdown', () => {
@@ -173,7 +174,7 @@ describe('Picker', () => {
 				helperText="description"
 				name="language"
 				id="language-simple"
-			// mode="default"
+				// mode="default"
 				value="java"
 			>
 				<Picker.Item label="Java" value="java" />

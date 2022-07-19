@@ -1,20 +1,15 @@
-import {
-	ActivityIndicator,
-	ButtonDefaultProps,
-	ButtonProps,
-	DynamicIcon
-} from '@bluebase/components';
-import { getButtonColors, useStyles } from './styles';
-
+import { ActivityIndicator, ButtonDefaultProps, ButtonProps, DynamicIcon } from '@bluebase/components';
+import { useTheme } from '@bluebase/core';
 import MUIButton from '@material-ui/core/Button';
+import { useTheme as useMuiTheme } from '@material-ui/core/styles';
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { useTheme as useMuiTheme } from '@material-ui/core/styles';
-import { useTheme } from '@bluebase/core';
+
+import { getButtonColors, useStyles } from './styles';
 
 export const Button = (props: ButtonProps) => {
 
-	const { title, children, loading, icon, disabled, fullWidth, onPress,size,variant} = props;
+	const { title, children, loading, icon, disabled, fullWidth, onPress, size, variant } = props;
 
 	const { theme } = useTheme();
 	const muiTheme = useMuiTheme();

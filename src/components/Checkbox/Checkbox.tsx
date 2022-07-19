@@ -1,11 +1,10 @@
-import { Theme, useTheme } from '@bluebase/core';
-
-import { CheckboxProps } from '@bluebase/components';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import MUICheckbox from '@material-ui/core/Checkbox';
-import React from 'react';
-import { makeStyles } from '@material-ui/core';
 import { objectMapper } from '@bluebase/component-mapper';
+import { CheckboxProps } from '@bluebase/components';
+import { Theme, useTheme } from '@bluebase/core';
+import { makeStyles } from '@material-ui/core';
+import MUICheckbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import React from 'react';
 
 (MUICheckbox as React.ComponentType).displayName = 'Checkbox';
 
@@ -56,7 +55,7 @@ export const Checkbox = (props: CheckboxProps) => {
 	const { label, labelPlacement, indeterminate, ...common } = newProps;
 
 	const { theme } = useTheme();
-	const classes = useStyles({...props, theme});
+	const classes = useStyles({ ...props, theme });
 
 	const node = <MUICheckbox classes={classes} indeterminate={indeterminate} {...common} color="default" />;
 

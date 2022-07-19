@@ -1,11 +1,10 @@
 import { ButtonProps, Divider, MenuItemProps, MenuProps } from '@bluebase/components';
-import React, { useState } from 'react';
-
-import { View } from 'react-native';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
+import React, { useState } from 'react';
+import { View } from 'react-native';
 
 const MenuItem = getComponent<MenuItemProps>('MenuItem');
 const Menu = getComponent<MenuProps>('Menu');

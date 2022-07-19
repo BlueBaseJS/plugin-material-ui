@@ -1,6 +1,6 @@
+import { withStyles } from '@material-ui/core/styles';
 import MuiTabs from '@material-ui/core/Tabs';
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
 
 (MuiTabs as any).displayName = 'Tabs';
 

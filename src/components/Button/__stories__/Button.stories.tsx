@@ -1,10 +1,10 @@
 import { Button, View } from '@bluebase/components';
-import React from 'react';
-import { action } from '@storybook/addon-actions';
 // import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
+import { action } from '@storybook/addon-actions';
 import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
+import React from 'react';
 
 // const Button = getComponent<ButtonProps>('Button');
 
@@ -118,7 +118,7 @@ stories
 	.add('Width', () => (
 		<React.Fragment>
 			<Button color="primary">Normal</Button>
-			<Button color="primary" fullWidth={true}>
+			<Button color="primary" fullWidth>
 				Full Width
 			</Button>
 		</React.Fragment>
@@ -242,7 +242,7 @@ stories
 
 	.add('Custom Colors', () => (
 		<React.Fragment>
-			<View style={{flexDirection: 'row', padding: 8}}>
+			<View style={{ flexDirection: 'row', padding: 8 }}>
 				<Button variant="contained" color="#772174" onPress={action('button-press')}>
 					Contained
 				</Button>
@@ -264,7 +264,7 @@ stories
 					Icon
 				</Button>
 			</View>
-			<View style={{flexDirection: 'row', padding: 8}}>
+			<View style={{ flexDirection: 'row', padding: 8 }}>
 				<Button disabled variant="contained" color="#772174" onPress={action('button-press')}>
 					Disabled Contained
 				</Button>

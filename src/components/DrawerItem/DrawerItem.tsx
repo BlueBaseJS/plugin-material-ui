@@ -1,5 +1,4 @@
 import { DrawerItemProps, List } from '@bluebase/components';
-
 import React from 'react';
 
 export const DrawerItem = (props: DrawerItemProps) => {

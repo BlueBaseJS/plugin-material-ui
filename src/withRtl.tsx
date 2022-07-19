@@ -1,8 +1,7 @@
-import { StylesProvider, jssPreset } from '@material-ui/core/styles';
-
-import React from 'react';
+import { jssPreset, StylesProvider } from '@material-ui/core/styles';
 import { create } from 'jss';
 import rtl from 'jss-rtl';
+import React from 'react';
 
 // Configure JSS
 const jss = create({ plugins: [...jssPreset().plugins, rtl()] as any });

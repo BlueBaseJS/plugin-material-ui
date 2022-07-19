@@ -1,10 +1,10 @@
+import { componentMapper } from '@bluebase/component-mapper';
+import { RadioGroupProps } from '@bluebase/components';
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormLabel from '@material-ui/core/FormLabel';
 import MuiRadioGroup from '@material-ui/core/RadioGroup';
-import { RadioGroupProps } from '@bluebase/components';
 import React from 'react';
-import { componentMapper } from '@bluebase/component-mapper';
 
 (MuiRadioGroup as React.ComponentType).displayName = 'RadioGroup';
 

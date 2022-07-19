@@ -1,9 +1,8 @@
 import { AvatarDefaultProps, AvatarProps, BlueBaseImage, Icon } from '@bluebase/components';
-
+import { useTheme } from '@bluebase/core';
+import { makeStyles } from '@material-ui/core';
 import MuiAvatar from '@material-ui/core/Avatar';
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
-import { useTheme } from '@bluebase/core';
 
 const useStyles = makeStyles({
 	root: (props: AvatarProps) => {
@@ -51,7 +50,7 @@ export const Avatar: any = (props: AvatarProps) => {
 	}
 
 	return (
-		<MuiAvatar  classes={classes} {...rest} variant={variant} style={{ ...style, color }}>
+		<MuiAvatar classes={classes} {...rest} variant={variant} style={{ ...style, color }}>
 			{text}
 		</MuiAvatar>
 	);

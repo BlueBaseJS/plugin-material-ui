@@ -1,10 +1,10 @@
 // import { Tab } from '@bluebase/components';
-import { Theme, getComponent } from '@bluebase/core';
-
-import React from 'react';
-import { TabsComponent } from './TabsComponent';
+import { getComponent, Theme } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 import { withKnobs } from '@storybook/addon-knobs';
+import React from 'react';
+
+import { TabsComponent } from './TabsComponent';
 
 const Tabs = getComponent('Tabs');
 const Tab = getComponent('Tab');

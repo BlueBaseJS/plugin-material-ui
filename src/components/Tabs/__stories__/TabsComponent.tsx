@@ -1,5 +1,5 @@
-import React from 'react';
 import { getComponent } from '@bluebase/core';
+import React from 'react';
 
 const Tabs = getComponent('Tabs');
 const Tab = getComponent('Tab');

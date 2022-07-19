@@ -1,12 +1,10 @@
+import { objectMapper } from '@bluebase/component-mapper';
+import { RadioProps } from '@bluebase/components';
 import { Theme, useTheme } from '@bluebase/core';
-
+import { makeStyles } from '@material-ui/core';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import MUIRadio from '@material-ui/core/Radio';
-import { RadioProps } from '@bluebase/components';
 import React from 'react';
-import { makeStyles } from '@material-ui/core';
-import { noop } from '../../helpers';
-import { objectMapper } from '@bluebase/component-mapper';
 
 interface RadioPropsWithTheme extends RadioProps {
 	theme: Theme
@@ -51,7 +49,7 @@ export const Radio = (props: RadioProps) => {
 	const { label, labelPlacement, color, ...common } = newProps;
 
 	const { theme } = useTheme();
-	const classes = useStyles({...props, theme});
+	const classes = useStyles({ ...props, theme });
 
 	const node = <MUIRadio classes={classes} {...common} color="default" />;
 

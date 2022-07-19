@@ -1,12 +1,11 @@
+import { objectMapper } from '@bluebase/component-mapper';
 import { PickerDefaultProps, PickerItem as PickerItemBB, PickerProps } from '@bluebase/components';
-import React, { isValidElement } from 'react';
-
 import FormControl from '@material-ui/core/FormControl';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
+import React, { isValidElement } from 'react';
 import { StyleSheet } from 'react-native';
-import { objectMapper } from '@bluebase/component-mapper';
 
 (Select as React.ComponentType).displayName = 'Select';
 (FormControl as any).displayName = 'FormControl';
@@ -15,7 +14,7 @@ import { objectMapper } from '@bluebase/component-mapper';
 
 const fieldMap = {
 	displayEmpty: ({ placeholder }: PickerProps) => !!placeholder,
-	native: ({ mode }: PickerProps) => (mode !== 'default' ? false : true),
+	native: ({ mode }: PickerProps) => (mode === 'default'),
 	value: 'selectedValue',
 
 	onChange: ({ onChange, onValueChange }: any) => (event: any, value: number) => {

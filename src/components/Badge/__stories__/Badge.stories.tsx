@@ -1,8 +1,4 @@
-import {
-    // Icon,
-    Badge,
-    // BadgeProps,
-} from '@bluebase/components';
+import { Badge } from '@bluebase/components';
 // import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 import { withInfo } from '@storybook/addon-info';
@@ -15,15 +11,15 @@ stories.addDecorator(withKnobs);
 // const Badge = getComponent<BadgeProps>('Badge');
 // const Icons: any = Icon;
 // stories.add('Contained Badge', () => (
-//     <Badge> 
+//     <Badge>
 //         <Icon name="star" size={20} color="red" />
 //     </Badge>
 // ))
 stories.add('Contained Badge with number prop', () => (
-    <Badge>
+	<Badge>
         4
-    </Badge>
-))
+	</Badge>
+));
 stories.add('With out child', () => (
-    <Badge/>
-))
+	<Badge/>
+));
