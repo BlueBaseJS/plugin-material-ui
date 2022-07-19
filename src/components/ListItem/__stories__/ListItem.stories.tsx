@@ -1,11 +1,10 @@
-import { ListIcon, ListItemProps, Switch, ListAvatar } from '@bluebase/components';
+import { ListIcon, ListItemProps, Switch, ListAvatar, View, ListItem } from '@bluebase/components';
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
 import { withKnobs } from '@storybook/addon-knobs';
 
-const ListItem = getComponent<ListItemProps>('ListItem');
 
 const stories = storiesOf('ListItem', module);
 
@@ -55,4 +54,15 @@ stories.add('Active', () => (
 
 stories.add('Disabled', () => (
 	<ListItem title="Click Me" onPress={action('drawer-item-click')} disabled />
+));
+
+
+stories.add('Long Content', () => (
+	<View style={{width: 400}}>
+	<ListItem
+	descriptionNumberOfLines={3}
+	title="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras blandit vel ante vel sollicitudin. Pellentesque tristique magna vel justo molestie pulvinar."
+	description="Suspendisse potenti. Suspendisse pellentesque diam ac magna porta scelerisque et ac nunc. Aenean ut vehicula tellus. Phasellus vitae purus magna. Vestibulum sed nibh turpis. Suspendisse quis leo non quam tincidunt laoreet in a enim. Praesent at faucibus felis. Sed posuere lectus massa, ut tincidunt dolor rhoncus vel. In sit amet vehicula dui. Ut a congue justo. Suspendisse sollicitudin euismod enim, eget mattis urna suscipit id. Etiam porta finibus est at convallis. Suspendisse vehicula finibus purus. Curabitur et mi tincidunt, lobortis ante luctus, faucibus ligula. Aenean sed enim accumsan lorem scelerisque dignissim sit amet eu odio."
+	/>
+	</View>
 ));
