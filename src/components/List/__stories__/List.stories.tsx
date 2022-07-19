@@ -4,7 +4,6 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
-import { withInfo } from '@storybook/addon-info';
 
 const ListItem = getComponent<ListItemProps>('ListItem');
 const List = getComponent<ListProps>('List');
@@ -12,7 +11,6 @@ const ListSubheader = getComponent<ListSubheaderProps>('ListSubheader');
 
 const stories = storiesOf('List', module);
 
-stories.addDecorator(withInfo);
 stories.addDecorator(withKnobs);
 
 stories.add('Default props', () => (

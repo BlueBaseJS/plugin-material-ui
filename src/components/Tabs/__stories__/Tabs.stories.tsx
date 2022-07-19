@@ -4,14 +4,12 @@ import { Theme, getComponent } from '@bluebase/core';
 import React from 'react';
 import { TabsComponent } from './TabsComponent';
 import storiesOf from '@bluebase/storybook-addon';
-import { withInfo } from '@storybook/addon-info';
 import { withKnobs } from '@storybook/addon-knobs';
 
 const Tabs = getComponent('Tabs');
 const Tab = getComponent('Tab');
 const stories = storiesOf('Tabs', module);
 
-stories.addDecorator(withInfo);
 stories.addDecorator(withKnobs);
 
 const tabsStyles = (_theme: Theme) => {

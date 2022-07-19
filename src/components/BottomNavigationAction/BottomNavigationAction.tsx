@@ -5,7 +5,6 @@ import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Theme } from '@bluebase/core';
 import { componentMapper } from '@bluebase/component-mapper';
-import get from 'lodash.get';
 import { or } from '../../helpers';
 
 export const BottomNavigationAction = componentMapper<BottomNavigationActionProps>(
@@ -21,12 +20,12 @@ export const BottomNavigationAction = componentMapper<BottomNavigationActionProp
 				return icon;
 			}
 
-			const size = get(icon, 'size', 24);
+			const size = icon?.size ?? 24;
 
 			const props = {
 				size,
 				style: {
-					...get(p, 'styles.icon', {}),
+					...p?.styles?.icon ?? {},
 					// lineHeight: size,
 					...icon.style,
 				},

@@ -4,13 +4,11 @@ import { TextInputProps } from '@bluebase/components';
 import { action } from '@storybook/addon-actions';
 import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
-import { withInfo } from '@storybook/addon-info';
 
 const TextInput = getComponent<TextInputProps>('TextInput');
 
 const stories = storiesOf('TextInput', module);
 
-stories.addDecorator(withInfo);
 stories.addDecorator(withKnobs);
 
 stories
@@ -65,7 +63,7 @@ stories
 		secureTextEntry
 		id="standard-password-input"
 		label="Password"
-		autoComplete="current-password"
+		autoComplete="password"
 	/>
 ))
 

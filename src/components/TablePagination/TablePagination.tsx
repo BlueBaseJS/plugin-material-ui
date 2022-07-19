@@ -1,8 +1,6 @@
 import { TablePaginationDefaultProps, TablePaginationProps } from '@bluebase/components';
 import MuiTablePagination from '@material-ui/core/TablePagination';
-import get from 'lodash.get';
 import React from 'react';
-import { noop } from '../../helpers';
 
 
 export const TablePagination = (props: TablePaginationProps) => {
@@ -17,11 +15,10 @@ export const TablePagination = (props: TablePaginationProps) => {
 		...rest
 	} = props;
 
-	const onChangeRowsPerPage = get(props, 'onChangeRowsPerPage', noop);
 	const onChangePage = (_event: any, pageNum: number) => onPageChange(pageNum);
 
 	const onChangeRowsPerPageCustom: any = (event: any) => {
-		onChangeRowsPerPage(event.target.value);
+		props.onChangeRowsPerPage?.(event.target.value);
 	};
 
 	return (

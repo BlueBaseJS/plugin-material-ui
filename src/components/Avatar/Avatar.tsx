@@ -2,14 +2,13 @@ import { AvatarDefaultProps, AvatarProps, BlueBaseImage, Icon } from '@bluebase/
 
 import MuiAvatar from '@material-ui/core/Avatar';
 import React from 'react';
-import get from 'lodash.get';
 import { makeStyles } from '@material-ui/core';
 import { useTheme } from '@bluebase/core';
 
 const useStyles = makeStyles({
 	root: (props: AvatarProps) => {
 		const { textStyle, style } = props;
-		const size = get(props, 'size', 56);
+		const size = props.size ?? 56;
 
 		return {
 			...style as any,
