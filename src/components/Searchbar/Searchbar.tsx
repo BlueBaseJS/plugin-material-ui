@@ -1,6 +1,6 @@
 import { IconButton, SearchbarProps, View } from '@bluebase/components';
 import { Theme, useStyles, useTheme } from '@bluebase/core';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { TextInput, ViewStyle } from 'react-native';
 
 interface SearchbarStyles {
@@ -52,7 +52,6 @@ export const Searchbar = (props: SearchbarProps) => {
 		iconColor = theme.palette.text.secondary,
 		inputStyle,
 		onIconPress,
-		searchAccessibilityLabel,
 		style,
 		value,
 		onChangeText,
@@ -60,11 +59,9 @@ export const Searchbar = (props: SearchbarProps) => {
 	} = props;
 	const styles = useStyles('Searchbar', props, defaultStyles);
 
-	function handleClearPress() {
-		if (onChangeText) {
-			onChangeText('');
-		}
-	}
+	const handleClearPress = useCallback(() => {
+		onChangeText?.('');
+	}, [onChangeText]);
 
 	return (
 		<View style={[styles.root, style]} testID="searchbar-root">
@@ -72,7 +69,6 @@ export const Searchbar = (props: SearchbarProps) => {
 				style={[styles.input, inputStyle]}
 				returnKeyType="search"
 				// keyboardAppearance={dark ? 'dark' : 'light'}
-				accessibilityTraits="search"
 				accessibilityRole="search"
 				value={value}
 				{...rest}

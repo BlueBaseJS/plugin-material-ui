@@ -33,7 +33,7 @@ const map = {
 	value: 'value',
 };
 
-export const Switch = withStyles(styles)((props: SwitchProps) => {
+export const Switch: React.ComponentType<SwitchProps> = withStyles(styles)((props: SwitchProps) => {
 	const newProps = objectMapper(props, map);
 
 	const { label, labelPlacement, classes, color, ...common } = newProps;

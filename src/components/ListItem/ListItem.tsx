@@ -7,8 +7,21 @@ import { StyleSheet } from 'react-native';
 
 export const ListItem = (props: ListItemProps) => {
 	const {
-		disabled, description, inset, left, onPress, right, selected, style, title,
-		descriptionEllipsizeMode, titleEllipsizeMode, titleNumberOfLines, descriptionNumberOfLines, descriptionStyle, titleStyle
+		disabled,
+		description,
+		inset,
+		left,
+		onPress,
+		right,
+		selected,
+		style,
+		title,
+		descriptionEllipsizeMode,
+		titleEllipsizeMode,
+		titleNumberOfLines,
+		descriptionNumberOfLines,
+		descriptionStyle,
+		titleStyle
 	} = props;
 
 	const { theme } = useTheme();
@@ -34,7 +47,7 @@ export const ListItem = (props: ListItemProps) => {
 											style={
 												StyleSheet.flatten([
 													{ lineHeight: '1.5' as any },
-													descriptionStyle,
+													titleStyle,
 												])
 											}
 											ellipsizeMode={titleEllipsizeMode}
