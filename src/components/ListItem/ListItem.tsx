@@ -41,7 +41,7 @@ export const ListItem = (props: ListItemProps) => {
 					primary={
 						<View>
 							{
-								typeof description === 'string' ?
+								typeof title === 'string' ?
 									(
 										<Body1
 											style={
