@@ -1,3 +1,9 @@
+## [3.8.1](https://github.com/BlueBaseJS/plugin-material-ui/compare/v3.8.0...v3.8.1) (2022-07-21)
+
+### Bug Fixes
+
+*   **ListItem:** Fixed title styles ([941e1d2](https://github.com/BlueBaseJS/plugin-material-ui/commit/941e1d2145401f47e94c2543c51a192543cf69d2))
+
 # [3.8.0](https://github.com/BlueBaseJS/plugin-material-ui/compare/v3.7.6...v3.8.0) (2022-07-19)
 
 ### Features
