@@ -70,10 +70,21 @@ export const Slider = withStyles(styles)(
 			step: 'step',
 			style: ({ style }: SliderProps) => StyleSheet.flatten(style),
 			value: 'value',
+			valueLabelFormat: 'valueLabelFormat',
 		},
 		{
 			render(newProps: any, Component: any) {
-				const { error, helperText, id, label, required, classes, showValue, ...props } = newProps;
+				const {
+					error,
+					helperText,
+					id,
+					label,
+					required,
+					classes,
+					showValue,
+					valueLabelFormat,
+					...props
+				} = newProps;
 
 				const formControlProps = {
 					error,
@@ -99,7 +110,7 @@ export const Slider = withStyles(styles)(
 								{label}
 							</FormLabel>
 							<FormLabel className={classes.value} data-testid="value">
-								{props.value}
+								{valueLabelFormat ? valueLabelFormat(props.value) : props.value}
 							</FormLabel>
 						</div>
 					);
@@ -113,7 +124,7 @@ export const Slider = withStyles(styles)(
 						<div className={classes.sliderWrapper} data-testid="value-on-right">
 							<div className={classes.inlineSlider}>{sliderNode}</div>
 							<FormLabel className={classes.inlineValue} data-testid="value">
-								{props.value}
+								{valueLabelFormat ? valueLabelFormat(props.value) : props.value}
 							</FormLabel>
 						</div>
 					);

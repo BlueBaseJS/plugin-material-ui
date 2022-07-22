@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 import { SliderProps, View } from '@bluebase/components';
 // import { action } from '@storybook/addon-actions';
 import storiesOf from '@bluebase/storybook-addon';
@@ -9,7 +10,7 @@ import { Slider } from '../index';
 
 class ControlledSlider extends React.Component<SliderProps> {
 	state = {
-		value: 50,
+		value: 20,
 	};
 
 	handleChange = (value: number) => {
@@ -62,6 +63,7 @@ stories
 				step={1}
 				label="Temperature"
 				showValue
+				valueLabelFormat={v => `${v} °C`}
 			/>
 		</View>
 	))
