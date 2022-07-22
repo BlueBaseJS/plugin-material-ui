@@ -1,25 +1,29 @@
-import { componentMapper } from '@bluebase/component-mapper';
 import { DialogDefaultProps, DialogProps } from '@bluebase/components';
 import MuiDialog from '@material-ui/core/Dialog';
+import React, { useCallback } from 'react';
 import { StyleSheet } from 'react-native';
 
-export const Dialog = componentMapper<DialogProps>(
-	MuiDialog,
-	{
-		children: 'children',
-		onClose: ({ dismissable, onDismiss }) => (_event: any, reason: string) => {
-			if (!dismissable && reason === 'backdropClick') {
-				return;
-			}
+export const Dialog = (props: DialogProps) => {
+	const { children, visible, dismissable, onDismiss, style } = props;
 
-			if (onDismiss) {
-				onDismiss();
-			}
-		},
-		open: 'visible',
-		style: ({ style }: any) => StyleSheet.flatten(style),
-	},
-	{ rest: true, ignore: ['dismissable'] }
-);
+	const onClose = useCallback((_event: any, reason: string) => {
+		if (!dismissable && reason === 'backdropClick') {
+			return;
+		}
 
+		if (onDismiss) {
+			onDismiss();
+		}
+	}, [dismissable, onDismiss]);
+
+	return (
+		<MuiDialog
+			open={visible}
+			onClose={onClose}
+			style={StyleSheet.flatten(style) as any}
+		>
+			{children}
+		</MuiDialog>
+	);
+};
 Dialog.defaultProps = { fullWidth: true, ...DialogDefaultProps } as any;

@@ -1,4 +1,12 @@
-import { DialogActionsProps, DialogTitleProps } from '@bluebase/components';
+import {
+	Button,
+	Card,
+	Dialog,
+	DialogActionsProps,
+	DialogTitleProps,
+	Image,
+	View
+} from '@bluebase/components';
 import { getComponent } from '@bluebase/core';
 // import { getComponent } from '@bluebase/core';
 import storiesOf from '@bluebase/storybook-addon';
@@ -11,12 +19,6 @@ import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
 import PersonIcon from '@material-ui/icons/Person';
 import React from 'react';
-
-const Dialog = getComponent('Dialog');
-const Card = getComponent('Card');
-const View = getComponent('View');
-const Image = getComponent('Image');
-const Button = getComponent('Button');
 
 const DialogAction = getComponent<DialogActionsProps>('DialogActions');
 // const DialogContent = getComponent<DialogContentProps>('DialogContent');
@@ -39,7 +41,7 @@ function SimpleDialog(props: Ipropsss) {
 	}
 
 	return (
-		<Dialog visible onDismiss={handleClose} {...other}>
+		<Dialog visible dismissable onDismiss={handleClose} {...other}>
 			<DialogTitle>Set backup account</DialogTitle>
 			<List>
 				<ListItem button onClick={() => handleListItemClick('addAccount')}>
@@ -105,7 +107,7 @@ class DialogComponent extends React.Component {
 	render() {
 		return (
 			<>
-				<Dialog visible={this.state.visible} onDismiss={this._hideDialog}>
+				<Dialog dismissable visible={this.state.visible} onDismiss={this._hideDialog}>
 					<Card>
 						<View style={{ display: 'flex', justifyContent: 'center' } as any}>
 							<Image
