@@ -25,7 +25,7 @@ const useStyles = makeStyles({
 });
 
 export const Avatar: any = (props: AvatarProps) => {
-	const { type, icon, size, image, text, ...rest } = props as any;
+	const { type, icon, size, image, text, textStyle, ...rest } = props as any;
 
 	const { theme } = useTheme();
 	const classes = useStyles(props);
@@ -50,7 +50,7 @@ export const Avatar: any = (props: AvatarProps) => {
 	}
 
 	return (
-		<MuiAvatar classes={classes} {...rest} variant={variant} style={{ ...style, color }}>
+		<MuiAvatar classes={classes} {...rest} variant={variant} style={{ ...style, textStyle, color }}>
 			{text}
 		</MuiAvatar>
 	);
