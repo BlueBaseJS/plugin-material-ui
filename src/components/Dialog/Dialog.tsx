@@ -21,6 +21,7 @@ export const Dialog = (props: DialogProps) => {
 			open={visible}
 			onClose={onClose}
 			style={StyleSheet.flatten(style) as any}
+			fullWidth
 		>
 			{children}
 		</MuiDialog>
