@@ -1,3 +1,13 @@
+# [3.10.0](https://github.com/BlueBaseJS/plugin-material-ui/compare/v3.9.0...v3.10.0) (2022-07-23)
+
+### Bug Fixes
+
+*   **Dialog:** Dialogs are fullWidth by default ([f0990f8](https://github.com/BlueBaseJS/plugin-material-ui/commit/f0990f88307436902458036ab66abfadc6119b80))
+
+### Features
+
+*   **MenuItem:** Improved styling ([db0d847](https://github.com/BlueBaseJS/plugin-material-ui/commit/db0d8479b32bd4102f06093bafa1803dc89835dd))
+
 # [3.9.0](https://github.com/BlueBaseJS/plugin-material-ui/compare/v3.8.1...v3.9.0) (2022-07-22)
 
 ### Bug Fixes
