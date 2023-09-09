@@ -11,7 +11,7 @@ export const withTheme: any = (Component: React.ComponentType<any>) => {
 		static contextType = ThemeContext;
 
 		render() {
-			const { theme }: ThemeContextData = this.context;
+			const { theme } = this.context as ThemeContextData;
 
 			// Strip color from typography.
 			const typography: { [key: string]: any } = {};

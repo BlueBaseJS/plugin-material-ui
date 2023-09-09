@@ -68,7 +68,7 @@ export const Slider = withStyles(styles)(
 			required: 'required',
 			showValue: 'showValue',
 			step: 'step',
-			style: ({ style }: SliderProps) => StyleSheet.flatten(style),
+			style: ({ style }: any) => StyleSheet.flatten(style),
 			value: 'value',
 			valueLabelFormat: 'valueLabelFormat',
 		},

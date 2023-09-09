@@ -103,6 +103,4 @@ const styles = (theme: Theme) => ({
 	}),
 });
 
-export const DrawerLayout = withStyles(styles as any)(DrawerLayoutComponent) as React.ComponentType<
-	DrawerLayoutProps
->;
+export const DrawerLayout = withStyles(styles as any)(DrawerLayoutComponent);
