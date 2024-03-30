@@ -142,4 +142,4 @@ export const Slider = withStyles(styles)(
 			},
 		}
 	)
-) as React.ComponentType<SliderProps>;
+) as any;
