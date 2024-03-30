@@ -1,3 +1,10 @@
+# [3.11.0](https://github.com/BlueBaseJS/plugin-material-ui/compare/v3.10.0...v3.11.0) (2024-03-30)
+
+### Features
+
+*   Expo 49 ([c3e974c](https://github.com/BlueBaseJS/plugin-material-ui/commit/c3e974cb0f1d9978353651941e25ad240a3da7dc))
+*   Updated dependencies ([c40508f](https://github.com/BlueBaseJS/plugin-material-ui/commit/c40508f2441615c72a04cac1ab3f8af2fc2e1247))
+
 # [3.10.0](https://github.com/BlueBaseJS/plugin-material-ui/compare/v3.9.0...v3.10.0) (2022-07-23)
 
 ### Bug Fixes
